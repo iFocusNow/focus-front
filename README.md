@@ -29,11 +29,25 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Running with docker
 
 Build the docker image.
+
 ```
 docker build -t docker-name:latest .
 ```
 
 Run it with docker-compose, so that you can hot reload it.
+
 ```
 docker-compose up -d
 ```
+
+### Notes
+
+- Branching strategy: GitHub Flow. Consists of main and feature branches
+
+### TODOS
+
+- Define JSON-server
+- Essential folders
+- Install Material UI
+- Main components
+- Main routes
