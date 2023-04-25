@@ -1,1 +1,54 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$focus-primary: #0f154b; // background
+$focus-secondary: #313872; // sidebar
+$focus-accent: #42487c; // table, chosen stuff
+$focus-warn: #ff6161;
+$focus-white: #ffffff;
+
+$focus-palette: (
+  primary: mat-color($focus-primary),
+  secondary: mat-color($focus-secondary),
+  accent: mat-color($focus-accent),
+  warn: mat-color($focus-warn),
+  white: mat-color($focus-white),
+);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$focus-theme: mat-light-theme(focus-palette);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Lato, "Helvetica Neue", sans-serif;
+  background-color: map-get($focus-palette, primary);
+  color: map-get($focus-palette, white);
+}
+
+// Colors predefined in body
+.primary-bg {
+  background-color: map-get($focus-palette, primary);
+  color: map-get($focus-palette, white);
+}
+.secondary-bg {
+  background-color: map-get($focus-palette, secondary);
+  color: map-get($focus-palette, white);
+}
+.accent-bg {
+  background-color: map-get($focus-palette, accent);
+  color: map-get($focus-palette, white);
+}
+.warn {
+  color: map-get($focus-palette, warn);
+}
