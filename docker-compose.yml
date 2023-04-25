@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  angular-app:
+    image: docker-name
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/project
+      - /project/node_modules
