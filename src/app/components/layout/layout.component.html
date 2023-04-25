@@ -1,7 +1,9 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav opened mode="side">Start content</mat-sidenav>
+<mat-sidenav-container class="side-container primary-bg">
+  <mat-sidenav opened mode="side" class="sidenav secondary-bg">
+    <img src="assets/side-logo.png" alt="Sidebar Logo" />
+  </mat-sidenav>
   <mat-sidenav opened mode="side" position="end">End content</mat-sidenav>
-  <main>
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
-  </main>
+  </mat-sidenav-content>
 </mat-sidenav-container>
