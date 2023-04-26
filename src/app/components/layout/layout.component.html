@@ -1,8 +1,17 @@
 <mat-sidenav-container class="side-container primary-bg">
-  <mat-sidenav opened mode="side" class="sidenav secondary-bg">
-    <img src="assets/side-logo.png" alt="Sidebar Logo" />
+  <mat-sidenav opened mode="side" class="secondary-bg">
+    <div class="center">
+      <img class="image" src="assets/side-logo.png" alt="Sidebar Logo" />
+    </div>
   </mat-sidenav>
-  <mat-sidenav opened mode="side" position="end">End content</mat-sidenav>
+  <mat-sidenav opened mode="side" position="end">
+    <mat-icon
+      class="notification"
+      aria-hidden="false"
+      aria-label="Notification icon"
+      fontIcon="notifications"
+    ></mat-icon>
+  </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

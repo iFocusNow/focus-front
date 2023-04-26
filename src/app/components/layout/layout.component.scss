@@ -6,9 +6,25 @@
   right: 0;
 }
 
-.sidenav {
+.mat-sidenav {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 240px;
+  align-items: center;
+  height: 100%;
+  padding-inline: 20px;
+
+  .center {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+
+    .image {
+      width: 160px;
+    }
+  }
+}
+
+.notification {
+  margin-right: 1rem;
+  margin-top: 1.4rem;
 }

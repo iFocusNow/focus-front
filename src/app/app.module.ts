@@ -9,6 +9,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AccountComponent } from './components/account/account.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent, AccountComponent],
@@ -18,6 +19,7 @@ import { AccountComponent } from './components/account/account.component';
     BrowserAnimationsModule,
     // Material
     MatSidenavModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
