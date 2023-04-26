@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  onNavigate(route: string): void {
+    this.router.navigate([route]);
+  }
 }

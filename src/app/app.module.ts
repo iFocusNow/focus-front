@@ -11,9 +11,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AccountComponent } from './components/account/account.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
+import { ChildComponent } from './components/child/child.component';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, AccountComponent, SidenavElementComponent],
+  declarations: [AppComponent, LayoutComponent, AccountComponent, SidenavElementComponent, ChildComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

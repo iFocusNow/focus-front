@@ -4,8 +4,14 @@
       <img class="image" src="assets/side-logo.png" alt="Sidebar Logo" />
     </div>
     <app-sidenav-element
+      (click)="onNavigate('/')"
       [title]="'Mi cuenta'"
       [icon]="'person'"
+    ></app-sidenav-element>
+    <app-sidenav-element
+      (click)="onNavigate('/child')"
+      [title]="'Maria'"
+      [icon]="'face'"
     ></app-sidenav-element>
 
     <app-sidenav-element
