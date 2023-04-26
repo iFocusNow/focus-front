@@ -12,4 +12,9 @@ export class LayoutComponent {
   onNavigate(route: string): void {
     this.router.navigate([route]);
   }
+
+  // TODO: Change to UUID with Spring Backend
+  onNavigateChild(childId: number): void {
+    this.router.navigate(['/child', childId]);
+  }
 }

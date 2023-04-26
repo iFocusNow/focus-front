@@ -1,7 +1,7 @@
 <mat-sidenav-container class="side-container primary-bg">
   <mat-sidenav opened mode="side" class="secondary-bg">
     <div class="center">
-      <img class="image" src="assets/side-logo.png" alt="Sidebar Logo" />
+      <img src="assets/side-logo.png" alt="Sidebar Logo" />
     </div>
     <app-sidenav-element
       (click)="onNavigate('/')"
@@ -9,19 +9,22 @@
       [icon]="'person'"
     ></app-sidenav-element>
     <app-sidenav-element
-      (click)="onNavigate('/child')"
+      (click)="onNavigateChild(1)"
       [title]="'Maria'"
       [icon]="'face'"
     ></app-sidenav-element>
 
-    <app-sidenav-element
-      [title]="'Salir de Sesión'"
-      [icon]="'logout'"
-    ></app-sidenav-element>
-    <app-sidenav-element
-      [title]="'Ayuda'"
-      [icon]="'help'"
-    ></app-sidenav-element>
+    <div class="bottom-position">
+      <app-sidenav-element
+        [title]="'Ayuda'"
+        [icon]="'help'"
+      ></app-sidenav-element>
+      <app-sidenav-element
+        (click)="onNavigate('/login')"
+        [title]="'Salir de Sesión'"
+        [icon]="'logout'"
+      ></app-sidenav-element>
+    </div>
   </mat-sidenav>
   <mat-sidenav opened mode="side" position="end">
     <mat-icon

@@ -12,9 +12,11 @@ import { AccountComponent } from './components/account/account.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 import { ChildComponent } from './components/child/child.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, AccountComponent, SidenavElementComponent, ChildComponent],
+  declarations: [AppComponent, LayoutComponent, AccountComponent, SidenavElementComponent, ChildComponent, LoginComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

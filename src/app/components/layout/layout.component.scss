@@ -15,13 +15,18 @@
   .center {
     margin-top: 1rem;
     text-align: center;
-    width: 100%;
 
-    .image {
+    img {
       width: 160px;
       padding-inline: 20px;
       margin-bottom: 2rem;
     }
+  }
+  .bottom-position {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    z-index: 10;
   }
 }
 
