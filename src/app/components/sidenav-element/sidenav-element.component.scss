@@ -1,0 +1,20 @@
+.side-element {
+  display: flex;
+  justify-content: left;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 2rem;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: var(--accent-color);
+  }
+
+  .symbol {
+    margin-right: 1.2rem;
+  }
+
+  .font {
+    margin-top: 4px;
+    font-size: 14px;
+  }
+}

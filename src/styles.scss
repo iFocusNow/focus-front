@@ -18,19 +18,19 @@ $my-theme: mat.define-light-theme(
   )
 );
 
-$focus-primary: #0f154b; // background
-$focus-secondary: #313872; // sidebar
-$focus-accent: #42487c; // table, chosen stuff
-$focus-warn: #ff6161;
-$focus-white: #ffffff;
+$primary-color: #0f154b; // background
+$secondary-color: #313872; // sidebar
+$accent-color: #42487c; // table, chosen stuff
+$warn-color: #ff6161;
+$white-color: #ffffff;
 
-$focus-palette: (
-  primary: $focus-primary,
-  secondary: $focus-secondary,
-  accent: $focus-accent,
-  warn: $focus-warn,
-  white: $focus-white,
-);
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --accent-color: #{$accent-color};
+  --warn-color: #{$warn-color};
+  --white-color: #{$white-color};
+}
 
 // Emit theme-dependent styles for common features used across multiple components.
 @include mat.core-theme($my-theme);
@@ -51,17 +51,17 @@ body {
 }
 // Colors predefined in body
 .primary-bg {
-  background: map-get($focus-palette, primary);
-  color: map-get($focus-palette, white);
+  background: var(--primary-color);
+  color: var(--white-color);
 }
 .secondary-bg {
-  background: map-get($focus-palette, secondary);
-  color: map-get($focus-palette, white);
+  background: var(--secondary-color);
+  color: var(--white-color);
 }
 .accent-bg {
-  background: map-get($focus-palette, accent);
-  color: map-get($focus-palette, white);
+  background: var(--accent-color);
+  color: var(--white-color);
 }
 .warn {
-  color: map-get($focus-palette, warn);
+  color: var(--warn-color);
 }

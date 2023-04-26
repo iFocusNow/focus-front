@@ -3,6 +3,19 @@
     <div class="center">
       <img class="image" src="assets/side-logo.png" alt="Sidebar Logo" />
     </div>
+    <app-sidenav-element
+      [title]="'Mi cuenta'"
+      [icon]="'person'"
+    ></app-sidenav-element>
+
+    <app-sidenav-element
+      [title]="'Salir de Sesión'"
+      [icon]="'logout'"
+    ></app-sidenav-element>
+    <app-sidenav-element
+      [title]="'Ayuda'"
+      [icon]="'help'"
+    ></app-sidenav-element>
   </mat-sidenav>
   <mat-sidenav opened mode="side" position="end">
     <mat-icon
