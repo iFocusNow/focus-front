@@ -10,8 +10,14 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', component: AccountComponent },
-      { path: 'child', component: ChildComponent },
+      { path: 'child/:id', component: ChildComponent },
     ],
+  },
+  {
+    path: 'login',
+  },
+  {
+    path: 'register',
   },
 ];
 
