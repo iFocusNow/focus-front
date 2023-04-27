@@ -1,0 +1,22 @@
+.center {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: var(--white-color);
+}
+
+mat-select {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+mat-option {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+mat-option:hover {
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+}

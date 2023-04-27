@@ -1,0 +1,10 @@
+<div class="center">
+  <mat-form-field appearance="fill">
+    <mat-label>Elija un dispositivo</mat-label>
+    <mat-select disableRipple>
+      <mat-option *ngFor="let device of devices" [value]="device.id">
+        {{ device.id }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
