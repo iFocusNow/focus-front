@@ -14,9 +14,18 @@ import { SidenavElementComponent } from './components/sidenav-element/sidenav-el
 import { ChildComponent } from './components/child/child.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, AccountComponent, SidenavElementComponent, ChildComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    AccountComponent,
+    SidenavElementComponent,
+    ChildComponent,
+    LoginComponent,
+    RegisterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +33,7 @@ import { RegisterComponent } from './components/register/register.component';
     // Material
     MatSidenavModule,
     MatIconModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
