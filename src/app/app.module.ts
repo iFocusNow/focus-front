@@ -9,6 +9,7 @@ import { ChildComponent } from './components/child/child.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DeviceSelectorComponent } from './components/device-selector/device-selector.component';
+import { AppsTableComponent } from './components/apps-table/apps-table.component';
 
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,6 +19,8 @@ import { SidenavElementComponent } from './components/sidenav-element/sidenav-el
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     LoginComponent,
     RegisterComponent,
     DeviceSelectorComponent,
+    AppsTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTabsModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -42,8 +42,16 @@
       "blockperiod_id": 1
     }
   ],
-  "blockperiod": [
+  "apps": [
     {
+      "id": 1,
+      "name": "Instagram",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png"
+    }
+  ],
+  "blockperiods": [
+    {
+      "id": 1,
       "is_monday": true,
       "is_tuesday": true,
       "is_wednesday": true,

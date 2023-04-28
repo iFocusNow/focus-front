@@ -7,13 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
+  childIds: number[] = [1, 2, 3];
+
   constructor(private router: Router) {}
 
   onNavigate(route: string): void {
     this.router.navigate([route]);
   }
 
-  // TODO: Change to UUID with Spring Backend
+  // TODO: Obtener la cantidad de hijos de un padre
+
   onNavigateChild(childId: number): void {
     this.router.navigate(['/child', childId]);
   }

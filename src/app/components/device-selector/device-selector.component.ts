@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Device } from 'src/app/modules/device';
+import { Device } from 'src/app/models/device';
 
 @Component({
   selector: 'app-device-selector',

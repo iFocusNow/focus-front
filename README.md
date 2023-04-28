@@ -51,3 +51,7 @@ docker-compose up -d
 - Install Material UI
 - Main components
 - Main routes
+
+### TODO with Backend
+
+- Change number IDs to UUIDs

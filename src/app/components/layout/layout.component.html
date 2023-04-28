@@ -8,8 +8,11 @@
       [title]="'Mi cuenta'"
       [icon]="'person'"
     ></app-sidenav-element>
+
     <app-sidenav-element
-      (click)="onNavigateChild(1)"
+      *ngFor="let id of childIds"
+      [id]="id"
+      (click)="onNavigateChild(id)"
       [title]="'Maria'"
       [icon]="'face'"
     ></app-sidenav-element>
