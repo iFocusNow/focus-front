@@ -1,4 +1,4 @@
-export interface Children {
+export interface Child {
   id: number;
   parent_id: number;
   child_code: string;

@@ -3,7 +3,7 @@
     <mat-label>Elija un dispositivo</mat-label>
     <mat-select disableRipple>
       <mat-option *ngFor="let device of devices" [value]="device.id">
-        {{ device.id }}
+        {{ device.brand }}
       </mat-option>
     </mat-select>
   </mat-form-field>
