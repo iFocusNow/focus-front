@@ -40,6 +40,12 @@
       "child_id": 1,
       "type": "laptop",
       "brand": "Omen"
+    },
+    {
+      "id": 2,
+      "child_id": 1,
+      "type": "phone",
+      "brand": "IPhone"
     }
   ],
   "appDevices": [
