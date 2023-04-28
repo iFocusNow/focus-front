@@ -33,4 +33,18 @@ export class DeviceSelectorComponent {
         console.log(this.devices);
       });
   }
+
+  setSelectionName(device: Device) {
+    let type: string;
+    if (device.type === 'phone') {
+      type = 'Celular';
+    } else if (device.type === 'laptop') {
+      type = 'Laptop';
+    } else if (device.type === 'pc') {
+      type = 'Computadora';
+    } else {
+      type = 'Tablet';
+    }
+    return type + ' ' + device.brand;
+  }
 }

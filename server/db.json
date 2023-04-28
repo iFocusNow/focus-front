@@ -46,6 +46,12 @@
       "child_id": 1,
       "type": "phone",
       "brand": "IPhone"
+    },
+    {
+      "id": 3,
+      "child_id": 2,
+      "type": "phone",
+      "brand": "Samsung"
     }
   ],
   "appDevices": [
