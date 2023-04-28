@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DeviceSelectorComponent } from './components/device-selector/device-selector.component';
 import { AppsTableComponent } from './components/apps-table/apps-table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -38,6 +39,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     // Material
     MatSidenavModule,
     MatIconModule,

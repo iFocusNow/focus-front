@@ -10,10 +10,10 @@
     ></app-sidenav-element>
 
     <app-sidenav-element
-      *ngFor="let id of childIds"
-      [id]="id"
-      (click)="onNavigateChild(id)"
-      [title]="'Maria'"
+      *ngFor="let child of children"
+      [id]="child.id"
+      (click)="onNavigateChild(child.id)"
+      [title]="child.name"
       [icon]="'face'"
     ></app-sidenav-element>
 

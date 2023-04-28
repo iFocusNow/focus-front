@@ -25,6 +25,13 @@
       "name": "Pedro",
       "created_at": "1682540340",
       "updated_at": "1682540340"
+    },
+    {
+      "id": 3,
+      "parent_id": 1,
+      "name": "Lisanne",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
     }
   ],
   "devices": [
