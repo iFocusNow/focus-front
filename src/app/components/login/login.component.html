@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="container">
+  <div class="left-side">
+    <img class="logo" src="assets/focus_bigger_logo.png" alt="Logo">
+  </div>
+  <div class="right-side">
+    <mat-card class="login-card">
+      <mat-card-title class="card-title">Iniciar sesión</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm">
+          <mat-form-field class="email-field" appearance="fill">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" formControlName="email"required>
+          </mat-form-field>
+          <mat-form-field class="password-field" appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" formControlName="password" required>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

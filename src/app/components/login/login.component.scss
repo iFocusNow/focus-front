@@ -1,0 +1,122 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--primary-color);
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0;
+    .logo {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 2rem;
+    text-align: center;
+
+    .login-card {
+        width: 100%;
+        background-color: var(--secondary-color);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 3em 2em;
+        margin: 2em auto 0; 
+        box-sizing: border-box;
+        max-width: 40em;
+        color: #ffffff;
+
+        .card-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 2.5em;
+          }
+          
+
+          .mat-form-field {
+            width: 100%;
+            margin-bottom: 1rem;
+          
+            input {
+              border: 1px solid #fff;
+              border-radius: 5px;
+              padding: 1rem;
+              box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            }
+          }
+          
+      
+
+      mat-card-content {
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .email-field,
+          .password-field {
+            width: 100%;
+            margin-bottom: 1rem;
+            input {
+              color: #333333;
+            }
+          }
+          .submit-button {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 24px;
+          }
+        }
+      }
+
+      .submit-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 0.25rem 0.5rem; /* Modificar padding */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        font-size: 1rem; /* Modificar tamaño de letra */
+        font-weight: 400; /* Modificar grosor de letra */
+      }
+      
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+
+    .left-side {
+      width: 50%;
+    }
+
+    .right-side {
+      width: 50%;
+      margin-top: 0;
+
+      .login-card {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
