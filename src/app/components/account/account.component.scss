@@ -1,0 +1,89 @@
+$form-border-color: #313872;
+$form-border-radius: 5px;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: none;
+  border-radius: $form-border-radius;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  label {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    }
+
+
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0f154b;
+}
+
+form {
+  background-color: #313872;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 450px;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+span {
+  width: 45%;
+}
+
+input {
+  width: 70%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  padding: 4px 0;
+  color: #ffffff;
+  outline: none;
+}
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+button {
+  margin-left: 10px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-cancelar {
+  background-color: #0f154b;
+  color: #ffffff;
+}
+
+.boton-guardar {
+  background-color: #ffffff;
+  color: #000000;
+}  }
