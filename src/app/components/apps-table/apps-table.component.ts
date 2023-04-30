@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
   name: string;
@@ -25,10 +25,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './apps-table.component.html',
   styleUrls: ['./apps-table.component.scss'],
 })
-export class AppsTableComponent {
-  // Get the list of devices for child with id
+export class AppsTableComponent implements OnInit {
+  @Input() selectedValue: string | undefined;
 
-  // Get the list of appDevice
+  ngOnInit(): void {
+    // Get the list of devices for child with id
+
+    throw new Error('Method not implemented.');
+
+    // Get the list of appDevice
+  }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;

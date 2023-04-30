@@ -2,9 +2,23 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  height: 70vh;
+
+  mat-form-field {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    color: white;
+  }
 
   mat-tab-group {
     width: 80%;
   }
+}
+.custom-opt {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+.custom-opt:hover {
+  color: var(--white-color);
+  background-color: var(--secondary-color);
 }

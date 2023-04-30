@@ -1,9 +1,25 @@
-<app-device-selector></app-device-selector>
+<div class="center">
+  <mat-form-field appearance="fill">
+    <mat-select
+      disableRipple
+      [(ngModel)]="selectedValue"
+      placeholder="Elija un dispositivo"
+    >
+      <mat-option
+        class="custom-opt"
+        *ngFor="let device of devices"
+        [value]="device.id"
+      >
+        {{ setSelectionName(device) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
 <div class="center">
   <mat-tab-group animationDuration="2ms">
     <mat-tab label="Aplicaciones">
-      <app-apps-table></app-apps-table>
+      <app-apps-table [selectedValue]="selectedValue"></app-apps-table>
     </mat-tab>
     <mat-tab label="Enlaces">Links table</mat-tab>
   </mat-tab-group>
