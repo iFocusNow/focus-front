@@ -1,4 +1,3 @@
-
 .container {
   display: flex;
   flex-direction: column;
@@ -30,51 +29,52 @@
     text-align: center;
 
     .login-card {
+      width: 100%;
+      background-color: var(--secondary-color);
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 3em 2em;
+      margin: 2em auto 0; 
+      box-sizing: border-box;
+      max-width: 40em;
+      color: #ffffff;
+
+      .card-title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        font-size: 2.5em;
+      }
+          
+      .mat-form-field {
         width: 100%;
-        background-color: var(--secondary-color);
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        padding: 3em 2em;
-        margin: 2em auto 0; 
-        box-sizing: border-box;
-        max-width: 40em;
-        color: #ffffff;
-
-        .card-title {
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 2.5em;
-          }
-          
-
-          .mat-form-field {
-            width: 100%;
-            margin-bottom: 1rem;
-          
-            input {
-              border: 1px solid #fff;
-              border-radius: 5px;
-              padding: 1rem;
-              box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-            }
-          }
-          
-      
-
+        margin-bottom: 1rem;
+        
+        input {
+          color: #ffffff; /* Cambiar color de letra */
+          border: 1px solid #ffffff; /* Cambiar color del borde */
+          border-radius: 5px;
+          padding: 1rem;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+          background-color: transparent; /* Añadir transparencia */
+        }
+      }
       mat-card-content {
         form {
           display: flex;
           flex-direction: column;
           align-items: center;
+          
           .email-field,
           .password-field {
             width: 100%;
             margin-bottom: 1rem;
+            
             input {
-              color: #333333;
+              color: #ffffff;
             }
           }
+          
           .submit-button {
             width: 100%;
             max-width: 300px;
@@ -91,12 +91,12 @@
         background-color: var(--accent-color);
         color: #fff;
         border: none;
-        padding: 0.25rem 0.5rem; /* Modificar padding */
+        padding: 0.25rem 0.5rem;
         border-radius: 5px;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
-        font-size: 1rem; /* Modificar tamaño de letra */
-        font-weight: 400; /* Modificar grosor de letra */
+        font-size: 1rem;
+        font-weight: 400;
       }
       
     }
@@ -120,3 +120,8 @@
   }
 }
 
+.snack-bar-custom {
+  z-index: -1;
+  background-color: #e91e63; /* Cambiar por el color deseado */
+  color: #ffffff; /* Cambiar por el color deseado */
+}
