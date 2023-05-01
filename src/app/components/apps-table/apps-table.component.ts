@@ -1,25 +1,42 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { AppService } from 'src/app/services/app.service';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface AppServiceExt {
+  app_id: number;
+  device_id: number;
+  blockperiod_id: number;
+  app: {
+    id: number;
+    logo_url: string;
+    name: string;
+  };
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+const AppServiceData: AppServiceExt[] = [
+  {
+    device_id: 1,
+    app_id: 1,
+    blockperiod_id: 1,
+    app: {
+      id: 1,
+      name: 'Instagram',
+      logo_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 2,
+    blockperiod_id: 2,
+    app: {
+      id: 2,
+      name: 'Facebook',
+      logo_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+    },
+  },
 ];
 
 @Component({
@@ -29,22 +46,31 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
+  // dataSource: any = [];
+  dataSource: AppServiceExt[] = AppServiceData;
   rows: any[] = [];
+  displayedColumns: string[] = [
+    'logo',
+    'name',
+    'blockperiod',
+    'actions',
+    // 'edit',
+    // 'delete',
+  ];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
       this.selectedValue = changes['selectedValue'].currentValue;
+      console.log(this.selectedValue);
     }
-    this.getAppDevice();
+    // this.getAppDevice();
+    console.log(this.dataSource);
   }
 
   constructor(
     private appDeviceService: AppDeviceService,
     private appService: AppService
   ) {}
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
 
   getApp(appDevice: any): any {
     return this.appService
@@ -60,14 +86,20 @@ export class AppsTableComponent implements OnChanges {
   }
 
   getAppDevice() {
-    this.rows = [];
+    // this.rows = [];
+    // this.dataSource = [];
     this.appDeviceService
       .getAppDevice(this.selectedValue)
       .subscribe((response: any) => {
         response.map((appDevice: any) => {
           this.getApp(appDevice);
         });
-        console.log(this.rows);
       });
+    // this.dataSource = new MatTableDataSource(this.rows);
+    // console.log(this.dataSource);
+  }
+
+  deleteItem(item: any) {
+    console.log('Deleting ', item);
   }
 }
