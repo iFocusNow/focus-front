@@ -19,9 +19,11 @@
 
     <div class="bottom-position">
       <app-sidenav-element
+      (click)="onNavigate('/help')"
         [title]="'Ayuda'"
         [icon]="'help'"
       ></app-sidenav-element>
+
       <app-sidenav-element
         (click)="onNavigate('/login')"
         [title]="'Salir de Sesión'"

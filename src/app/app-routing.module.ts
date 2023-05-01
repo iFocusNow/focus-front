@@ -5,6 +5,7 @@ import { ChildComponent } from './components/child/child.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AccountComponent },
       { path: 'child/:id', component: ChildComponent },
+      { path: 'help', component: HelpComponent },
     ],
   },
   {

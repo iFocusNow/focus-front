@@ -11,6 +11,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { AppsTableComponent } from './components/apps-table/apps-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
 
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -23,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     RegisterComponent,
     AppsTableComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
