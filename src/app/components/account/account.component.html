@@ -4,34 +4,25 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="account.component.scss">
 </head>
+
+<div class="parent-data-container" *ngIf="parentData">
+  <p>Fam. {{ parentData.last_name_father }} {{ parentData.last_name_mother }} </p>
+</div>
+
+
 <body>
-
-
   <form>
-    <label>
-      <span>Nombre:</span>
-      <input type="text" id="nombre" name="nombre" required>
-    </label>
-    <label>
-      <span>Apellido</span>
-      <input type="text" id="apellidos" name="apellidos" required>
-    </label>
-    <label>
-      <span>Correo Electrónico</span>
-      <input type="email" id="correo" name="correo" required>
-    </label>
-    <label>
-      <span>Contraseña</span>
-      <input type="password" id="contraseña" name="contraseña" required>
-    </label>
-    <div class="botones">
-      <button type="button" class="boton-cancelar">Cancelar</button>
-      <button type="submit" class="boton-guardar">Guardar</button>
-    </div>
-  </form>
-  <div class="vincular-hijo">
-    <span>¿Deseas vincular a un hijo?</span>
-    <button type="button">Vincular</button>
+  <div *ngIf="parentData">
+    <p>Apellido Paterno: {{ parentData.last_name_father }}</p>
+    <p>Apellido Materno: {{ parentData.last_name_mother }}</p>
+    <p>Correo electrónico: {{ parentData.email }}</p>
   </div>
+</form>
+
+<div class="vincular-hijo">
+  <span>¿Deseas vincular a un hijo?</span>
+  <button type="button" (click)="onLinkChildClick()">{{ tempCode ? tempCode : 'Vincular hijo' }}</button>
+  <p *ngIf="countdown">Tiempo restante: {{ countdown }}</p>
+</div>
 </body>
 </html>
