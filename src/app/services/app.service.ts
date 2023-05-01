@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry } from 'rxjs';
-import { AppDevice } from '../models/appDevice';
+import { App } from '../models/app';
 import { baseUrl, handleError } from './http-data';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AppDeviceService {
+export class AppService {
   constructor(private http: HttpClient) {}
-  baseUrl = baseUrl + '/appDevices';
+  baseUrl = baseUrl + '/apps';
 
-  getAppDevice(device_id: number): Observable<AppDevice> {
+  getApp(app_id: number): Observable<App> {
     return this.http
-      .get<AppDevice>(this.baseUrl + '?device_id=' + device_id)
+      .get<App>(this.baseUrl + '?id=' + app_id)
       .pipe(retry(2), catchError(handleError));
   }
 }

@@ -59,12 +59,22 @@
       "device_id": 1,
       "app_id": 1,
       "blockperiod_id": 1
+    },
+    {
+      "device_id": 1,
+      "app_id": 2,
+      "blockperiod_id": 2
     }
   ],
   "apps": [
     {
       "id": 1,
       "name": "Instagram",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png"
+    },
+    {
+      "id": 2,
+      "name": "Facebook",
       "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png"
     }
   ],
@@ -73,6 +83,16 @@
       "id": 1,
       "is_monday": true,
       "is_tuesday": true,
+      "is_wednesday": true,
+      "is_thursday": true,
+      "is_friday": true,
+      "is_saturday": false,
+      "is_sunday": false
+    },
+    {
+      "id": 2,
+      "is_monday": true,
+      "is_tuesday": false,
       "is_wednesday": true,
       "is_thursday": true,
       "is_friday": true,

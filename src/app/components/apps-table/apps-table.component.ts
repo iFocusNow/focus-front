@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { AppDeviceService } from 'src/app/services/app-device.service';
+import { AppService } from 'src/app/services/app.service';
 
 export interface PeriodicElement {
   name: string;
@@ -34,20 +35,39 @@ export class AppsTableComponent implements OnChanges {
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
       this.selectedValue = changes['selectedValue'].currentValue;
     }
-    this.getAppDevices();
+    this.getAppDevice();
   }
 
-  constructor(private appDeviceService: AppDeviceService) {}
+  constructor(
+    private appDeviceService: AppDeviceService,
+    private appService: AppService
+  ) {}
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
-  getAppDevices() {
-    this.appDeviceService
-      .getAppDevices(this.selectedValue)
+  getApp(appDevice: any): any {
+    return this.appService
+      .getApp(appDevice.app_id)
       .subscribe((response: any) => {
-        this.rows = response;
-        console.log(response);
+        this.rows.push({
+          app_id: appDevice.app_id,
+          device_id: appDevice.device_id,
+          blockperiod_id: appDevice.blockperiod_id,
+          app: response[0],
+        });
+      });
+  }
+
+  getAppDevice() {
+    this.rows = [];
+    this.appDeviceService
+      .getAppDevice(this.selectedValue)
+      .subscribe((response: any) => {
+        response.map((appDevice: any) => {
+          this.getApp(appDevice);
+        });
+        console.log(this.rows);
       });
   }
 }
