@@ -1,9 +1,16 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { AppService } from 'src/app/services/app.service';
 
-export interface AppServiceExt {
+// export interface AppDeviceExt {
+//   app_id: number;
+//   device_id: number;
+//   blockperiod_id: number;
+//   app_logo: string;
+//   app_name: string;
+// }
+
+export interface AppDeviceExt {
   app_id: number;
   device_id: number;
   blockperiod_id: number;
@@ -14,7 +21,7 @@ export interface AppServiceExt {
   };
 }
 
-const AppServiceData: AppServiceExt[] = [
+const AppDeviceData: AppDeviceExt[] = [
   {
     device_id: 1,
     app_id: 1,
@@ -46,25 +53,16 @@ const AppServiceData: AppServiceExt[] = [
 })
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
-  // dataSource: any = [];
-  dataSource: AppServiceExt[] = AppServiceData;
+  dataSource: AppDeviceExt[] = AppDeviceData;
+  // dataSource: any[] = [];
   rows: any[] = [];
-  displayedColumns: string[] = [
-    'logo',
-    'name',
-    'blockperiod',
-    'actions',
-    // 'edit',
-    // 'delete',
-  ];
+  displayedColumns: string[] = ['logo', 'name', 'blockperiod', 'actions'];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
       this.selectedValue = changes['selectedValue'].currentValue;
-      console.log(this.selectedValue);
     }
-    // this.getAppDevice();
-    console.log(this.dataSource);
+    this.getAppDevice();
   }
 
   constructor(
@@ -72,31 +70,35 @@ export class AppsTableComponent implements OnChanges {
     private appService: AppService
   ) {}
 
-  getApp(appDevice: any): any {
-    return this.appService
-      .getApp(appDevice.app_id)
-      .subscribe((response: any) => {
-        this.rows.push({
-          app_id: appDevice.app_id,
-          device_id: appDevice.device_id,
-          blockperiod_id: appDevice.blockperiod_id,
-          app: response[0],
-        });
-      });
-  }
+  // getApp(appDevice: any): any {
+  //   this.appService.getApp(appDevice.app_id).subscribe((response: any): any => {
+  //     if (response) {
+  //       const row: AppDeviceExt = {
+  //         app_id: appDevice.app_id,
+  //         device_id: appDevice.device_id,
+  //         blockperiod_id: appDevice.blockperiod_id,
+  //         app_name: response[0].name,
+  //         app_logo: response[0].logo_url,
+  //       };
+  //       this.rows = [...this.rows, row];
+  //       return this.rows;
+  //     }
+  //   });
+  // }
 
-  getAppDevice() {
+  async getAppDevice() {
     // this.rows = [];
-    // this.dataSource = [];
-    this.appDeviceService
-      .getAppDevice(this.selectedValue)
-      .subscribe((response: any) => {
-        response.map((appDevice: any) => {
-          this.getApp(appDevice);
-        });
-      });
-    // this.dataSource = new MatTableDataSource(this.rows);
-    // console.log(this.dataSource);
+    // this.appDeviceService
+    //   .getAppDevice(this.selectedValue)
+    //   .subscribe((response: any) => {
+    //     response.map((appDevice: any) => {
+    //       this.getApp(appDevice);
+    //     });
+    //   });
+    // Works as table
+    // console.table(AppDeviceData);
+    // Does not work as table
+    // this.dataSource = this.rows;
   }
 
   deleteItem(item: any) {
