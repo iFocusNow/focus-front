@@ -9,7 +9,7 @@ import { DeviceService } from 'src/app/services/device.service';
   styleUrls: ['./child.component.scss'],
 })
 export class ChildComponent {
-  selectedValue: string | undefined;
+  selectedValue: number = 0;
   devices: Device[] = [];
   child_id: number = 0;
 
@@ -25,12 +25,15 @@ export class ChildComponent {
     });
   }
 
+  onSelectedChange(value: number) {
+    this.selectedValue = value;
+  }
+
   getChildrenDevices() {
     this.deviceService
       .getChildrenDevices(this.child_id)
       .subscribe((response: any) => {
         this.devices = response;
-        console.log(this.devices);
       });
   }
 

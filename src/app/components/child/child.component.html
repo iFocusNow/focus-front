@@ -3,6 +3,7 @@
     <mat-select
       disableRipple
       [(ngModel)]="selectedValue"
+      (ngModelChange)="onSelectedChange($event)"
       placeholder="Elija un dispositivo"
     >
       <mat-option

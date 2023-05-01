@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AppDeviceService } from 'src/app/services/app-device.service';
 
 export interface PeriodicElement {
   name: string;
@@ -25,17 +26,28 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './apps-table.component.html',
   styleUrls: ['./apps-table.component.scss'],
 })
-export class AppsTableComponent implements OnInit {
-  @Input() selectedValue: string | undefined;
+export class AppsTableComponent implements OnChanges {
+  @Input() selectedValue: number = 0;
+  rows: any[] = [];
 
-  ngOnInit(): void {
-    // Get the list of devices for child with id
-
-    throw new Error('Method not implemented.');
-
-    // Get the list of appDevice
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
+      this.selectedValue = changes['selectedValue'].currentValue;
+    }
+    this.getAppDevices();
   }
+
+  constructor(private appDeviceService: AppDeviceService) {}
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  getAppDevices() {
+    this.appDeviceService
+      .getAppDevices(this.selectedValue)
+      .subscribe((response: any) => {
+        this.rows = response;
+        console.log(response);
+      });
+  }
 }
