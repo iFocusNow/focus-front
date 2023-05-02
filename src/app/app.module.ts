@@ -26,6 +26,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { HelpComponent } from './components/help/help.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCard, MatCardModule } from '@angular/material/card'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     // Material
     MatSidenavModule,
     MatIconModule,
@@ -56,6 +59,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatExpansionModule,
     MatCheckboxModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

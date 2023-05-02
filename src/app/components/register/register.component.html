@@ -1,1 +1,31 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <h2 class="mb-4">Registro de Padres</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Apellido Materno</label>
+            <input type="text" class="form-control" formControlName="last_name_mother" />
+              Apellido materno es requerido.
+            </div>
+
+          <div class="form-group">
+            <label>Apellido Paterno</label>
+            <input type="text" class="form-control" formControlName="last_name_father" />
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" class="form-control" formControlName="email" />
+
+          </div>
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" formControlName="password" />
+
+          </div>
+          <button type="submit" class="btn btn-primary mt-4">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
