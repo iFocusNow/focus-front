@@ -1,35 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="account.component.scss">
-</head>
+$form-border-color: #313872;
+$form-border-radius: 5px;
 
-<div class="image-container">
-  <img src="{parents[0].photo_url}" class="circular-image">
-</div>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0f154b;
+}
 
+.parent-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-size: 45px;
+}
 
-<div class="parent-data-container" *ngIf="parentData">
-  <p>Fam. {{ parentData.last_name_father }} {{ parentData.last_name_mother }} </p>
-</div>
+.circular-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
 
-<body>
-  <form>
-  <div *ngIf="parentData">
-    <p>Apellido Paterno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ parentData.last_name_father }}</p>
-    <p>Apellido Materno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ parentData.last_name_mother }}</p>
-    <p>Correo electrónico:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ parentData.email }}</p>
-  </div>
-</form>
+.image-container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
 
-<div class="vincular-hijo">
-  <span>¿Deseas Vincular un hijo?</span>
-  <button type="button" (click)="onLinkChildClick()">{{ tempCode ? tempCode : 'Vincular hijo' }}</button>
-  <div *ngIf="countdown">
-    <p>Tiempo restante: {{ countdown }}</p>
-  </div>
-</div>
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  padding: 20px;
+  border: none;
+  border-radius: $form-border-radius;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #313872;
+  padding: 30px;
+  border-radius: $form-border-radius;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 450px;
 
-</body>
-</html>
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    position: relative;
+  }
+  label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+  span {
+    width: 20%;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  input {
+    width: 60%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    padding: 4px 0;
+    color: #ffffff;
+    outline: none;
+    text-align: left;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #ffffff;
+  }
+}
+
+.vincular-hijo {
+  position: absolute;
+  top: 65%;
+  left: 45%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+
+  span {
+    margin-right: 10px;
+  }
+
+  button {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-left: 10px;
+
+    &:hover {
+      background-color: #e2e2e2;
+    }
+  }
+}
+
