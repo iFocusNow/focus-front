@@ -5,27 +5,47 @@
   <div class="form-container mat-elevation-z4">
     <h2>Registro de familia</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center">
-      <mat-label>Apellido Materno</mat-label>
-      <mat-form-field appearance="outline" class="example-form-field">
-        <input matInput type="text" formControlName="last_name_mother">
-      </mat-form-field>
-      <mat-label>Apellido Paterno</mat-label>
-      <mat-form-field appearance="outline" class="example-form-field">
-        <input matInput type="text" formControlName="last_name_father">
-      </mat-form-field>
-      <mat-label>Correo electrónico</mat-label>
-      <mat-form-field appearance="outline" class="example-form-field">
-        <input matInput type="email" formControlName="email">
-      </mat-form-field>
-      <mat-label>Contraseña</mat-label>
-      <mat-form-field appearance="outline" class="example-form-field">
-        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button matSuffix (click)="togglePassword()">
-          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <span>¿Ya tienes una cuenta en Focus? </span>
-      <a href="/login">Inicia Sesión</a>
+      <div class="inputs-container">
+        <div class="form-input">
+          <div>
+            <mat-label>Apellido Materno</mat-label>
+          </div>
+          <mat-form-field appearance="outline" class="example-form-field">
+            <input matInput type="text" formControlName="last_name_mother">
+          </mat-form-field>
+        </div>
+        <div class="form-input">
+          <div>
+            <mat-label>Apellido Paterno</mat-label>
+          </div>
+          <mat-form-field appearance="outline" class="example-form-field">
+            <input matInput type="text" formControlName="last_name_father">
+          </mat-form-field>
+        </div>
+        <div class="form-input">
+          <div>
+            <mat-label>Correo electrónico</mat-label>
+          </div>
+          <mat-form-field appearance="outline" class="example-form-field">
+            <input matInput type="email" formControlName="email">
+          </mat-form-field>
+        </div>
+        <div class="form-input">
+          <div>
+            <mat-label>Contraseña</mat-label>
+          </div>
+          <mat-form-field appearance="outline" class="example-form-field">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="togglePassword()">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="login-container">
+        <span >¿Ya tienes una cuenta en Focus? </span>
+        <a href="/login">  Inicia Sesión</a>
+      </div>
       <button mat-raised-button color="primary" type="submit">Registrar</button>
     </form>
   </div>
