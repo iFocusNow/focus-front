@@ -29,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatCheckboxModule,
     MatDialogModule,
     MatStepperModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

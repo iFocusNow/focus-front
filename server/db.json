@@ -75,7 +75,53 @@
     {
       "id": 2,
       "name": "Facebook",
-      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png"
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/120px-Facebook_f_logo_%282019%29.svg.png"
+    },
+    {
+      "id": 3,
+      "name": "Twitter",
+      "logo_url": "https://cdn3.iconfinder.com/data/icons/social-media-icons-13/512/Twitter_9-256.png"
+    },
+
+    {
+      "id": 4,
+      "name": "LinkedIn",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/120px-LinkedIn_logo_initials.png"
+    },
+    {
+      "id": 5,
+      "name": "Google",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/120px-Google_2015_logo.svg.png"
+    },
+    {
+      "id": 6,
+      "name": "YouTube",
+      "logo_url": "https://blog.silverfernhealthcare.com/wp-content/uploads/2021/02/s-yt.png"
+    },
+    {
+      "id": 7,
+      "name": "Reddit",
+      "logo_url": "https://descargar.org/wp-content/uploads/2017/11/reddit-android-logo.png"
+    },
+    {
+      "id": 8,
+      "name": "TikTok",
+      "logo_url": "https://pngimg.com/uploads/tiktok/tiktok_PNG8.png"
+    },
+    {
+      "id": 9,
+      "name": "WhatsApp",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/120px-WhatsApp_logo-color-vertical.svg.png"
+    },
+    {
+      "id": 10,
+      "name": "Amazon",
+      "logo_url": "https://cdn4.iconfinder.com/data/icons/socialcones/508/Amazon-256.png"
+    },
+    {
+      "id": 11,
+      "name": "Netflix",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/120px-Netflix_2015_logo.svg.png"
     }
   ],
   "blockperiods": [
