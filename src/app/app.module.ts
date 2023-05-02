@@ -28,6 +28,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { HelpComponent } from './components/help/help.component';
 
+import {MatBadgeModule} from '@angular/material/badge';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,8 @@ import { HelpComponent } from './components/help/help.component';
     RegisterComponent,
     AppsTableComponent,
     HelpComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ import { HelpComponent } from './components/help/help.component';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

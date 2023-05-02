@@ -32,14 +32,25 @@
     </div>
   </mat-sidenav>
   <mat-sidenav opened mode="side" position="end">
-    <mat-icon
+    <mat-icon [matBadge]="sizeNotification" matBadgeColor="warn"
       class="notification"
       aria-hidden="false"
       aria-label="Notification icon"
       fontIcon="notifications"
+      (click) = "showNotification()"
     ></mat-icon>
+
+ 
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
+    <div class ="notifications_content" *ngIf="visibleNotifications"><ul class = "texto">
+      <li> Su hijo ha excedido el tiempo de uso del dispositivo.</li>
+      <br>
+      <li> Lisanne se amanece bailando.</li>
+    </ul></div>
   </mat-sidenav-content>
+  
 </mat-sidenav-container>
+
+

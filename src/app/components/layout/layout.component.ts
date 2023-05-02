@@ -11,6 +11,8 @@ import { ChildService } from 'src/app/services/child.service';
 export class LayoutComponent implements OnInit {
   parent_id = 1;
   children: Child[] | undefined;
+  visibleNotifications = false;
+  sizeNotification = 20;
 
   constructor(private childService: ChildService, private router: Router) {}
 
@@ -32,5 +34,9 @@ export class LayoutComponent implements OnInit {
       .subscribe((response: any) => {
         this.children = response;
       });
+  }
+
+  showNotification(){
+    this.visibleNotifications =!this.visibleNotifications;
   }
 }
