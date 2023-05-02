@@ -11,6 +11,12 @@ export class AppService {
   constructor(private http: HttpClient) {}
   baseUrl = baseUrl + '/apps';
 
+  getApps(): Observable<App> {
+    return this.http
+      .get<App>(this.baseUrl)
+      .pipe(retry(2), catchError(handleError));
+  }
+
   getApp(app_id: number): Observable<App> {
     return this.http
       .get<App>(this.baseUrl + '?id=' + app_id)

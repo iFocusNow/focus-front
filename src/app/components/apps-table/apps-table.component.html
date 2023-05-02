@@ -17,7 +17,64 @@
 
   <ng-container matColumnDef="blockperiod">
     <th mat-header-cell *matHeaderCellDef>Periodo de bloqueo</th>
-    <td mat-cell *matCellDef="let item">{{ item.blockperiod_id }}</td>
+    <td mat-cell *matCellDef="let item" class="blockperiod-elements">
+      <span class="day-label">
+        <span class="day-symbol"> L </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_monday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+      <span class="day-label">
+        <span class="day-symbol"> M </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_tuesday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+      <span class="day-label">
+        <span class="day-symbol"> X </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_wednesday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+      <span class="day-label">
+        <span class="day-symbol"> J </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_thursday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+      <span class="day-label">
+        <span class="day-symbol"> V </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_friday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+      <span class="day-label">
+        <span class="day-symbol"> S </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_saturday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+      <span class="day-label">
+        <span class="day-symbol"> D </span>
+        <mat-checkbox
+          [checked]="item.blockperiod.is_sunday"
+          disabled="true"
+          class="custom-checkbox"
+        ></mat-checkbox>
+      </span>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
@@ -31,16 +88,13 @@
       >
     </td>
   </ng-container>
-  <!-- <ng-container matColumnDef="edit"> -->
-  <!--   <th mat-header-cell *matHeaderCellDef></th> -->
-  <!--   <td mat-cell *matCellDef="let item">{{}}</td> -->
-  <!-- </ng-container> -->
-  <!---->
-  <!-- <ng-container matColumnDef="delete"> -->
-  <!--   <th mat-header-cell *matHeaderCellDef></th> -->
-  <!--   <td mat-cell *matCellDef="let item">{{}}</td> -->
-  <!-- </ng-container> -->
-  <!---->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+<!-- Does not show options on wider screens -->
+<mat-paginator
+  [pageSizeOptions]="[6, 8, 12]"
+  showFirstLastButtons
+  aria-label="Select page of app elements"
+>
+</mat-paginator>
