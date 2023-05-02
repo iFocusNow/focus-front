@@ -91,3 +91,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+<!-- Does not show options on wider screens -->
+<mat-paginator
+  [pageSizeOptions]="[6, 8, 12]"
+  showFirstLastButtons
+  aria-label="Select page of app elements"
+>
+</mat-paginator>

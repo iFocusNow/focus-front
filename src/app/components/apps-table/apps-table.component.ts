@@ -1,4 +1,12 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { AppService } from 'src/app/services/app.service';
 
@@ -74,6 +82,174 @@ const AppDeviceData: AppDeviceExt[] = [
       is_sunday: false,
     },
   },
+  {
+    device_id: 1,
+    app_id: 1,
+    blockperiod_id: 1,
+    app: {
+      id: 1,
+      name: 'Instagram',
+      logo_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+    },
+    blockperiod: {
+      id: 1,
+      is_monday: true,
+      is_tuesday: true,
+      is_wednesday: true,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: false,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 2,
+    blockperiod_id: 2,
+    app: {
+      id: 2,
+      name: 'Facebook',
+      logo_url:
+        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
+    },
+    blockperiod: {
+      id: 2,
+      is_monday: true,
+      is_tuesday: false,
+      is_wednesday: false,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: true,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 1,
+    blockperiod_id: 1,
+    app: {
+      id: 1,
+      name: 'Instagram',
+      logo_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+    },
+    blockperiod: {
+      id: 1,
+      is_monday: true,
+      is_tuesday: true,
+      is_wednesday: true,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: false,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 2,
+    blockperiod_id: 2,
+    app: {
+      id: 2,
+      name: 'Facebook',
+      logo_url:
+        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
+    },
+    blockperiod: {
+      id: 2,
+      is_monday: true,
+      is_tuesday: false,
+      is_wednesday: false,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: true,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 1,
+    blockperiod_id: 1,
+    app: {
+      id: 1,
+      name: 'Instagram',
+      logo_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+    },
+    blockperiod: {
+      id: 1,
+      is_monday: true,
+      is_tuesday: true,
+      is_wednesday: true,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: false,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 2,
+    blockperiod_id: 2,
+    app: {
+      id: 2,
+      name: 'Facebook',
+      logo_url:
+        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
+    },
+    blockperiod: {
+      id: 2,
+      is_monday: true,
+      is_tuesday: false,
+      is_wednesday: false,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: true,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 1,
+    blockperiod_id: 1,
+    app: {
+      id: 1,
+      name: 'Instagram',
+      logo_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+    },
+    blockperiod: {
+      id: 1,
+      is_monday: true,
+      is_tuesday: true,
+      is_wednesday: true,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: false,
+      is_sunday: false,
+    },
+  },
+  {
+    device_id: 1,
+    app_id: 2,
+    blockperiod_id: 2,
+    app: {
+      id: 2,
+      name: 'Facebook',
+      logo_url:
+        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
+    },
+    blockperiod: {
+      id: 2,
+      is_monday: true,
+      is_tuesday: false,
+      is_wednesday: false,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: true,
+      is_sunday: false,
+    },
+  },
 ];
 
 @Component({
@@ -83,10 +259,17 @@ const AppDeviceData: AppDeviceExt[] = [
 })
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
-  dataSource: AppDeviceExt[] = AppDeviceData;
+  dataSource = new MatTableDataSource<AppDeviceExt>(AppDeviceData);
   // dataSource: any[] = [];
   rows: any[] = [];
   displayedColumns: string[] = ['logo', 'name', 'blockperiod', 'actions'];
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
