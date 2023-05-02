@@ -45,9 +45,7 @@
   <mat-sidenav-content>
     <router-outlet></router-outlet>
     <div class ="notifications_content" *ngIf="visibleNotifications"><ul class = "texto">
-      <li> Su hijo ha excedido el tiempo de uso del dispositivo.</li>
-      <br>
-      <li> Lisanne se amanece bailando.</li>
+      <li *ngFor="let alert of alerts" style = "margin-bottom: 1rem">{{alert.message}}</li>
     </ul></div>
   </mat-sidenav-content>
   

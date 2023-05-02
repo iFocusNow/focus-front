@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, retry } from 'rxjs';
-import 
 import { baseUrl, handleError } from './http-data';
+import { Alert } from '../models/alerts';
+import { Observable } from 'rxjs/internal/Observable';
+import { retry } from 'rxjs/internal/operators/retry';
+import { catchError } from 'rxjs/internal/operators/catchError';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,11 @@ import { baseUrl, handleError } from './http-data';
 export class NotificationsService {
 
   constructor(private http: HttpClient) {}
-  baseUrl = baseUrl + '/children';
+  baseUrl = baseUrl + '/alerts';
 
-  getParentChildren(parent_id: number): Observable<Child> {
+  getParentAlert(parent_id: number): Observable<Alert> {
     return this.http
-      .get<Child>(this.baseUrl + '?parent_id=' + parent_id)
+      .get<Alert>(this.baseUrl + '?parent_id=' + parent_id)
       .pipe(retry(2), catchError(handleError));
   }
 }
