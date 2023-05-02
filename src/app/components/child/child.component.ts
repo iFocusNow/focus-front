@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Device } from 'src/app/models/device';
 import { DeviceService } from 'src/app/services/device.service';
+import { AddAppDialogComponent } from '../add-app-dialog/add-app-dialog.component';
 
 @Component({
   selector: 'app-child',
@@ -15,9 +17,9 @@ export class ChildComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private deviceService: DeviceService
-  ) // public dialog: MatDialog
-  {}
+    private deviceService: DeviceService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -53,13 +55,10 @@ export class ChildComponent {
   }
 
   openAppDialog(): void {
-    // const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-    //   data: {name: this.name, animal: this.animal},
-    // });
-    //
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    // });
+    const dialogRef = this.dialog.open(AddAppDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed: ', result);
+    });
   }
 }
