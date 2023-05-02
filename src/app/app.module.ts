@@ -26,8 +26,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { HelpComponent } from './components/help/help.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCard, MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card'
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

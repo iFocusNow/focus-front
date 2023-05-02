@@ -3,18 +3,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Parent } from 'src/app/models/parent';
 import { ParentService } from 'src/app/services/parent.service';
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   error: string = '';
 
-  constructor(private formBuilder: FormBuilder, private parentService: ParentService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private parentService: ParentService, private router: Router, private snackBar: MatSnackBar) {
     this.registerForm = this.formBuilder.group({
       last_name_mother: ['', Validators.required],
       last_name_father: ['', Validators.required],
@@ -41,14 +42,21 @@ export class RegisterComponent implements OnInit {
       created_at: new Date(),
       updated_at: new Date()
     };
-
+    
     this.parentService.registerParent(parent).subscribe(
       (result) => {
         this.router.navigate(['/login']);
       },
       (error) => {
-        this.error = 'Ha ocurrido un error al registrar el padre o tutor.';
+        this.snackBar.open(error.message, 'Cerrar', {
+          duration: 5000
+        });
       }
     );
+    
+
+    
   }
+  
+
 }
