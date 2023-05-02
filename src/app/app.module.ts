@@ -17,6 +17,7 @@ import { AccountComponent } from './components/account/account.component';
 import { HelpComponent } from './components/help/help.component';
 import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 
+
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +28,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -59,6 +63,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatExpansionModule,
     MatCheckboxModule,
+    MatStepperModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

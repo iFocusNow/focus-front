@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Parent } from 'src/app/models/parent';
 import { ParentService } from 'src/app/services/parent.service';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar, MatSnackBarConfig  } from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-register',
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
       },
       (error) => {
         this.snackBar.open(error.message, 'Cerrar', {
-          duration: 5000
+          duration: 10,
         });
       }
     );
