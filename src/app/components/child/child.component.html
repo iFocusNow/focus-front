@@ -1,12 +1,48 @@
-<app-device-selector></app-device-selector>
+<div class="center">
+  <mat-form-field appearance="fill">
+    <mat-select
+      disableRipple
+      [(ngModel)]="selectedValue"
+      (ngModelChange)="onSelectedChange($event)"
+      placeholder="Elija un dispositivo"
+    >
+      <mat-option
+        class="custom-opt"
+        *ngFor="let device of devices"
+        [value]="device.id"
+      >
+        {{ setSelectionName(device) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
 <div class="center">
   <mat-tab-group animationDuration="2ms">
     <mat-tab label="Aplicaciones">
-      <app-apps-table></app-apps-table>
+      <app-apps-table [selectedValue]="selectedValue"></app-apps-table>
     </mat-tab>
-    <mat-tab label="Enlaces">Links table</mat-tab>
+    <mat-tab label="Enlaces">
+      <app-links-table [selectedValue]="selectedValue"></app-links-table>
+    </mat-tab>
   </mat-tab-group>
 </div>
 
-<p>Add device</p>
+<div class="align-btn">
+  <button mat-button class="custom-btn" (click)="openAppDialog()">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Add app icon"
+      fontIcon="add"
+    ></mat-icon>
+    Agregar App
+  </button>
+  <button mat-button class="custom-btn" (click)="openLinkDialog()">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Add link icon"
+      fontIcon="add"
+    ></mat-icon>
+    Agregar Enlace
+  </button>
+</div>

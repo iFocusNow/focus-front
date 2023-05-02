@@ -1,0 +1,13 @@
+<div [formGroup]="week" class="checkbox-group">
+  <mat-checkbox formControlName="is_monday">Lunes</mat-checkbox>
+  <mat-checkbox formControlName="is_tuesday">Martes</mat-checkbox>
+  <mat-checkbox formControlName="is_wednesday">Miércoles</mat-checkbox>
+  <mat-checkbox formControlName="is_thursday">Jueves</mat-checkbox>
+  <mat-checkbox formControlName="is_friday">Viernes</mat-checkbox>
+  <mat-checkbox formControlName="is_saturday">Sabado</mat-checkbox>
+  <mat-checkbox formControlName="is_sunday">Domingo</mat-checkbox>
+</div>
+<div mat-dialog-actions class="btn-group">
+  <button mat-button class="cancel-btn" (click)="close()">Cancelar</button>
+  <button mat-button class="submit-btn" (click)="submit()">Confirmar</button>
+</div>

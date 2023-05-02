@@ -8,25 +8,32 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { ChildComponent } from './components/child/child.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DeviceSelectorComponent } from './components/device-selector/device-selector.component';
 import { AppsTableComponent } from './components/apps-table/apps-table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { AddAppDialogComponent } from './components/add-app-dialog/add-app-dialog.component';
+import { AccountComponent } from './components/account/account.component';
+import { HelpComponent } from './components/help/help.component';
+import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { AccountComponent } from './components/account/account.component';
 import { MatIconModule } from '@angular/material/icon';
-import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatCardModule } from '@angular/material/card'
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule} from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
+import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
+import { LinksTableComponent } from './components/links-table/links-table.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +44,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ChildComponent,
     LoginComponent,
     RegisterComponent,
-    DeviceSelectorComponent,
     AppsTableComponent,
+    HelpComponent,
+    AddAppDialogComponent,
+    AddLinkDialogComponent,
+    EditBlockperiodComponent,
+    LinksTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     // Material
     MatSidenavModule,
     MatIconModule,
@@ -53,11 +66,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Children } from 'src/app/models/child';
+import { Child } from 'src/app/models/child';
 import { ChildService } from 'src/app/services/child.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ChildService } from 'src/app/services/child.service';
 })
 export class LayoutComponent implements OnInit {
   parent_id = 1;
-  children: Children[] | undefined;
+  children: Child[] | undefined;
 
   constructor(private childService: ChildService, private router: Router) {}
 
