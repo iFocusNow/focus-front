@@ -19,6 +19,16 @@ export interface AppDeviceExt {
     logo_url: string;
     name: string;
   };
+  blockperiod: {
+    id: number;
+    is_monday: boolean;
+    is_tuesday: boolean;
+    is_wednesday: boolean;
+    is_thursday: boolean;
+    is_friday: boolean;
+    is_saturday: boolean;
+    is_sunday: boolean;
+  };
 }
 
 const AppDeviceData: AppDeviceExt[] = [
@@ -32,6 +42,16 @@ const AppDeviceData: AppDeviceExt[] = [
       logo_url:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
     },
+    blockperiod: {
+      id: 1,
+      is_monday: true,
+      is_tuesday: true,
+      is_wednesday: true,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: false,
+      is_sunday: false,
+    },
   },
   {
     device_id: 1,
@@ -41,7 +61,17 @@ const AppDeviceData: AppDeviceExt[] = [
       id: 2,
       name: 'Facebook',
       logo_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
+        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
+    },
+    blockperiod: {
+      id: 2,
+      is_monday: true,
+      is_tuesday: false,
+      is_wednesday: false,
+      is_thursday: true,
+      is_friday: true,
+      is_saturday: true,
+      is_sunday: false,
     },
   },
 ];
