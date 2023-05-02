@@ -10,24 +10,25 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AppsTableComponent } from './components/apps-table/apps-table.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AddAppDialogComponent } from './components/add-app-dialog/add-app-dialog.component';
 import { AccountComponent } from './components/account/account.component';
+import { HelpComponent } from './components/help/help.component';
+import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
-import { HelpComponent } from './components/help/help.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     // Material
     MatSidenavModule,
     MatIconModule,
@@ -60,6 +62,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatExpansionModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

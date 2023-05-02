@@ -1,5 +1,11 @@
-<h2 mat-dialog-title class="title">Dialog Title</h2>
-<div mat-dialog-content class="content">Dialog content goes here.</div>
+<div mat-dialog-content class="content">
+  <mat-stepper #stepper>
+    <mat-step label="Elije una aplicación"> Hello </mat-step>
+    <mat-step label="Establece el bloqueo">
+      <button mat-button class="custom-btn" (click)="close()">Confirmar</button>
+    </mat-step>
+  </mat-stepper>
+</div>
 <div mat-dialog-actions>
   <button mat-button class="custom-btn" (click)="close()">Close</button>
 </div>
