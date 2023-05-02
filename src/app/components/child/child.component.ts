@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Device } from 'src/app/models/device';
 import { DeviceService } from 'src/app/services/device.service';
 import { AddAppDialogComponent } from '../add-app-dialog/add-app-dialog.component';
+import { AddLinkDialogComponent } from '../add-link-dialog/add-link-dialog.component';
 
 @Component({
   selector: 'app-child',
@@ -60,6 +61,18 @@ export class ChildComponent {
       device_id: this.selectedValue,
     };
     const dialogRef = this.dialog.open(AddAppDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed: ', result);
+    });
+  }
+
+  openLinkDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      device_id: this.selectedValue,
+    };
+    const dialogRef = this.dialog.open(AddLinkDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed: ', result);

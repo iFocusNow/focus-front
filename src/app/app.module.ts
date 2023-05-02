@@ -31,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppsTableComponent,
     HelpComponent,
     AddAppDialogComponent,
+    AddLinkDialogComponent,
   ],
   imports: [
     BrowserModule,
