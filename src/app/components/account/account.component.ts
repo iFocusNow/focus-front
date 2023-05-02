@@ -44,7 +44,7 @@ export class AccountComponent implements OnInit {
         clearInterval(interval);
         this.countdown = null;
         this.tempCode = null;
-        console.log('Código temporal expirado');
+        //console.log('Código temporal expirado');
       } else {
         this.countdown = this.formatTime(remainingTime);
       }
@@ -68,7 +68,7 @@ export class AccountComponent implements OnInit {
     this.timer = setTimeout(() => {
       this.tempCode = null;
       this.countdown = null;
-      console.log('Código temporal expirado');
+      //console.log('Código temporal expirado');
     }, 5 * 60 * 1000); 
 
     this.startCountdown(5 * 60);
