@@ -1,17 +1,16 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-items: center;
   align-items: center;
   height: 100vh;
   background-color: var(--primary-color);
 
   .left-side {
     display: flex;
-    justify-content: center;
+    justify-self: center;
     align-items: center;
-    width: 100%;
-    margin: 2rem 0;
     .logo {
       max-width: 100%;
       height: auto;
@@ -23,20 +22,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin-top: 2rem;
-    text-align: center;
+    border-radius: 5px;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 2;
+    flex-basis: 0;
 
     .login-card {
-      width: 100%;
       background-color: var(--secondary-color);
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      padding: 3em 2em;
-      margin: 2em auto 0;
-      box-sizing: border-box;
-      max-width: 40em;
+      flex-direction: column;
+      justify-self: center;
+      align-items: center;
       color: #ffffff;
 
       .card-title {
@@ -47,18 +45,16 @@
       }
 
       .mat-form-field {
-        width: 100%;
         margin-bottom: 1rem;
 
         input {
           color: var(--white-color); /* Cambiar color de letra */
           border: 1px solid var(--white-color); /* Cambiar color del borde */
           border-radius: 5px;
-          padding: 1rem;
-          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-          background-color: transparent; /* Añadir transparencia */
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Añadir transparencia */
         }
       }
+
       mat-card-content {
         form {
           display: flex;
@@ -68,10 +64,10 @@
           .email-field,
           .password-field {
             width: 100%;
-            margin-bottom: 1rem;
 
             input {
               color: var(--white-color);
+              width: 100%;
             }
           }
 
@@ -100,27 +96,4 @@
       }
     }
   }
-
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-
-    .left-side {
-      width: 50%;
-    }
-
-    .right-side {
-      width: 50%;
-      margin-top: 0;
-
-      .login-card {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
-.snack-bar-custom {
-  z-index: -1;
-  background-color: var(--warn-color); /* Cambiar por el color deseado */
-  color: var(--white-color); /* Cambiar por el color deseado */
 }
