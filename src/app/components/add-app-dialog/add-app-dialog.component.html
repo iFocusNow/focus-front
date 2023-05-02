@@ -1,0 +1,65 @@
+<div mat-dialog-content class="content">
+  <mat-stepper #stepper>
+    <mat-step label="Elije una aplicación">
+      <div class="center">
+        <mat-form-field>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Buscar app"
+            #input
+          />
+        </mat-form-field>
+      </div>
+      <div class="center">
+        <div class="table-container">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container class="mat-column-logo" matColumnDef="logo">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td
+                mat-cell
+                [ngClass]="{ 'selected-row': selectedRowIndex === item.id }"
+                (click)="selectRow(item.id)"
+                *matCellDef="let item"
+              >
+                <img src="{{ item.logo_url }}" />
+              </td>
+            </ng-container>
+            <ng-container class="mat-column-name" matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td
+                mat-cell
+                *matCellDef="let item"
+                [ngClass]="{ 'selected-row': selectedRowIndex === item.id }"
+                (click)="selectRow(item.id)"
+              >
+                {{ item.name }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step label="Establece el bloqueo">
+      <div [formGroup]="week" class="check-alignment">
+        <div class="checkbox-group">
+          <mat-checkbox formControlName="is_monday">Lunes</mat-checkbox>
+          <mat-checkbox formControlName="is_tuesday">Martes</mat-checkbox>
+          <mat-checkbox formControlName="is_wednesday">Miércoles</mat-checkbox>
+          <mat-checkbox formControlName="is_thursday">Jueves</mat-checkbox>
+          <mat-checkbox formControlName="is_friday">Viernes</mat-checkbox>
+        </div>
+        <div class="checkbox-group">
+          <mat-checkbox formControlName="is_saturday">Sabado</mat-checkbox>
+          <mat-checkbox formControlName="is_sunday">Domingo</mat-checkbox>
+        </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
+<div mat-dialog-actions class="btn-group">
+  <button mat-button class="cancel-btn" (click)="close()">Cancelar</button>
+  <button mat-button class="submit-btn" (click)="submit()">Confirmar</button>
+</div>

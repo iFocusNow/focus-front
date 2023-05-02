@@ -67,3 +67,8 @@ body {
 .warn {
   color: var(--warn-color);
 }
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: var(--white-color);
+  --mdc-snackbar-container-color: var(--secondary-color);
+  --mdc-snackbar-supporting-text-color: var(--warn-color);
+}

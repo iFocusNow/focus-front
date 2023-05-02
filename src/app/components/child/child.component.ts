@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Device } from 'src/app/models/device';
 import { DeviceService } from 'src/app/services/device.service';
+import { AddAppDialogComponent } from '../add-app-dialog/add-app-dialog.component';
 
 @Component({
   selector: 'app-child',
@@ -15,7 +17,8 @@ export class ChildComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +54,15 @@ export class ChildComponent {
     return type + ' ' + device.brand;
   }
 
-  //
-  // Si se detecta cierta opcion en el selector, filtrar el appDevices y el linkDevices por device_id
-  // Pasar los argumentos de devices y links a hijos
+  openAppDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      device_id: this.selectedValue,
+    };
+    const dialogRef = this.dialog.open(AddAppDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed: ', result);
+    });
+  }
 }
