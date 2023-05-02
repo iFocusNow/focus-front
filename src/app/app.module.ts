@@ -31,6 +31,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
+import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
+import { LinksTableComponent } from './components/links-table/links-table.component';
 
 import {MatBadgeModule} from '@angular/material/badge';
 
@@ -46,7 +49,13 @@ import {MatBadgeModule} from '@angular/material/badge';
     AppsTableComponent,
     HelpComponent,
     AddAppDialogComponent,
+<<<<<<< HEAD
 
+=======
+    AddLinkDialogComponent,
+    EditBlockperiodComponent,
+    LinksTableComponent,
+>>>>>>> 64820922c43aa5898d4d9b6c56b91edf915e47ea
   ],
   imports: [
     BrowserModule,
