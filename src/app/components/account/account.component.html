@@ -5,10 +5,14 @@
   <link rel="stylesheet" href="account.component.scss">
 </head>
 
+<div class="image-container">
+  <img src="{parents[0].photo_url}" class="circular-image">
+</div>
+
+
 <div class="parent-data-container" *ngIf="parentData">
   <p>Fam. {{ parentData.last_name_father }} {{ parentData.last_name_mother }} </p>
 </div>
-
 
 <body>
   <form>
@@ -22,8 +26,10 @@
 <div class="vincular-hijo">
   <span>¿Deseas Vincular un hijo?</span>
   <button type="button" (click)="onLinkChildClick()">{{ tempCode ? tempCode : 'Vincular hijo' }}</button>
-  <p *ngIf="countdown">Tiempo restante: </p>
-  <p *ngIf="countdown">{{ countdown }}</p>
+  <div *ngIf="countdown">
+    <p>Tiempo restante: {{ countdown }}</p>
+  </div>
 </div>
+
 </body>
 </html>
