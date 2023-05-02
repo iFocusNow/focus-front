@@ -66,6 +66,13 @@ import { LinksTableComponent } from './components/links-table/links-table.compon
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
