@@ -27,5 +27,21 @@ img {
 }
 
 .blockperiod-elements {
-  width: 320px;
+  display: flex;
+  flex-direction: row;
+}
+
+.custom-checkbox {
+  margin-inline: -10px;
+}
+
+.day-label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-symbol {
+  padding-top: 8px;
+  margin-bottom: -5px;
 }
