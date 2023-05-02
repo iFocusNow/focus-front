@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { App } from 'src/app/models/app';
 import { AppService } from 'src/app/services/app.service';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-app-dialog',
@@ -30,7 +31,8 @@ export class AddAppDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<AddAppDialogComponent>,
     private appService: AppService,
     private _formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit(): void {
@@ -67,10 +69,21 @@ export class AddAppDialogComponent implements OnInit {
 
   submit(): void {
     console.log(this.selectedRowIndex);
+    const values = Object.values(this.week.value);
+    const anyTrue = values.some((val) => val === true);
     if (this.selectedRowIndex === 0) {
       this.openSnackBar('No se ha elegido una aplicación', 'Aceptar');
+    } else if (!anyTrue) {
+      this.openSnackBar('No se elegido un día de bloqueo', 'Aceptar');
     }
     // Create the blockperiod
+    console.log('Should create blockperiod in backend');
     // If successful: Create the AppDevices
+    console.log(
+      'Should create appDevice with app_id ',
+      this.selectedRowIndex,
+      ' and device_id ',
+      this.data.device_id
+    );
   }
 }

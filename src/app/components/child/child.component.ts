@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Device } from 'src/app/models/device';
 import { DeviceService } from 'src/app/services/device.service';
@@ -55,7 +55,11 @@ export class ChildComponent {
   }
 
   openAppDialog(): void {
-    const dialogRef = this.dialog.open(AddAppDialogComponent);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      device_id: this.selectedValue,
+    };
+    const dialogRef = this.dialog.open(AddAppDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed: ', result);
