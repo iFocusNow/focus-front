@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
 import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
+import { LinksTableComponent } from './components/links-table/links-table.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blo
     AddAppDialogComponent,
     AddLinkDialogComponent,
     EditBlockperiodComponent,
+    LinksTableComponent,
   ],
   imports: [
     BrowserModule,

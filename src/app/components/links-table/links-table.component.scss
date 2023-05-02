@@ -1,0 +1,57 @@
+.table-styles {
+  background-color: var(--secondary-color);
+}
+
+.warn-btn {
+  color: var(--warn-color);
+}
+
+.mat-column-logo {
+  text-align: center;
+  padding-bottom: 0.4rem;
+  padding-top: 0.6rem;
+}
+
+.mat-column-name {
+  text-align: center;
+  padding-bottom: 0.4rem;
+  padding-top: 0.6rem;
+}
+
+.mat-column-blockperiod {
+  text-align: center;
+  padding-bottom: 0.4rem;
+  padding-top: 0.6rem;
+}
+
+.mat-column-actions {
+  text-align: center;
+  padding-bottom: 0.4rem;
+  padding-top: 0.6rem;
+}
+
+.blockperiod-elements {
+  display: flex;
+  flex-direction: row;
+}
+
+.custom-checkbox {
+  margin-inline: -10px;
+}
+
+.day-label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-symbol {
+  padding-top: 8px;
+  margin-bottom: -5px;
+}
+
+mat-paginator {
+  z-index: 100;
+  padding-top: 0.5rem;
+  background-color: var(--secondary-color);
+}

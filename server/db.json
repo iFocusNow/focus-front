@@ -128,49 +128,49 @@
     {
       "id": 1,
       "device_id": 1,
-      "blockperiods": 1,
+      "blockperiod_id": 1,
       "name": "Reddit",
       "url": "https://www.reddit.com/"
     },
     {
       "id": 2,
       "device_id": 2,
-      "blockperiods": 2,
+      "blockperiod_id": 2,
       "name": "Twitter",
       "url": "https://twitter.com/"
     },
     {
       "id": 3,
       "device_id": 1,
-      "blockperiods": 1,
+      "blockperiod_id": 1,
       "name": "Facebook",
       "url": "https://www.facebook.com/"
     },
     {
       "id": 4,
       "device_id": 2,
-      "blockperiods": 2,
+      "blockperiod_id": 2,
       "name": "Instagram",
       "url": "https://www.instagram.com/"
     },
     {
       "id": 5,
       "device_id": 1,
-      "blockperiods": 2,
+      "blockperiod_id": 2,
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/"
     },
     {
       "id": 6,
       "device_id": 1,
-      "blockperiods": 1,
+      "blockperiod_id": 1,
       "name": "YouTube",
       "url": "https://www.youtube.com/"
     },
     {
       "id": 7,
       "device_id": 1,
-      "blockperiods": 1,
+      "blockperiod_id": 1,
       "name": "Amazon",
       "url": "https://www.amazon.com/"
     }
