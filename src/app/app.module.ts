@@ -32,6 +32,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
+import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-di
     HelpComponent,
     AddAppDialogComponent,
     AddLinkDialogComponent,
+    EditBlockperiodComponent,
   ],
   imports: [
     BrowserModule,

@@ -80,10 +80,8 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let item">
-      <a mat-icon-button (click)="deleteItem(item.app_id)"
-        ><mat-icon>edit</mat-icon></a
-      >
-      <a mat-icon-button class="warn-btn" (click)="deleteItem(item.app_id)"
+      <a mat-icon-button (click)="editItem(item)"><mat-icon>edit</mat-icon></a>
+      <a mat-icon-button class="warn-btn" (click)="deleteItem(item)"
         ><mat-icon>delete</mat-icon></a
       >
     </td>
@@ -91,7 +89,6 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<!-- Does not show options on wider screens -->
 <mat-paginator
   [pageSizeOptions]="[6, 8, 12]"
   showFirstLastButtons
