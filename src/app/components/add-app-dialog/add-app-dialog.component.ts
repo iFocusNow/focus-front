@@ -75,15 +75,18 @@ export class AddAppDialogComponent implements OnInit {
       this.openSnackBar('No se ha elegido una aplicación', 'Aceptar');
     } else if (!anyTrue) {
       this.openSnackBar('No se elegido un día de bloqueo', 'Aceptar');
+    } else if (this.data.device_id === 0) {
+      this.openSnackBar('Seleccione un dispositivo', 'Aceptar');
+    } else {
+      // Create the blockperiod
+      console.log('Should create blockperiod in backend');
+      // If successful: Create the AppDevices
+      console.log(
+        'Should create appDevice with app_id ',
+        this.selectedRowIndex,
+        ' and device_id ',
+        this.data.device_id
+      );
     }
-    // Create the blockperiod
-    console.log('Should create blockperiod in backend');
-    // If successful: Create the AppDevices
-    console.log(
-      'Should create appDevice with app_id ',
-      this.selectedRowIndex,
-      ' and device_id ',
-      this.data.device_id
-    );
   }
 }
