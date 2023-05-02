@@ -16,7 +16,8 @@ export class ChildComponent {
   constructor(
     private route: ActivatedRoute,
     private deviceService: DeviceService
-  ) {}
+  ) // public dialog: MatDialog
+  {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -51,7 +52,14 @@ export class ChildComponent {
     return type + ' ' + device.brand;
   }
 
-  //
-  // Si se detecta cierta opcion en el selector, filtrar el appDevices y el linkDevices por device_id
-  // Pasar los argumentos de devices y links a hijos
+  openAppDialog(): void {
+    // const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    //   data: {name: this.name, animal: this.animal},
+    // });
+    //
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   this.animal = result;
+    // });
+  }
 }
