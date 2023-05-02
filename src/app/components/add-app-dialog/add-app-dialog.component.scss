@@ -1,0 +1,18 @@
+* {
+  background-color: var(--secondary-color);
+}
+
+.title,
+.content {
+  color: var(--white-color);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+button.custom-btn {
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+  width: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
