@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   error: string = '';
+  hidePassword = true;
 
   constructor(private formBuilder: FormBuilder, private parentService: ParentService, private router: Router, private snackBar: MatSnackBar) {
     this.registerForm = this.formBuilder.group({
@@ -26,6 +27,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
 
   onSubmit() {
     if (this.registerForm.invalid) {
@@ -42,10 +45,12 @@ export class RegisterComponent implements OnInit {
       created_at: new Date(),
       updated_at: new Date()
     };
-    
+
+
+   
     this.parentService.registerParent(parent).subscribe(
       (result) => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
       },
       (error) => {
         this.snackBar.open(error.message, 'Cerrar', {
@@ -56,6 +61,10 @@ export class RegisterComponent implements OnInit {
     
 
     
+  }
+
+  togglePassword() {
+    this.hidePassword = !this.hidePassword;
   }
   
 
