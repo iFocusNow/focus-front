@@ -43,7 +43,19 @@
       </div>
     </mat-step>
     <mat-step label="Establece el bloqueo">
-      <p>Placeholder</p>
+      <div [formGroup]="week" class="check-alignment">
+        <div class="checkbox-group">
+          <mat-checkbox formControlName="is_monday">Lunes</mat-checkbox>
+          <mat-checkbox formControlName="is_tuesday">Martes</mat-checkbox>
+          <mat-checkbox formControlName="is_wednesday">Miércoles</mat-checkbox>
+          <mat-checkbox formControlName="is_thursday">Jueves</mat-checkbox>
+          <mat-checkbox formControlName="is_friday">Viernes</mat-checkbox>
+        </div>
+        <div class="checkbox-group">
+          <mat-checkbox formControlName="is_saturday">Sabado</mat-checkbox>
+          <mat-checkbox formControlName="is_sunday">Domingo</mat-checkbox>
+        </div>
+      </div>
     </mat-step>
   </mat-stepper>
 </div>

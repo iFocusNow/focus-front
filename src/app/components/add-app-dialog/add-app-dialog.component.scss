@@ -69,3 +69,15 @@ input {
   color: var(--white-color);
   padding-bottom: 0.4rem;
 }
+
+.check-alignment {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 2rem;
+  padding-left: 1rem;
+}
