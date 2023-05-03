@@ -2,6 +2,7 @@ import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
 export interface LinkExt {
@@ -191,6 +192,15 @@ export class LinksTableComponent {
   }
 
   deleteItem(link_id: number) {
-    console.log('Deleting with link_id ', link_id);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      is_app: false,
+      link_id,
+    };
+    const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed: ', result);
+    });
   }
 }

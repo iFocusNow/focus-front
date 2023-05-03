@@ -10,6 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { AppService } from 'src/app/services/app.service';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
 // export interface AppDeviceExt {
@@ -332,6 +333,15 @@ export class AppsTableComponent implements OnChanges {
   }
 
   deleteItem(item: AppDeviceExt) {
-    console.log('Deleting ', item);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      is_app: true,
+      ...item,
+    };
+    const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed: ', result);
+    });
   }
 }
