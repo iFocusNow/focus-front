@@ -22,7 +22,9 @@
     <mat-tab label="Aplicaciones">
       <app-apps-table [selectedValue]="selectedValue"></app-apps-table>
     </mat-tab>
-    <mat-tab label="Enlaces">Links table</mat-tab>
+    <mat-tab label="Enlaces">
+      <app-links-table [selectedValue]="selectedValue"></app-links-table>
+    </mat-tab>
   </mat-tab-group>
 </div>
 
@@ -35,7 +37,7 @@
     ></mat-icon>
     Agregar App
   </button>
-  <button mat-button class="custom-btn">
+  <button mat-button class="custom-btn" (click)="openLinkDialog()">
     <mat-icon
       aria-hidden="false"
       aria-label="Add link icon"

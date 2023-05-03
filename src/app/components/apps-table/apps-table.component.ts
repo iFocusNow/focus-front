@@ -5,10 +5,12 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { AppService } from 'src/app/services/app.service';
+import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
 // export interface AppDeviceExt {
 //   app_id: number;
@@ -280,7 +282,8 @@ export class AppsTableComponent implements OnChanges {
 
   constructor(
     private appDeviceService: AppDeviceService,
-    private appService: AppService
+    private appService: AppService,
+    public dialog: MatDialog
   ) {}
 
   // getApp(appDevice: any): any {
@@ -314,7 +317,21 @@ export class AppsTableComponent implements OnChanges {
     // this.dataSource = this.rows;
   }
 
-  deleteItem(item: any) {
+  editItem(item: AppDeviceExt) {
+    console.log('Editing', item);
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      ...item,
+    };
+    const dialogRef = this.dialog.open(EditBlockperiodComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed: ', result);
+    });
+  }
+
+  deleteItem(item: AppDeviceExt) {
     console.log('Deleting ', item);
   }
 }

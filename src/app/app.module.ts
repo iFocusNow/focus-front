@@ -30,6 +30,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
+import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
+import { LinksTableComponent } from './components/links-table/links-table.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppsTableComponent,
     HelpComponent,
     AddAppDialogComponent,
+    AddLinkDialogComponent,
+    EditBlockperiodComponent,
+    LinksTableComponent,
   ],
   imports: [
     BrowserModule,

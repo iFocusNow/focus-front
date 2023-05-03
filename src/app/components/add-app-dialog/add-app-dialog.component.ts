@@ -87,6 +87,7 @@ export class AddAppDialogComponent implements OnInit {
         ' and device_id ',
         this.data.device_id
       );
+      this.dialogRef.close();
     }
   }
 }
