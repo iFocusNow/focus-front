@@ -49,13 +49,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     AppsTableComponent,
     HelpComponent,
     AddAppDialogComponent,
-<<<<<<< HEAD
-
-=======
     AddLinkDialogComponent,
     EditBlockperiodComponent,
     LinksTableComponent,
->>>>>>> 64820922c43aa5898d4d9b6c56b91edf915e47ea
   ],
   imports: [
     BrowserModule,

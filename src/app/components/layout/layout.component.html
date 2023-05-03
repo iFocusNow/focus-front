@@ -45,7 +45,9 @@
   <mat-sidenav-content>
     <router-outlet></router-outlet>
     <div class ="notifications_content" *ngIf="visibleNotifications"><ul class = "texto">
-      <li *ngFor="let alert of alerts" style = "margin-bottom: 1rem">{{alert.message}}</li>
+      <li *ngFor="let alert of alerts" style = "margin-bottom: 1rem">
+        {{getAlertMessage(alert)}}
+      </li>
     </ul></div>
   </mat-sidenav-content>
   
