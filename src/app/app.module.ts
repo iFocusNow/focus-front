@@ -34,6 +34,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
 import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
 import { LinksTableComponent } from './components/links-table/links-table.component';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LinksTableComponent } from './components/links-table/links-table.compon
     AddLinkDialogComponent,
     EditBlockperiodComponent,
     LinksTableComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

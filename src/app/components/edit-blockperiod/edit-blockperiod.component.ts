@@ -9,14 +9,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./edit-blockperiod.component.scss'],
 })
 export class EditBlockperiodComponent implements OnInit {
+  week!: FormGroup;
+
   constructor(
     private dialogRef: MatDialogRef<EditBlockperiodComponent>,
     private _formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
-
-  week!: FormGroup;
 
   ngOnInit(): void {
     this.week = this._formBuilder.group({
