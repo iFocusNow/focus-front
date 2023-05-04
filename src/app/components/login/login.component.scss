@@ -1,13 +1,12 @@
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
   justify-items: center;
   align-items: center;
   height: 100vh;
 
   background-color: var(--primary-color);
-  padding: 0 50px; /* Agregado */
+  padding-inline: 7rem; /* Agregado */
 
   .logo-container {
     display: flex;
@@ -34,9 +33,9 @@
 
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
       color: #ffff;
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     mat-label {
@@ -66,43 +65,41 @@
           padding: 5px 0px;
           background: transparent;
 
-
           &:focus {
             border-bottom: 2px solid #ffff;
           }
+        }
       }
-    }
 
       .mat-form-field-infix {
-          display: flex;
-          align-items: center;
+        display: flex;
+        align-items: center;
 
-          button.mat-icon-button {
-            margin-left: -10px;
-            color: #c3c3c3;
-          }
+        button.mat-icon-button {
+          margin-left: -10px;
+          color: #c3c3c3;
         }
+      }
 
-        .inputs-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: flex-start;
-          width: 100%;
-          padding: 20px;
-        }
-        
-        .form-input {
-          width: 100%;
-          margin-bottom: 20px;
-        }
-        
+      .inputs-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .form-input {
+        width: 100%;
+        margin-bottom: 20px;
+      }
 
       .password-container {
         position: relative;
         width: 100%;
 
-       input {
+        input {
           width: 100%;
           border: none;
           border-bottom: 1px solid #ccc;
@@ -124,19 +121,28 @@
         }
       }
 
-      .login-container{
+      .login-container {
         color: var(--white-color);
-        a{
+        a {
           color: yellow;
           text-decoration: none;
           font-weight: bolder;
         }
       }
-    
+
       button[type="submit"] {
         margin-top: 20px;
         width: 100%;
       }
     }
+  }
+}
+
+.register-container {
+  color: #ccc;
+  a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: bolder;
   }
 }
