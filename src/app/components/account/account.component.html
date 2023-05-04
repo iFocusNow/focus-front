@@ -1,1 +1,32 @@
-<p>account works!</p>
+<div class="center">
+  <div class="line"></div>
+  <img src="{{ photo_url }}" />
+</div>
+
+<h1 class="center">Fam. {{ last_name_father }} {{ last_name_mother }}</h1>
+
+<div class="center">
+  <div class="blue-card">
+    <div class="input">
+      <p class="entry-type">Appellido Paterno</p>
+      <div class="entry">
+        <p>{{ last_name_father }}</p>
+        <div class="underlined"></div>
+      </div>
+    </div>
+    <div class="input">
+      <p class="entry-type">Appellido Materno</p>
+      <div class="entry">
+        <p>{{ last_name_mother }}</p>
+        <div class="underlined"></div>
+      </div>
+    </div>
+    <div class="input">
+      <p class="entry-type">Correo electrónico</p>
+      <div class="entry">
+        <p>{{ email }}</p>
+        <div class="underlined"></div>
+      </div>
+    </div>
+  </div>
+</div>
