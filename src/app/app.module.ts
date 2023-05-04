@@ -17,7 +17,6 @@ import { AccountComponent } from './components/account/account.component';
 import { HelpComponent } from './components/help/help.component';
 import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
 
-
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,7 +33,9 @@ import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-di
 import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
 import { LinksTableComponent } from './components/links-table/links-table.component';
 import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
-
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -70,9 +71,12 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
     MatPaginatorModule,
     MatButtonModule,
     MatExpansionModule,
+    MatBadgeModule,
     MatCheckboxModule,
     MatStepperModule,
     MatSnackBarModule,
+    MatInputModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

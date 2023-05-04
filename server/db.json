@@ -206,5 +206,77 @@
       "is_saturday": false,
       "is_sunday": false
     }
+  ],
+  "alerts": [
+    {
+      "id": 1,
+      "parent_id": 1,
+      "type": "block_entry",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 2,
+      "parent_id": 1,
+      "type": "block_entry",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 3,
+      "parent_id": 1,
+      "type": "solicit_unblock",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 4,
+      "parent_id": 1,
+      "type": "phone_time_exceeded",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 5,
+      "parent_id": 1,
+      "type": "block_entry",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 6,
+      "parent_id": 1,
+      "type": "phone_time_exceeded",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 7,
+      "parent_id": 1,
+      "type": "block_entry",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 8,
+      "parent_id": 1,
+      "type": "block_entry",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 9,
+      "parent_id": 1,
+      "type": "block_entry",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    },
+    {
+      "id": 10,
+      "parent_id": 1,
+      "type": "phone_time_exceeded",
+      "created_at": "1682540340",
+      "updated_at": "1682540340"
+    }
   ]
 }
