@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Child } from 'src/app/models/child';
 import { ChildService } from 'src/app/services/child.service';
+import { Alert } from 'src/app/models/alerts';
+import { NotificationsService } from 'src/app/services/notifications.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,11 +13,16 @@ import { ChildService } from 'src/app/services/child.service';
 export class LayoutComponent implements OnInit {
   parent_id = 1;
   children: Child[] | undefined;
+  visibleNotifications = false;
+  sizeNotification = 20;
+  alerts: Alert[] | undefined;
+  formattedAlerts: { message: string, type: string }[] = [];
 
-  constructor(private childService: ChildService, private router: Router) {}
+  constructor(private childService: ChildService, private router: Router, private notificationService: NotificationsService) {}
 
   ngOnInit(): void {
     this.getParentChildren();
+    this.getNotifications();
   }
 
   onNavigate(route: string): void {
@@ -33,4 +40,31 @@ export class LayoutComponent implements OnInit {
         this.children = response;
       });
   }
+
+  showNotification(){
+    this.visibleNotifications =!this.visibleNotifications;
+  }
+
+  getAlertMessage(alert: Alert): string {
+    switch (alert.type) {
+      case 'block_entry':
+        return 'Su hijo(a) ha querido entrar a una aplicación bloqueada.';
+      case 'solicit_unblock':
+        return 'Su hijo(a) ha solicitado un desbloqueo de aplicación.';
+      case 'phone_time_exceeded':
+        return 'Su hijo(a) ha superado el tiempo en pantalla.';
+      default:
+        return '';
+    }
+  }
+  
+  getNotifications(){
+    this.notificationService
+      .getParentAlert(this.parent_id)
+      .subscribe((response: any) => {
+        this.alerts = response;        
+      });
+      
+  }
+
 }

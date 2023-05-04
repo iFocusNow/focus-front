@@ -1,0 +1,50 @@
+.center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .line {
+    position: absolute;
+    z-index: -1;
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 2rem;
+    margin-top: 7.5rem;
+  }
+
+  img {
+    margin-top: 4rem;
+    width: 8rem;
+    border-radius: 50%;
+    border: 0.5rem solid var(--secondary-color);
+  }
+
+  .blue-card {
+    background-color: var(--secondary-color);
+    margin-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-inline: 3rem;
+    width: 24rem;
+  }
+}
+
+.input {
+  display: flex;
+  margin-bottom: -0.5rem;
+
+  .entry-type {
+    width: 40%;
+  }
+
+  .entry {
+    width: 60%;
+    margin-top: -0.5rem;
+    .underlined {
+      background-color: var(--white-color);
+      height: 1px;
+      width: 100%;
+      margin-top: -0.6rem;
+    }
+  }
+}

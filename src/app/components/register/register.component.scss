@@ -1,0 +1,139 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: var(--primary-color);
+  padding: 0 5.5rem; /* Agregado */
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .form-container {
+    height: max-content;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-inline: 2rem;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #ffff;
+      font-size: 2rem;
+    }
+
+    mat-label {
+      color: #ffff;
+      text-align: left;
+      font-size: 14px;
+      margin-bottom: 5px;
+      margin-left: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%; /* Agregado */
+
+      .example-form-field {
+        width: 100%;
+        padding: 0 10px;
+        input {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #ccc;
+          color: #ffff;
+          outline: none;
+          padding: 5px 0px;
+          background: transparent;
+
+          &:focus {
+            border-bottom: 2px solid #ffff;
+          }
+        }
+      }
+
+      .mat-form-field-infix {
+        display: flex;
+        align-items: center;
+
+        button.mat-icon-button {
+          margin-left: -10px;
+          color: #c3c3c3;
+        }
+      }
+
+      .inputs-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 0.2rem;
+      }
+
+      .form-input {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .password-container {
+        position: relative;
+        width: 100%;
+
+        input {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #ccc;
+          outline: none;
+          padding: 5px;
+          background: transparent;
+        }
+
+        &:focus {
+          border-bottom: 2px solid #ffff;
+        }
+
+        .password-icon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.login-container {
+  color: #ccc;
+  a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: bolder;
+  }
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

@@ -27,14 +27,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddLinkDialogComponent } from './components/add-link-dialog/add-link-dialog.component';
 import { EditBlockperiodComponent } from './components/edit-blockperiod/edit-blockperiod.component';
 import { LinksTableComponent } from './components/links-table/links-table.component';
 import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -69,12 +70,14 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatExpansionModule,
+    MatBadgeModule,
     MatCheckboxModule,
-    MatDialogModule,
     MatStepperModule,
-    MatInputModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
