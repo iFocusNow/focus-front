@@ -1,35 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="account.component.scss">
-</head>
-
-<div class="image-container">
-  <img src="{parents[0].photo_url}" class="circular-image">
+<div class="center">
+  <div class="line"></div>
+  <img src="{{ photo_url }}" />
 </div>
 
+<h1 class="center">Fam. {{ last_name_father }} {{ last_name_mother }}</h1>
 
-<div class="parent-data-container" *ngIf="parentData">
-  <p>Fam. {{ parentData.last_name_father }} {{ parentData.last_name_mother }} </p>
-</div>
-
-<body>
-  <form>
-  <div *ngIf="parentData">
-    <p>Apellido Paterno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ parentData.last_name_father }}</p>
-    <p>Apellido Materno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ parentData.last_name_mother }}</p>
-    <p>Correo electrónico:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ parentData.email }}</p>
+<div class="center">
+  <div class="blue-card">
+    <div class="input">
+      <p class="entry-type">Appellido Paterno</p>
+      <div class="entry">
+        <p>{{ last_name_father }}</p>
+        <div class="underlined"></div>
+      </div>
+    </div>
+    <div class="input">
+      <p class="entry-type">Appellido Materno</p>
+      <div class="entry">
+        <p>{{ last_name_mother }}</p>
+        <div class="underlined"></div>
+      </div>
+    </div>
+    <div class="input">
+      <p class="entry-type">Correo electrónico</p>
+      <div class="entry">
+        <p>{{ email }}</p>
+        <div class="underlined"></div>
+      </div>
+    </div>
   </div>
-</form>
-
-<div class="vincular-hijo">
-  <span>¿Deseas Vincular un hijo?</span>
-  <button type="button" (click)="onLinkChildClick()">{{ tempCode ? tempCode : 'Vincular hijo' }}</button>
-  <div *ngIf="countdown">
-    <p>Tiempo restante: {{ countdown }}</p>
-  </div>
 </div>
-
-</body>
-</html>

@@ -1,34 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ParentService } from 'src/app/services/parent.service';
+import { Parent } from 'src/app/models/parent';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
-  parentData: any;
+  id: number = 1;
+  last_name_father: string | undefined;
+  last_name_mother: string | undefined;
+  email: string | undefined;
+  photo_url: string | undefined;
+  parentData: Parent[] = [];
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private parentService: ParentService) {}
 
   ngOnInit(): void {
     this.getParentData();
   }
 
-  getParentData(): void {
-    this.http.get('http://localhost:3000/parents/1').subscribe(data => {
-      this.parentData = data;
+  getParentData() {
+    this.parentService.getParent(this.id).subscribe((response: any) => {
+      this.parentData = response;
+      this.last_name_father = this.parentData[0].last_name_father;
+      this.last_name_mother = this.parentData[0].last_name_mother;
+      this.email = this.parentData[0].email;
+      this.photo_url = this.parentData[0].photo_url;
     });
   }
 
   generateTempCode(): string {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     for (let i = 0; i < 6; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
+      result += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
     }
     return result;
   }
@@ -44,7 +57,6 @@ export class AccountComponent implements OnInit {
         clearInterval(interval);
         this.countdown = null;
         this.tempCode = null;
-        //console.log('Código temporal expirado');
       } else {
         this.countdown = this.formatTime(remainingTime);
       }
@@ -68,8 +80,7 @@ export class AccountComponent implements OnInit {
     this.timer = setTimeout(() => {
       this.tempCode = null;
       this.countdown = null;
-      //console.log('Código temporal expirado');
-    }, 5 * 60 * 1000); 
+    }, 5 * 60 * 1000);
 
     this.startCountdown(5 * 60);
   }

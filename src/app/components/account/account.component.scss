@@ -1,117 +1,50 @@
-$form-border-color: #313872;
-$form-border-radius: 5px;
-
-body {
+.center {
   display: flex;
+  width: 100%;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #0f154b;
-}
 
-.parent-data-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  font-size: 45px;
-}
-
-.circular-image {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-}
-
-.image-container {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 400px;
-  padding: 20px;
-  border: none;
-  border-radius: $form-border-radius;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #313872;
-  padding: 30px;
-  border-radius: $form-border-radius;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 450px;
-
-  .formulario {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 350px;
-    position: relative;
-  }
-  label {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-weight: bold;
-    margin-right: 10px;
+  .line {
+    position: absolute;
+    z-index: -1;
+    background-color: var(--secondary-color);
     width: 100%;
+    height: 2rem;
+    margin-top: 7.5rem;
   }
 
-  span {
-    width: 20%;
-    font-size: 14px;
-    white-space: nowrap;
+  img {
+    margin-top: 4rem;
+    width: 8rem;
+    border-radius: 50%;
+    border: 0.5rem solid var(--secondary-color);
   }
 
-  input {
-    width: 60%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #ffffff;
-    padding: 4px 0;
-    color: #ffffff;
-    outline: none;
-    text-align: left;
-  }
-
-  input:focus {
-    border-bottom: 2px solid #ffffff;
+  .blue-card {
+    background-color: var(--secondary-color);
+    margin-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-inline: 3rem;
+    width: 24rem;
   }
 }
 
-.vincular-hijo {
-  position: absolute;
-  top: 65%;
-  left: 45%;
+.input {
   display: flex;
-  align-items: center;
-  margin-top: 30px;
+  margin-bottom: -0.5rem;
 
-  span {
-    margin-right: 10px;
+  .entry-type {
+    width: 40%;
   }
 
-  button {
-    background-color: #f2f2f2;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    margin-left: 10px;
-
-    &:hover {
-      background-color: #e2e2e2;
+  .entry {
+    width: 60%;
+    margin-top: -0.5rem;
+    .underlined {
+      background-color: var(--white-color);
+      height: 1px;
+      width: 100%;
+      margin-top: -0.6rem;
     }
   }
 }
-
