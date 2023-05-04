@@ -1,0 +1,38 @@
+
+
+.micajita {
+    box-sizing: content-box;
+    width: 50%;
+    margin-left: auto;
+  margin-right: auto;
+  border-bottom: 2px solid var(--white-color);
+  text-align: justify;
+  font-size: 2ch;
+
+}
+.micajita2 {
+    box-sizing: content-box;
+    width: 50%;
+    margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  font-size: 2ch;
+}
+.textsize {
+  font-size: 1.6ch;
+}
+.centertext {
+    width: 47%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:left;
+    font-size:large;
+    font-size: 3ch;
+  }
+  .conteiner {
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    right: 0%;
+    height: 70%;
+  }

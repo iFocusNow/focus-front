@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeviceSelectorComponent } from './device-selector.component';
+import { LinksTableComponent } from './links-table.component';
 
-describe('DeviceSelectorComponent', () => {
-  let component: DeviceSelectorComponent;
-  let fixture: ComponentFixture<DeviceSelectorComponent>;
+describe('LinksTableComponent', () => {
+  let component: LinksTableComponent;
+  let fixture: ComponentFixture<LinksTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeviceSelectorComponent ]
+      declarations: [ LinksTableComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeviceSelectorComponent);
+    fixture = TestBed.createComponent(LinksTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
