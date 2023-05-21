@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentService } from 'src/app/services/parent.service';
 import { Parent } from 'src/app/models/parent';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -18,7 +19,8 @@ export class AccountComponent implements OnInit {
   timer: any;
   countdown: string | null = null;
 
-  constructor(private parentService: ParentService) {}
+
+  constructor(private parentService: ParentService, private router:Router) {}
 
   ngOnInit(): void {
     this.getParentData();
@@ -83,5 +85,8 @@ export class AccountComponent implements OnInit {
     }, 5 * 60 * 1000);
 
     this.startCountdown(5 * 60);
+  }
+  addChild():void{
+    this.router.navigate(["add-child"]);
   }
 }
