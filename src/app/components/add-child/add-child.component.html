@@ -15,8 +15,15 @@
             <input required="" type="text" name="text" autocomplete="off" class="input">
           </div>
         </div>
-        <div>
+        <div class="device-container">
           <p class="entry-type">Dispositivos</p>
+          <div class="checkbox-container">
+            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked1" >Celular</mat-checkbox>
+            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked2" >PC</mat-checkbox>
+
+            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked3" >Tablet</mat-checkbox>
+            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked4" >Laptop</mat-checkbox>
+          </div>
         </div>
 
     

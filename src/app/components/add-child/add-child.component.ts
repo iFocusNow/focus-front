@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, defineInjectable } from '@angular/core';
 import { Parent } from 'src/app/models/parent';
 import { ParentService } from 'src/app/services/parent.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-child.component.scss']
 })
 export class AddChildComponent {
+  //Esto lo puse para poner una foto, pero en realidad no va
   id: number = 1;
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
@@ -21,6 +22,13 @@ export class AddChildComponent {
   countdown: string | null = null;
 
 
+  checked1 = false;
+  checked2 = false;
+  checked3 = false;
+  checked4 = false;
+  device:string = "";
+
+
 
 
 constructor(private parentService: ParentService, private router:Router) {}
@@ -29,6 +37,7 @@ ngOnInit(): void {
   this.getParentData();
 }
 
+//lo hice para jalar una foto
 getParentData() {
   this.parentService.getParent(this.id).subscribe((response: any) => {
     this.parentData = response;
@@ -41,6 +50,10 @@ getParentData() {
 
 volverHome():void{
   this.router.navigate(['']);
+}
+
+getDevice(device:string):void{
+  console.log(device);
 }
 
 }

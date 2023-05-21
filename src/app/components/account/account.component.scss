@@ -70,6 +70,9 @@
     padding-bottom: 2rem;
     padding-inline: 2rem;
     width: 13rem;
+    height: 150px;
+    overflow-y: auto;
+
     .underlined {
       background-color: var(--white-color);
       height: 1px;
@@ -77,6 +80,7 @@
       margin-top: -0.6rem;
     }
   }
+
   .registrar {
     display: flex;
     flex-direction: column;
@@ -89,6 +93,20 @@
     width: 15rem;
 
   }
+}
+
+.hvinculados::-webkit-scrollbar-track {
+  border-radius: 0.125rem;
+  background-color: lightgray;
+}
+.hvinculados::-webkit-scrollbar {
+  width: 0.25rem;
+  border-radius: 0.125rem;
+  margin-left: 0.3rem;
+}
+.hvinculados::-webkit-scrollbar-thumb {
+  border-radius: 0.125rem;
+  background-color: gray;
 }
 
 .child{
