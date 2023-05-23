@@ -6,23 +6,33 @@
 </div>
 
 <div class="centrado">
-
+<div class="arriba">
     <div class="center">
       <div class="blue-card">
-        <div class="input">
-          <p class="entry-type">Nombre</p>        
+        <div class="input1">
+          <p class="entry-type">Nombre de hijo</p>        
           <div class="input-group">
-            <input required="" type="text" name="text" autocomplete="off" class="input">
+            <input required="" type="text" name="text" autocomplete="off" class="input_text1" [(ngModel)]="childName">
           </div>
         </div>
-        <div class="device-container">
-          <p class="entry-type">Dispositivos</p>
-          <div class="checkbox-container">
-            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked1" >Celular</mat-checkbox>
-            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked2" >PC</mat-checkbox>
+        <div class="input2">
+          <p class="entry-type">Seleccionar dispositivo</p>
+          <div class="select-display">
+            <mat-form-field>
+              <mat-select (selectionChange)="getDeviceType($event)" [(ngModel)]="deviceType">
+                <mat-option *ngFor="let device of type_devices" [value]="device.value">
+                  {{device.viewValue}}             
+                </mat-option>                  
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        
 
-            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked3" >Tablet</mat-checkbox>
-            <mat-checkbox class="example-margin checkbox" [(ngModel)]="checked4" >Laptop</mat-checkbox>
+        <div class="input2">
+          <p class="entry-type">Nombre de dispositivo</p>        
+          <div class="input-group">
+            <input required="" type="text" name="text" autocomplete="off" class="input_text2" [(ngModel)]="deviceName">
           </div>
         </div>
 
@@ -31,9 +41,23 @@
     </div>
 
     <div class="center2">
+      <div class="blue-card2">
+        <div class="danadidos">
+          <p>Dispositivos añadidos</p>      
+          <div class="underlined"></div>
+          <div class="devices" *ngFor="let device of name_devices; let i = index">{{device}}
+          <mat-icon class="icon" (click)="deleteDevice(i)">delete</mat-icon></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="center3">
     <div class="button">
         <button class="btn-cancel" (click)="volverHome()">Cancelar</button>
-        <button class="btn-register">Registrar</button>
+        <button class="btn-register" (click)="getDeviceName()">Registrar</button>
     </div>
     </div>
-</div>
+  </div>
+

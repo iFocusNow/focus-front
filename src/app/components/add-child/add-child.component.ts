@@ -1,7 +1,9 @@
-import { Component, defineInjectable } from '@angular/core';
+import { Component, defineInjectable, ViewChild, ElementRef} from '@angular/core';
 import { Parent } from 'src/app/models/parent';
 import { ParentService } from 'src/app/services/parent.service';
 import { Router } from '@angular/router';
+import { Device } from 'src/app/models/device';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -21,15 +23,22 @@ export class AddChildComponent {
   timer: any;
   countdown: string | null = null;
 
-
-  checked1 = false;
-  checked2 = false;
-  checked3 = false;
-  checked4 = false;
-  device:string = "";
-
+  value!:string;
+  name_devices: string[] = []
+  deviceName!: string;
+  childName!: string;
+  deviceType!: string;
 
 
+  type_devices = [
+    {value:'phone', viewValue:'Celular'},
+    {value:'tablet', viewValue:'Tablet'},
+    {value:'laptop', viewValue:'Laptop'},
+    {value:'pc', viewValue:'PC'}
+  ]
+    
+  
+  @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
 
 constructor(private parentService: ParentService, private router:Router) {}
 
@@ -55,5 +64,28 @@ volverHome():void{
 getDevice(device:string):void{
   console.log(device);
 }
+
+getDeviceType(event: MatSelectChange): void {
+  const selectedValue = event.value;
+  console.log('Dispositivo:', selectedValue);
+}
+
+getDeviceName(): void {
+  console.log('Nombre: ', this.deviceName);
+  this.TemporaryList(this.deviceName);
+  this.deviceName='';
+  this.childName='';
+  this.deviceType='';
+}
+
+TemporaryList(name_device:string):void{
+  this.name_devices.push(name_device);
+  console.log(this.name_devices);
+}
+
+deleteDevice(index:number):void{
+  this.name_devices.splice(index,1);
+}
+
 
 }

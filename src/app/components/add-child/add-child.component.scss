@@ -1,7 +1,16 @@
 .centrado{
     display: flex;
     align-items: center;
-    flex-direction: column; 
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.arriba{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 20rem;
 }
 
 .center {
@@ -33,7 +42,7 @@
       }
     }
 
-    .blue-card {
+    .blue-card{
         background-color: var(--secondary-color);
         margin-top: 5rem;
         padding-top: 2rem;
@@ -41,22 +50,24 @@
         padding-inline: 3rem;
         width: 35rem;
     }
-
 }
 
-.input {
+
+.input1 {
     display: flex;
     margin-bottom: -0.5rem;
   
     .entry-type {
-      width: 30%;
+      width: 20%;
     }
   
     .input-group {
         position: relative;
-       }
-       
-       .input {
+        padding-left: 30px;
+        padding-top: 0.5rem;
+    }
+      
+    .input_text1 {
         border: solid 1.5px var(--accent-color);
         background: var(--accent-color);
         color: #f5f5f5;
@@ -66,15 +77,125 @@
         padding: 1rem;
         width: 22rem;
         height: 0.5rem;
-        outline: none;
-        
+        outline: none;        
     }
 }
 
+.input2{
+    display: flex;
+    margin-bottom: -0.5rem;
+    margin-top: 2rem;
+  
+    .entry-type {
+      width: 20%;
+    }
+  
+    .select-display{
+        position: relative;
+        padding-left: 30px;
+        padding-top: 1rem;
+
+        mat-form-field{
+            border-radius: 5px;
+            border: solid 1.5px var(--accent-color);
+            background: var(--accent-color);
+            width: 17rem;   
+    
+        }   
+    }
+    .input-group {
+        position: relative;
+        padding-left: 30px;
+        padding-top: 1rem;
+    }
+
+    .input_text2 {
+        border: solid 1.5px var(--accent-color);
+        background: var(--accent-color);
+        color: #f5f5f5;
+        font-size: 1rem;
+        position: absolute;
+        border-radius: 5px;
+        padding: 1rem;
+        width: 15rem;
+        height: 0.5rem;
+        outline: none;        
+    }
+}
+
+
+mat-option{
+    color: var(--white-color);
+}
+
+
 .center2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    width: 40rem;
+
+    .blue-card2{
+        background-color: var(--secondary-color);
+        margin-top: 5rem;
+        padding-bottom: 2rem;
+        padding-inline: 1rem;
+        margin-left: 1.5rem;
+        width: 20rem;
+    }
+
+    .danadidos{
+        background-color: var(--secondary-color);
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
+        padding-inline: 1.5rem;
+        overflow-y: auto;
+        width: 17rem;
+        height: 13.9rem;
+    
+        .underlined {
+          background-color: var(--white-color);
+          height: 1px;
+          width: 100%;
+          margin-top: -0.6rem;
+        }
+    }
+}
+
+.danadidos::-webkit-scrollbar-track {
+    border-radius: 0.125rem;
+    background-color: lightgray;
+}
+  .danadidos::-webkit-scrollbar {
+    width: 0.25rem;
+    border-radius: 0.125rem;
+    margin-left: 0.3rem;
+}
+  .danadidos::-webkit-scrollbar-thumb {
+    border-radius: 0.125rem;
+    background-color: gray;
+}
+
+.devices{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  
+    .icon{
+      scale: 0.8;
+      cursor: pointer;
+      margin-top: 0.4rem;
+    }
+}
+
+
+.center3{
     display: flex;
     align-items: center;    
     width:41rem;
+    padding-left: 27rem;
     .button{
         display: flex;
         justify-content: right;
@@ -106,25 +227,6 @@
     }
 }
 
-.device-container{
-    display: flex;
-    margin-top: 1rem;
-    
-    .checkbox-container{
-        margin-left: 3.5rem;
-        width: 300px;
-        display:grid;
-        grid-template-columns: 0.5fr 0.5fr;
-        grid-template-rows: 0.5fr 0.5fr;
-
-        .checkbox{
-            margin-left: 1rem;
-            width: 100%;
-            height: 100%;
-        }     
-    }
-    
-}
 
 
 
