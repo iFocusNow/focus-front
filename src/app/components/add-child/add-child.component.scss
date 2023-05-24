@@ -49,6 +49,20 @@
         padding-bottom: 2rem;
         padding-inline: 3rem;
         width: 35rem;
+        position: relative;
+
+        .button-add{
+            position:absolute;
+    
+
+            right: 1rem;
+            bottom: 5.5rem;
+            border-radius: 6em;
+            border: none;
+            color: var(--primary-color);
+            background-color: var(--white-color);
+            padding: 1em 3em;
+        }
     }
 }
 
@@ -90,19 +104,22 @@
       width: 20%;
     }
   
-    .select-display{
-        position: relative;
-        padding-left: 30px;
-        padding-top: 1rem;
 
-        mat-form-field{
-            border-radius: 5px;
-            border: solid 1.5px var(--accent-color);
-            background: var(--accent-color);
-            width: 17rem;   
     
-        }   
+
+    .select{
+        height: 40px;
+        border-radius: 5px;
+        border: solid 1.5px var(--accent-color);
+        background: var(--accent-color);
+        width: 270px;
+        margin-left: 30px;
+        margin-top: 1rem;
+        padding-right: 15px;
+
     }
+    
+
     .input-group {
         position: relative;
         padding-left: 30px;

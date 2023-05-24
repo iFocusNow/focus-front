@@ -17,15 +17,13 @@
         </div>
         <div class="input2">
           <p class="entry-type">Seleccionar dispositivo</p>
-          <div class="select-display">
-            <mat-form-field>
-              <mat-select (selectionChange)="getDeviceType($event)" [(ngModel)]="deviceType">
-                <mat-option *ngFor="let device of type_devices" [value]="device.value">
-                  {{device.viewValue}}             
-                </mat-option>                  
-              </mat-select>
-            </mat-form-field>
-          </div>
+          
+            <mat-select (selectionChange)="getDeviceType($event)" [(ngModel)]="deviceType" class="select">
+              <mat-option *ngFor="let device of type_devices" [value]="device.value">
+                {{device.viewValue}}             
+              </mat-option>                  
+            </mat-select>
+         
         </div>
         
 
@@ -36,6 +34,9 @@
           </div>
         </div>
 
+        <button class="button-add" (click)="getDeviceName()">
+          Añadir
+        </button>
     
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="center3">
     <div class="button">
         <button class="btn-cancel" (click)="volverHome()">Cancelar</button>
-        <button class="btn-register" (click)="getDeviceName()">Registrar</button>
+        <button class="btn-register">Registrar</button>
     </div>
     </div>
   </div>

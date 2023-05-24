@@ -74,7 +74,7 @@ getDeviceName(): void {
   console.log('Nombre: ', this.deviceName);
   this.TemporaryList(this.deviceName);
   this.deviceName='';
-  this.childName='';
+  
   this.deviceType='';
 }
 
