@@ -132,6 +132,6 @@ export class AccountComponent implements OnInit {
     this.startCountdown(5 * 60);
   }
   addChild():void{
-    this.router.navigate(["add-child"]);
+    this.router.navigate(["add"]);
   }
 }

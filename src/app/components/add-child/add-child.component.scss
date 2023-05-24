@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    padding-left: 20rem;
+    padding-left: 21rem;
 }
 
 .center {
@@ -48,20 +48,18 @@
         padding-top: 2rem;
         padding-bottom: 2rem;
         padding-inline: 3rem;
-        width: 35rem;
+        width: 25rem;
         position: relative;
 
         .button-add{
-            position:absolute;
-    
-
+            position:absolute; 
             right: 1rem;
             bottom: 5.5rem;
             border-radius: 6em;
             border: none;
             color: var(--primary-color);
             background-color: var(--white-color);
-            padding: 1em 3em;
+            padding: 1em 1.5em;
         }
     }
 }
@@ -89,7 +87,7 @@
         position: absolute;
         border-radius: 5px;
         padding: 1rem;
-        width: 22rem;
+        width: 14.5rem;
         height: 0.5rem;
         outline: none;        
     }
@@ -104,21 +102,21 @@
       width: 20%;
     }
   
-
-    
+   
 
     .select{
         height: 40px;
         border-radius: 5px;
         border: solid 1.5px var(--accent-color);
         background: var(--accent-color);
-        width: 270px;
+        width: 200px;
         margin-left: 30px;
         margin-top: 1rem;
         padding-right: 15px;
-
+        text-align: center;
+  
     }
-    
+
 
     .input-group {
         position: relative;
@@ -134,7 +132,7 @@
         position: absolute;
         border-radius: 5px;
         padding: 1rem;
-        width: 15rem;
+        width: 11.5rem;
         height: 0.5rem;
         outline: none;        
     }
@@ -143,6 +141,7 @@
 
 mat-option{
     color: var(--white-color);
+    background: var(--primary-color);
 }
 
 
@@ -158,7 +157,7 @@ mat-option{
         padding-bottom: 2rem;
         padding-inline: 1rem;
         margin-left: 1.5rem;
-        width: 20rem;
+        width: 16rem;
     }
 
     .danadidos{
@@ -166,10 +165,10 @@ mat-option{
         margin-top: 1rem;
         padding-top: 0.5rem;
         padding-bottom: 1rem;
-        padding-inline: 1.5rem;
+        padding-inline: 0.5rem;
         overflow-y: auto;
-        width: 17rem;
-        height: 13.9rem;
+        width: 15rem;
+        height: 15rem;
     
         .underlined {
           background-color: var(--white-color);
@@ -218,6 +217,7 @@ mat-option{
         justify-content: right;
         padding-top: 1.5rem;
         width: 100%;
+        margin-right: 135px;
 
         .btn-cancel {
             position: relative;
