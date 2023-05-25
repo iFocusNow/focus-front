@@ -5,28 +5,52 @@
 
 <h1 class="center">Fam. {{ last_name_father }} {{ last_name_mother }}</h1>
 
-<div class="center">
-  <div class="blue-card">
-    <div class="input">
-      <p class="entry-type">Appellido Paterno</p>
-      <div class="entry">
-        <p>{{ last_name_father }}</p>
-        <div class="underlined"></div>
+<div class="centrado">
+
+  <div class="center">
+    <div class="blue-card">
+      <div class="input">
+        <p class="entry-type">Appellido Paterno</p>
+        <div class="entry">
+          <p>{{ last_name_father }}</p>
+          <div class="underlined"></div>
+        </div>
       </div>
-    </div>
-    <div class="input">
-      <p class="entry-type">Appellido Materno</p>
-      <div class="entry">
-        <p>{{ last_name_mother }}</p>
-        <div class="underlined"></div>
+      <div class="input">
+        <p class="entry-type">Appellido Materno</p>
+        <div class="entry">
+          <p>{{ last_name_mother }}</p>
+          <div class="underlined"></div>
+        </div>
       </div>
-    </div>
-    <div class="input">
-      <p class="entry-type">Correo electrónico</p>
-      <div class="entry">
-        <p>{{ email }}</p>
-        <div class="underlined"></div>
+      <div class="input">
+        <p class="entry-type">Correo electrónico</p>
+        <div class="entry">
+          <p>{{ email }}</p>
+          <div class="underlined"></div>
+        </div>
       </div>
     </div>
   </div>
+
+
+  <div class="center2">
+
+      <div class="hvinculados">
+          <p>Hijos Vinculados</p>
+          <div class="underlined"></div>
+          <div class="child" *ngFor="let child of childRecover">{{child.name}}
+          <mat-icon class="icon">edit</mat-icon></div>
+      </div>
+
+
+      <div class="registrar">
+        <p>¿Desea registrar un hijo?</p>
+        <div class="button">
+          <button class="btn" (click)="addChild()">Registrar hijo</button>
+        </div>
+      </div>
+
+  </div>
+
 </div>

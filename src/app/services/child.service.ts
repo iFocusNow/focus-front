@@ -16,4 +16,12 @@ export class ChildService {
       .get<Child>(this.baseUrl + '?parent_id=' + parent_id)
       .pipe(retry(2), catchError(handleError));
   }
+
+  addChild(child: any): Observable<any> {
+    return this.http.post(this.baseUrl, child).pipe(
+      retry(2),
+      catchError(handleError)
+    );
+  }
+
 }

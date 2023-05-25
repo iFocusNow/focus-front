@@ -36,6 +36,7 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddChildComponent } from './components/add-child/add-child.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     EditBlockperiodComponent,
     LinksTableComponent,
     DeleteDialogComponent,
+    AddChildComponent,
   ],
   imports: [
     BrowserModule,

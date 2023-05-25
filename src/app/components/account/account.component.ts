@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentService } from 'src/app/services/parent.service';
 import { Parent } from 'src/app/models/parent';
+import { Router } from '@angular/router';
+import { Child } from 'src/app/models/child';
 
 @Component({
   selector: 'app-account',
@@ -17,8 +19,53 @@ export class AccountComponent implements OnInit {
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
+  childRecover: Child[] = [
+    {
+      id: 1,
+      parent_id: 1,
+      name: "Cristina",
+      created_at: "1682540340",
+      updated_at: "1682540340"
+    },
+    {
+      id: 2,
+      parent_id: 1,
+      name: "Pedro",
+      created_at: "1682540340",
+      updated_at: "1682540340"
+    },
+    {
+      id: 3,
+      parent_id: 1,
+      name: "Lisanne",
+      created_at: "1682540340",
+      updated_at: "1682540340"
+    },
+    {
+      id: 4,
+      parent_id: 1,
+      name: "Cristina",
+      created_at: "1682540340",
+      updated_at: "1682540340"
+    },
+    {
+      id: 5,
+      parent_id: 1,
+      name: "Pedro",
+      created_at: "1682540340",
+      updated_at: "1682540340"
+    },
+    {
+      id: 6,
+      parent_id: 1,
+      name: "Lisanne",
+      created_at: "1682540340",
+      updated_at: "1682540340"
+    }
+  ]
 
-  constructor(private parentService: ParentService) {}
+
+  constructor(private parentService: ParentService, private router:Router) {}
 
   ngOnInit(): void {
     this.getParentData();
@@ -83,5 +130,8 @@ export class AccountComponent implements OnInit {
     }, 5 * 60 * 1000);
 
     this.startCountdown(5 * 60);
+  }
+  addChild():void{
+    this.router.navigate(["add"]);
   }
 }

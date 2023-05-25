@@ -1,0 +1,66 @@
+<div class="center">
+  <img src="{{ photo_url }}" />
+  <div class="line">
+    <h1 class="center">Registro de hijo</h1>
+  </div>
+</div>
+
+<div class="centrado">
+  <div class="arriba">
+    <div class="center">
+      <div class="blue-card">
+        <div class="input1">
+          <p class="entry-type">Nombre de hijo</p>
+          <div class="input-group">
+            <input required="" type="text" name="text" autocomplete="off" class="input_text1" [(ngModel)]="childName">
+          </div>
+        </div>
+        <div class="input2">
+          <p class="entry-type">Seleccionar dispositivo</p>
+
+          <mat-select (selectionChange)="getDeviceType($event)" [(ngModel)]="deviceType" class="select">
+            <mat-option *ngFor="let device of type_devices" [value]="device.value">
+              {{device.viewValue}}
+            </mat-option>
+          </mat-select>
+
+        </div>
+
+        <div class="input2">
+          <p class="entry-type">Nombre de dispositivo</p>
+          <div class="input-group">
+            <input required="" type="text" name="text" autocomplete="off" class="input_text2" [(ngModel)]="deviceName">
+          </div>
+        </div>
+
+        <button class="button-add" (click)="getDeviceName()">
+          Añadir
+        </button>
+
+      </div>
+    </div>
+
+    <div class="center2">
+      <div class="blue-card2">
+        <div class="danadidos">
+          <p>Dispositivos añadidos</p>
+          <div class="underlined"></div>
+          <div class="devices" *ngFor="let device of name_devices; let i = index">{{ device }}
+            <mat-icon class="icon" (click)="deleteDevice(i)">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<form #form="ngForm">
+  <div class="center3">
+    <div class="button">
+      <button class="btn-cancel" (click)="volverHome()">Cancelar</button>
+      <button class="btn-register" (click)="onSubmit(form)">Registrar</button>
+    </div>
+  </div>
+</form>
+
+</div>

@@ -1,7 +1,14 @@
+.centrado{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .center {
   display: flex;
   width: 100%;
   justify-content: center;
+
 
   .line {
     position: absolute;
@@ -47,4 +54,88 @@
       margin-top: -0.6rem;
     }
   }
+}
+
+
+.center2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:30rem;
+
+  .hvinculados {
+    background-color: var(--secondary-color);
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    padding-inline: 2rem;
+    width: 13rem;
+    height: 150px;
+    overflow-y: auto;
+
+    .underlined {
+      background-color: var(--white-color);
+      height: 1px;
+      width: 100%;
+      margin-top: -0.6rem;
+    }
+  }
+
+  .registrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-inline: 1rem;
+    width: 15rem;
+
+  }
+}
+
+.hvinculados::-webkit-scrollbar-track {
+  border-radius: 0.125rem;
+  background-color: lightgray;
+}
+.hvinculados::-webkit-scrollbar {
+  width: 0.25rem;
+  border-radius: 0.125rem;
+  margin-left: 0.3rem;
+}
+.hvinculados::-webkit-scrollbar-thumb {
+  border-radius: 0.125rem;
+  background-color: gray;
+}
+
+.child{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+  .icon{
+    scale: 0.8;
+    cursor: pointer;
+  }
+}
+
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .btn {
+    position: relative;
+    padding: 1em 2.5em;
+    display: inline-block;
+    border-radius: 6em;
+    border: none;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    font-family: Lato
+  }
+
 }

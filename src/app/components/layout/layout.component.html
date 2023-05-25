@@ -12,7 +12,7 @@
     <app-sidenav-element
       *ngFor="let child of children"
       [id]="child.id"
-      (click)="onNavigateChild(child.id)"
+      (click)="onNavigateChild(child.id!)"
       [title]="child.name"
       [icon]="'face'"
     ></app-sidenav-element>
