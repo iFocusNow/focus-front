@@ -49,6 +49,20 @@
       "created_at": "1685047825857",
       "updated_at": "1685047825857",
       "id": 4
+    },
+    {
+      "parent_id": 1,
+      "name": "Juan",
+      "created_at": "1685048658425",
+      "updated_at": "1685048658425",
+      "id": 5
+    },
+    {
+      "parent_id": 1,
+      "name": "Carlos",
+      "created_at": "1685049029729",
+      "updated_at": "1685049029729",
+      "id": 6
     }
   ],
   "devices": [
@@ -81,6 +95,24 @@
       "type": "pc",
       "brand": "Razer",
       "id": 5
+    },
+    {
+      "child_id": 5,
+      "type": "laptop",
+      "brand": "Sony",
+      "id": 6
+    },
+    {
+      "child_id": 6,
+      "type": "phone",
+      "brand": "IPhone",
+      "id": 7
+    },
+    {
+      "child_id": 6,
+      "type": "laptop",
+      "brand": "Omen",
+      "id": 8
     }
   ],
   "appDevices": [

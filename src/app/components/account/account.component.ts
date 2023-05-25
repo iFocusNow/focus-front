@@ -3,6 +3,7 @@ import { ParentService } from 'src/app/services/parent.service';
 import { Parent } from 'src/app/models/parent';
 import { Router } from '@angular/router';
 import { Child } from 'src/app/models/child';
+import { ChildService } from 'src/app/services/child.service';
 
 @Component({
   selector: 'app-account',
@@ -65,11 +66,20 @@ export class AccountComponent implements OnInit {
   ]
 
 
-  constructor(private parentService: ParentService, private router:Router) {}
+  constructor(private parentService: ParentService, private childService: ChildService, private router:Router) {}
 
   ngOnInit(): void {
     this.getParentData();
+    this.getParentChildren();
   }
+
+  getParentChildren(): void {
+    this.childService.getParentChildren(this.id).subscribe((children: Child[]) => {
+      this.childRecover = children;
+    });
+  }
+
+
 
   getParentData() {
     this.parentService.getParent(this.id).subscribe((response: any) => {
