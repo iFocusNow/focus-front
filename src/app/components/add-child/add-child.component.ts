@@ -7,7 +7,6 @@ import { MatSelectChange } from '@angular/material/select';
 import { NgForm } from '@angular/forms';
 import { ChildService } from 'src/app/services/child.service';
 
-
 @Component({
   selector: 'app-add-child',
   templateUrl: './add-child.component.html',
@@ -42,7 +41,11 @@ export class AddChildComponent {
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
 
-constructor(private childService: ChildService, private parentService: ParentService, private router:Router) {}
+  constructor(
+    private childService: ChildService,
+    private parentService: ParentService,
+    private router:Router,
+  ) {}
 
 ngOnInit(): void {
   this.getParentData();
@@ -90,22 +93,9 @@ deleteDevice(index:number):void{
 }
 
 onSubmit(form: NgForm) {
-  const devices = [];
-  if (form.value.phone) devices.push({ type: 'phone', brand: 'Marca del teléfono' });
-  if (form.value.tablet) devices.push({ type: 'tablet', brand: 'Marca de la tablet' });
-  if (form.value.laptop) devices.push({ type: 'laptop', brand: 'Marca del laptop' });
-  if (form.value.pc) devices.push({ type: 'pc', brand: 'Marca de la PC' });
-
   const newChild = {
     parent_id: this.id,
-    name: form.value.childName,
-    devices: devices.map(device => {
-      return {
-        child_id: null,
-        type: device.type,
-        brand: device.brand
-      };
-    }),
+    name: this.childName,
     created_at: Date.now().toString(),
     updated_at: Date.now().toString()
   };
@@ -115,6 +105,5 @@ onSubmit(form: NgForm) {
     this.router.navigate(['']);
   });
 }
-
 
 }

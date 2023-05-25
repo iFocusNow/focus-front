@@ -12,7 +12,7 @@
         <div class="input1">
           <p class="entry-type">Nombre de hijo</p>
           <div class="input-group">
-            <input required="" type="text" name="text" autocomplete="off" class="input_text1" [(ngModel)]="childName">
+            <input required="" type="text" name="childName" autocomplete="off" class="input_text1" [(ngModel)]="childName">
           </div>
         </div>
         <div class="input2">
@@ -26,12 +26,12 @@
 
         </div>
 
-        <div class="input2">
-          <p class="entry-type">Nombre de dispositivo</p>
-          <div class="input-group">
-            <input required="" type="text" name="text" autocomplete="off" class="input_text2" [(ngModel)]="deviceName">
-          </div>
-        </div>
+<div class="input2">
+  <p class="entry-type">Nombre de dispositivo</p>
+  <div class="input-group">
+    <input required="" type="text" name="deviceName" autocomplete="off" class="input_text2" [(ngModel)]="deviceName">
+  </div>
+</div>
 
         <button class="button-add" (click)="getDeviceName()">
           Añadir

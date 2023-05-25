@@ -42,6 +42,13 @@
       "name": "Lisanne",
       "created_at": "1682540340",
       "updated_at": "1682540340"
+    },
+    {
+      "parent_id": 1,
+      "name": "Diego",
+      "created_at": "1684992903703",
+      "updated_at": "1684992903703",
+      "id": 4
     }
   ],
   "devices": [
