@@ -46,8 +46,8 @@
     {
       "parent_id": 1,
       "name": "Diego",
-      "created_at": "1684992903703",
-      "updated_at": "1684992903703",
+      "created_at": "1685047825857",
+      "updated_at": "1685047825857",
       "id": 4
     }
   ],
@@ -69,6 +69,18 @@
       "child_id": 2,
       "type": "phone",
       "brand": "Samsung"
+    },
+    {
+      "child_id": 4,
+      "type": "tablet",
+      "brand": "Samsung",
+      "id": 4
+    },
+    {
+      "child_id": 4,
+      "type": "pc",
+      "brand": "Razer",
+      "id": 5
     }
   ],
   "appDevices": [

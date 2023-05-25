@@ -45,9 +45,10 @@
         <div class="danadidos">
           <p>Dispositivos añadidos</p>
           <div class="underlined"></div>
-          <div class="devices" *ngFor="let device of name_devices; let i = index">{{ device }}
+          <div class="devices" *ngFor="let device of name_devices; let i = index">{{ device.deviceName }}
             <mat-icon class="icon" (click)="deleteDevice(i)">delete</mat-icon>
           </div>
+
         </div>
       </div>
     </div>

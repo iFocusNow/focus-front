@@ -16,4 +16,11 @@ export class DeviceService {
       .get<Device>(this.baseUrl + '?child_id=' + child_id)
       .pipe(retry(2), catchError(handleError));
   }
+
+  addDevice(device: any): Observable<any> {
+    return this.http.post(this.baseUrl, device).pipe(
+      retry(2),
+      catchError(handleError)
+    );
+  }
 }
