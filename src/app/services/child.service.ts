@@ -16,4 +16,9 @@ export class ChildService {
       .get<Child>(this.baseUrl + '?parent_id=' + parent_id)
       .pipe(retry(2), catchError(handleError));
   }
+  getChildren(child_id: number): Observable<Child> {
+    return this.http.get<Child>(this.baseUrl +"/"+child_id)
+      .pipe(retry(2), catchError(handleError));
+  }
+
 }

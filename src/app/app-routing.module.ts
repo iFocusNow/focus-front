@@ -6,6 +6,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HelpComponent } from './components/help/help.component';
+import { EditChildComponent } from './components/edit-child/edit-child.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AccountComponent },
       { path: 'child/:id', component: ChildComponent },
+      { path:'edit/child/:id', component:EditChildComponent},
       { path: 'help', component: HelpComponent },
     ],
   },
