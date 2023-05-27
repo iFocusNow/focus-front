@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './components/account/account.component';
 import { ChildComponent } from './components/child/child.component';
@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HelpComponent } from './components/help/help.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
+import { EditChildComponent } from './components/edit-child/edit-child.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,9 @@ const routes: Routes = [
     children: [
       { path: '', component: AccountComponent },
       { path: 'child/:id', component: ChildComponent },
+      { path: 'edit/child/:id', component: EditChildComponent },
       { path: 'help', component: HelpComponent },
-      {path:'add', component:AddChildComponent}
+      { path: 'add', component: AddChildComponent },
     ],
   },
   {
@@ -27,7 +29,6 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
-
 ];
 
 @NgModule({

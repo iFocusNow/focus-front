@@ -16,6 +16,8 @@ import { AddAppDialogComponent } from './components/add-app-dialog/add-app-dialo
 import { AccountComponent } from './components/account/account.component';
 import { HelpComponent } from './components/help/help.component';
 import { SidenavElementComponent } from './components/sidenav-element/sidenav-element.component';
+import { AddChildComponent } from './components/add-child/add-child.component';
+import { EditChildComponent } from './components/edit-child/edit-child.component';
 
 // Material-UI
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -36,7 +38,6 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AddChildComponent } from './components/add-child/add-child.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AddChildComponent } from './components/add-child/add-child.component';
     LinksTableComponent,
     DeleteDialogComponent,
     AddChildComponent,
+    EditChildComponent,
   ],
   imports: [
     BrowserModule,
