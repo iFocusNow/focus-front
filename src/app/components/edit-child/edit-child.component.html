@@ -4,61 +4,50 @@
         <h1 class="center">{{childName}}</h1>       
     </div>
 </div>
-
-
 <div class="divgeneral">
-    <div class="add-device">
-        <p class="toleft">Añadir un dispositivo</p>
-        <div class="input2">
-            
-            <p class="entry-type">Seleccionar dispositivo</p>
-            
-            <mat-select (selectionChange)="getDeviceType($event)" [(ngModel)]="deviceType" class="select">
-                <mat-option *ngFor="let device of type_devices" [value]="device.value">
-                  {{device.viewValue}}             
-                </mat-option>                  
-            </mat-select>
-           
-          </div>
-        <div class="input2">
-            <p class="entry-type">Nombre de dispositivo</p>        
-            <div class="input-group">
-              <input required="" type="text" name="text" autocomplete="off" class="input_text2" [(ngModel)]="deviceName">
-            </div>
+  <div class="add-device">
+    <p class="toleft">Editar dispositivo</p>
+    
+    <div class="input2">
+        <p class="entry-type">Nombre de dispositivo</p>        
+        <div class="input-group">
+          <input required="" type="text" name="text" autocomplete="off" class="input_text2" [(ngModel)]="deviceNameprob"[title]="deviceNameprob">
+        </div>
+      </div>
+
+      <button class="button-add" (click)="getDeviceName()">
+        Aceptar
+      </button>
+  
+</div>
+
+  <div class="name">
+    <div class="input1">
+        <p class="entry-type">Nombre de hijo</p>        
+        <div class="input-group">
+            <input required="" type="text" name="text" class="input_text1" [(ngModel)]="childNameprob"[title]="childNameprob">
           </div>
   
-          <button class="button-add" (click)="getDeviceName()">
-            Añadir
-          </button>
-      
+      </div>
+  </div>
+  
+  <div class="table">
+    <div class="toleft">
+        <p>Dispositivos vinculados</p>      
+        <div class="underlined"></div>
+  
+        <div class="devices_c" 
+        *ngFor="let device of devices; 
+        let i= index">
+        {{device.brand}}
+        <mat-icon class="icon" (click)="deleteDevice(i)">delete</mat-icon>
+        <mat-icon class="icon2" (click)="editDevice(i)">edit</mat-icon>
     </div>
-
-    <div class="name">
-        <div class="input1">
-            <p class="entry-type">Nombre de hijo</p>        
-            <div class="input-group">
-                <input required="" type="text" name="text" class="input_text1" [(ngModel)]="childName"[title]="childName">
-              </div>
-
-          </div>
-    </div>
-
-    <div class="table">
-        <div class="toleft">
-            <p>Dispositivos añadidos</p>      
-            <div class="underlined"></div>
-
-            <div class="devices_c" 
-            *ngFor="let device of name_devices; 
-            let i = index">
-            {{device}}
-            <mat-icon class="icon" (click)="deleteDevice(i)">delete</mat-icon>
-            <mat-icon class="icon2" (click)="editDevice(i)">edit</mat-icon>
-        </div>
-            
-          </div>
-    </div>
+        
+      </div>
+  </div>
 </div>
+
 
 <div class="center3">
     <div class="button">

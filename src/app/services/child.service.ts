@@ -20,5 +20,9 @@ export class ChildService {
     return this.http.get<Child>(this.baseUrl +"/"+child_id)
       .pipe(retry(2), catchError(handleError));
   }
+  updateChild(child: Child): Observable<Child>{
+    return this.http.put<Child>(this.baseUrl +"/"+ child.id, child)
+      .pipe(retry(2), catchError(handleError));
+  }
 
 }

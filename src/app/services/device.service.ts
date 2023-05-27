@@ -16,4 +16,8 @@ export class DeviceService {
       .get<Device>(this.baseUrl + '?child_id=' + child_id)
       .pipe(retry(2), catchError(handleError));
   }
+  updateDevice(device: Device): Observable<Device>{
+    return this.http.put<Device>(this.baseUrl +"/"+device.id, device)
+      .pipe(retry(2), catchError(handleError));
+  }
 }

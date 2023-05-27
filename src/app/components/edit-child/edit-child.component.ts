@@ -17,13 +17,18 @@ import { DeviceService } from 'src/app/services/device.service';
 })
 export class EditChildComponent {
   
-  child_id: number = 2;
+  child_id!: number;
   value!:string;
   name_devices: string[] = []
   devices:Device[] = [];
+  child:Child[] = [];
   deviceName!: string;
   childName!: string;
-  deviceType!: string;
+  childNameprob!: string;
+  deviceNameprob!: string;
+  created_at!:string;
+
+  index!:number;
   
   type_devices = [
     {value:'phone', viewValue:'Celular'},
@@ -50,6 +55,7 @@ export class EditChildComponent {
     private snackBar:MatSnackBar, private parentService: ParentService, private deviceService: DeviceService){}
 
     ngOnInit(): void {
+      this.child_id = this.activatedRouter.snapshot.params["id"];
       this.getNameChildren();
       this.getChildrenDevices();
       this.getParentData();
@@ -67,59 +73,106 @@ export class EditChildComponent {
     }
 
     getNameChildren(){
+      this.childService
+        .getChildren(this.child_id)
+        .subscribe((response: any) => {
+          this.child = response;
+          
+        });
       this.childService.getChildren(this.child_id).subscribe({
         next:(data:Child) => {
         this.childName= (data.name);
+        this.created_at=(data.created_at);
+        this.childNameprob= (data.name);
       },
       error: (err) => {
         console.log(err);
       }
     });
     }
+
     getChildrenDevices() {
       this.deviceService
         .getChildrenDevices(this.child_id)
         .subscribe((response: any) => {
           this.devices = response;
+          
         });
+        for (let i = 0; i < this.devices.length; i++) {
+        this.name_devices.push(this.devices[i].brand);
+        }
     }
+    
 
     getDevice(device:string):void{
       console.log(device);
     }
-    getDeviceType(event: MatSelectChange): void {
-      const selectedValue = event.value;
-      console.log('Dispositivo:', selectedValue);
-    }
-    
+
     getDeviceName(): void {
-      console.log('Nombre: ', this.deviceName);
-      this.TemporaryList(this.deviceName);
-      this.deviceName='';
-      
-      this.deviceType='';
-    }
-    
-    TemporaryList(name_device:string):void{
-      this.name_devices.push(
-        
-      )
-      this.name_devices.push(name_device);
-      console.log(this.name_devices);
+      if(this.index!=undefined){
+      this.devices[this.index].brand=this.deviceNameprob;
+      }
+      this.deviceNameprob='';
     }
     
     deleteDevice(index:number):void{
-      this.name_devices.splice(index,1);
+      this.devices.splice(index,1);
     }
-    editDevice(index:number):void{
 
+    editDevice(index:number):void{
+      this.index=index;
+      if(this.index!=undefined){
+        this.deviceNameprob=this.devices[index].brand;
+        }
+      
     }
 
     BackHome():void{
       this.router.navigate(['']);
     }
+
     saveChild():void{
-        /////////give up
+      const child:Child = {
+        id: this.child_id,
+        parent_id:this.id,
+        name: this.childNameprob, 
+        created_at: this.created_at,
+        updated_at: Date.now().toString()
+
+      }
+
+      this.childService.updateChild(child).subscribe({
+        next: (data)  => {
+          this.router.navigate(['/']).then(() => {
+            window.location.reload();
+          });
+          this.snackBar.open("El hijo se actualizó correctamente","OK",{duration:3000});
+          
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+
+      
+
+      /*const device:Device = {
+        id: this.index + 1,
+        child_id:this.child_id,
+        type: this.devices[this.index].type, 
+        brand: this.devices[this.index].brand
+
+      }
+
+      this.deviceService.updateDevice(device).subscribe({
+        next: (data)  => {
+          
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });*/
     }
+    
   
 }

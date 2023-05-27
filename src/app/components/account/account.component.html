@@ -40,7 +40,8 @@
           <p>Hijos Vinculados</p>
           <div class="underlined"></div>
           <div class="child" *ngFor="let child of childRecover">{{child.name}} 
-          <mat-icon class="icon">edit</mat-icon></div>
+            
+            <mat-icon style="cursor: pointer;" routerLink="/edit/child/{{child.id}}">edit</mat-icon></div>
       </div>
   
   
