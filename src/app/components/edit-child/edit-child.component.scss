@@ -232,9 +232,12 @@
     height: 250px;
     background-color: var(--secondary-color);
     .button-add{
-        position:absolute; 
-        right:  20rem;
-        bottom: 35%;
+        float: right;
+        margin-right: 4rem;
+        margin-top: 1rem;
+        //position:absolute; 
+        //right:  20rem;
+        //bottom: 35%;
         border-radius: 6em;
         border: none;
         color: var(--primary-color);

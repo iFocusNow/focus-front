@@ -42,6 +42,7 @@ export class EditChildComponent {
   ];
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
+  
   //pa la foto pes porque si
   id: number = 1;
   last_name_father: string | undefined;

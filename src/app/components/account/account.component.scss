@@ -111,14 +111,21 @@
 
 .child{
   width: 100%;
-  display: flex;
+  //display: flex;
   justify-content: space-between;
   margin-top: 1rem;
 
   .icon{
     scale: 0.8;
     cursor: pointer;
+
+    
   }
+}
+
+.right{
+  float: right;
+  margin-right: 0.5rem;
 }
 
 

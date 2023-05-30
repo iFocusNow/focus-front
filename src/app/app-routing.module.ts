@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HelpComponent } from './components/help/help.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
 import { EditChildComponent } from './components/edit-child/edit-child.component';
+import { AddDeviceComponent } from './components/add-device/add-device.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: '', component: AccountComponent },
       { path: 'child/:id', component: ChildComponent },
       { path: 'edit/child/:id', component: EditChildComponent },
+      { path: 'add/device/:id', component: AddDeviceComponent },
       { path: 'help', component: HelpComponent },
       { path: 'add', component: AddChildComponent },
     ],

@@ -38,6 +38,7 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddDeviceComponent } from './components/add-device/add-device.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DeleteDialogComponent,
     AddChildComponent,
     EditChildComponent,
+    AddDeviceComponent,
   ],
   imports: [
     BrowserModule,
