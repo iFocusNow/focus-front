@@ -25,9 +25,9 @@
     {
       "id": 1,
       "parent_id": 1,
-      "name": "Cristina",
+      "name": "Cris",
       "created_at": "1682540340",
-      "updated_at": "1685932232983"
+      "updated_at": "1685934789297"
     },
     {
       "id": 2,
@@ -80,6 +80,12 @@
       "child_id": "1",
       "type": "laptop",
       "brand": "MAC AIR"
+    },
+    {
+      "id": 7,
+      "child_id": "1",
+      "type": "laptop",
+      "brand": "mac air m2"
     }
   ],
   "appDevices": [
