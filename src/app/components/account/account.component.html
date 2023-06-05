@@ -6,7 +6,6 @@
 <h1 class="center">Fam. {{ last_name_father }} {{ last_name_mother }}</h1>
 
 <div class="centrado">
-
   <div class="center">
     <div class="blue-card">
       <div class="input">
@@ -32,32 +31,36 @@
       </div>
     </div>
   </div>
-  
-  
-  <div class="center2">
-  
-      <div class="hvinculados">
-          <p>Hijos Vinculados</p>
-          <div class="underlined"></div>
-          <div class="child" *ngFor="let child of childRecover">{{child.name}} 
-            
-            <mat-icon class="right" style="cursor: pointer;" routerLink="/add/device/{{child.id}}">
-              add
-            </mat-icon>
-            <mat-icon class="right" style="cursor: pointer;" routerLink="/edit/child/{{child.id}}">
-              edit
-            </mat-icon>
-          </div>
-      </div>
-  
-  
-      <div class="registrar">
-        <p>¿Desea registrar un hijo?</p>
-        <div class="button">
-          <button class="btn" (click)="addChild()">Registrar hijo</button>
-        </div>
-      </div>
 
+  <div class="center2">
+    <div class="hvinculados">
+      <p>Hijos Vinculados</p>
+      <div class="underlined"></div>
+      <div class="child" *ngFor="let child of childRecover">
+        {{ child.name }}
+
+        <mat-icon
+          class="right"
+          style="cursor: pointer"
+          routerLink="/add/device/{{ child.id }}"
+        >
+          add
+        </mat-icon>
+        <mat-icon
+          class="right"
+          style="cursor: pointer"
+          routerLink="/edit/child/{{ child.id }}"
+        >
+          edit
+        </mat-icon>
+      </div>
+    </div>
+
+    <div class="registrar">
+      <p>¿Desea registrar un hijo?</p>
+      <div class="button">
+        <button class="btn" (click)="addChild()">Registrar hijo</button>
+      </div>
+    </div>
   </div>
-  
 </div>

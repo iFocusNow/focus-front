@@ -1,14 +1,14 @@
-.centrado{
+.centrado {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .center {
   display: flex;
   width: 100%;
   justify-content: center;
-  
 
   .line {
     position: absolute;
@@ -56,12 +56,11 @@
   }
 }
 
-
 .center2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width:30rem;
+  width: 30rem;
 
   .hvinculados {
     background-color: var(--secondary-color);
@@ -91,7 +90,6 @@
     padding-bottom: 2rem;
     padding-inline: 1rem;
     width: 15rem;
-
   }
 }
 
@@ -109,27 +107,24 @@
   background-color: gray;
 }
 
-.child{
+.child {
   width: 100%;
   //display: flex;
   justify-content: space-between;
   margin-top: 1rem;
 
-  .icon{
+  .icon {
     scale: 0.8;
     cursor: pointer;
-
-    
   }
 }
 
-.right{
+.right {
   float: right;
   margin-right: 0.5rem;
 }
 
-
-.button{
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,7 +137,6 @@
     border: none;
     color: var(--primary-color);
     background-color: var(--white-color);
-    font-family: Lato
+    font-family: Lato;
   }
-
 }

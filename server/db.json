@@ -27,7 +27,7 @@
       "parent_id": 1,
       "name": "Cristina",
       "created_at": "1682540340",
-      "updated_at": "1685209479617"
+      "updated_at": "1685932232983"
     },
     {
       "id": 2,
@@ -74,6 +74,12 @@
       "child_id": "3",
       "type": "pc",
       "brand": "Asus"
+    },
+    {
+      "id": 6,
+      "child_id": "1",
+      "type": "laptop",
+      "brand": "MAC AIR"
     }
   ],
   "appDevices": [
