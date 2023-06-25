@@ -6,13 +6,13 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
 export interface LinkExt {
-  id: number;
+  id: string;
   name: string;
   url: string;
-  device_id: number;
-  blockperiod_id: number;
+  device_id: string;
+  blockperiod_id: string;
   blockperiod: {
-    id: number;
+    id: string;
     is_monday: boolean;
     is_tuesday: boolean;
     is_wednesday: boolean;
@@ -25,11 +25,11 @@ export interface LinkExt {
 
 const LinkData: LinkExt[] = [
   {
-    id: 1,
-    device_id: 1,
-    blockperiod_id: 1,
+    id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
+    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
+    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
     blockperiod: {
-      id: 1,
+      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
       is_monday: true,
       is_tuesday: true,
       is_wednesday: true,
@@ -42,11 +42,11 @@ const LinkData: LinkExt[] = [
     url: 'https://www.reddit.com/',
   },
   {
-    id: 2,
-    device_id: 2,
-    blockperiod_id: 2,
+    id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
+    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
     blockperiod: {
-      id: 2,
+      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
       is_monday: true,
       is_tuesday: false,
       is_wednesday: false,
@@ -59,11 +59,11 @@ const LinkData: LinkExt[] = [
     url: 'https://twitter.com/',
   },
   {
-    id: 3,
-    device_id: 1,
-    blockperiod_id: 1,
+    id: "45e38852-a228-4317-9e6e-cda83ae13800",
+    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
+    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
     blockperiod: {
-      id: 1,
+      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
       is_monday: true,
       is_tuesday: true,
       is_wednesday: true,
@@ -74,75 +74,7 @@ const LinkData: LinkExt[] = [
     },
     name: 'Facebook',
     url: 'https://www.facebook.com/',
-  },
-  {
-    id: 4,
-    device_id: 2,
-    blockperiod_id: 2,
-    blockperiod: {
-      id: 2,
-      is_monday: true,
-      is_tuesday: false,
-      is_wednesday: false,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: true,
-      is_sunday: false,
-    },
-    name: 'Instagram',
-    url: 'https://www.instagram.com/',
-  },
-  {
-    id: 5,
-    device_id: 1,
-    blockperiod_id: 2,
-    blockperiod: {
-      id: 2,
-      is_monday: true,
-      is_tuesday: false,
-      is_wednesday: false,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: true,
-      is_sunday: false,
-    },
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/',
-  },
-  {
-    id: 6,
-    device_id: 1,
-    blockperiod_id: 1,
-    blockperiod: {
-      id: 1,
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-    name: 'YouTube',
-    url: 'https://www.youtube.com/',
-  },
-  {
-    id: 7,
-    device_id: 1,
-    blockperiod_id: 1,
-    blockperiod: {
-      id: 1,
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-    name: 'Amazon',
-    url: 'https://www.amazon.com/',
-  },
+  }
 ];
 
 @Component({
@@ -191,7 +123,7 @@ export class LinksTableComponent {
     });
   }
 
-  deleteItem(link_id: number) {
+  deleteItem(link_id: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
       is_app: false,

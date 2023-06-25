@@ -14,7 +14,7 @@ import { AddLinkDialogComponent } from '../add-link-dialog/add-link-dialog.compo
 export class ChildComponent {
   selectedValue: number = 0;
   devices: Device[] = [];
-  child_id: number = 0;
+  child_id: string = "181f3d97-57f2-479d-aad3-d7caf0c36976";
 
   constructor(
     private route: ActivatedRoute,

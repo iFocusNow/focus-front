@@ -10,7 +10,7 @@ import { Child } from 'src/app/models/child';
   styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
-  id: number = 1;
+  id: string = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -21,43 +21,22 @@ export class AccountComponent implements OnInit {
   countdown: string | null = null;
   childRecover: Child[] = [
     {
-      id: 1,
-      parent_id: 1,
+      id: "181f3d97-57f2-479d-aad3-d7caf0c36976",
+      parent_id: "c29107e7-eda8-44cf-9960-30a2a821a4ea",
       name: "Cristina",
       created_at: "1682540340",
       updated_at: "1682540340"
     },
     {
-      id: 2,
-      parent_id: 1,
+      id: "6d025fe7-6785-4c26-a13b-72cb8cca20d3",
+      parent_id: "c29107e7-eda8-44cf-9960-30a2a821a4ea",
       name: "Pedro",
       created_at: "1682540340",
       updated_at: "1682540340"
     },
     {
-      id: 3,
-      parent_id: 1,
-      name: "Lisanne",
-      created_at: "1682540340",
-      updated_at: "1682540340"
-    },
-    {
-      id: 4,
-      parent_id: 1,
-      name: "Cristina",
-      created_at: "1682540340",
-      updated_at: "1682540340"
-    },
-    {
-      id: 5,
-      parent_id: 1,
-      name: "Pedro",
-      created_at: "1682540340",
-      updated_at: "1682540340"
-    },
-    {
-      id: 6,
-      parent_id: 1,
+      id: "19e9f08e-1154-4a60-adcb-725b95020efb",
+      parent_id: "c29107e7-eda8-44cf-9960-30a2a821a4ea",
       name: "Lisanne",
       created_at: "1682540340",
       updated_at: "1682540340"

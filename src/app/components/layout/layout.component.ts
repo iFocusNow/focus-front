@@ -11,7 +11,7 @@ import { NotificationsService } from 'src/app/services/notifications.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  parent_id = 1;
+  parent_id = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
   children: Child[] | undefined;
   visibleNotifications = false;
   sizeNotification = 20;
@@ -29,8 +29,8 @@ export class LayoutComponent implements OnInit {
     this.router.navigate([route]);
   }
 
-  onNavigateChild(childId: number): void {
-    this.router.navigate(['/child', childId]);
+  onNavigateChild(child_id: string): void {
+    this.router.navigate(['/child', child_id]);
   }
 
   getParentChildren() {

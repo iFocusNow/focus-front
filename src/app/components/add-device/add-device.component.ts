@@ -14,8 +14,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./add-device.component.scss']
 })
 export class AddDeviceComponent {
-  child_id!: number;
-  device_id: number=0;
+  child_id!: string;
+  device_id: string = "";
   child: Child[] = [];
   device!:Device;
   //devices: number[]=[];
@@ -84,7 +84,7 @@ saveDevice():void{
   if(this.deviceType=="phone"){
   const device:Device = {
     //id: this.device_id,
-    id: 0,
+    id: "",
     child_id: this.child_id,
     type: "phone",    
     brand: this.deviceName,
@@ -94,7 +94,7 @@ saveDevice():void{
 else if(this.deviceType=="pc"){
   const device:Device = {
     //id: this.device_id,
-    id: 0,
+    id: "",
     child_id: this.child_id,
     type: "pc",    
     brand: this.deviceName,
@@ -104,7 +104,7 @@ else if(this.deviceType=="pc"){
 else if(this.deviceType=="tablet"){
   const device:Device = {
     //id: this.device_id,
-    id: 0,
+    id: "",
     child_id: this.child_id,
     type: "tablet",    
     brand: this.deviceName,
@@ -114,7 +114,7 @@ else if(this.deviceType=="tablet"){
 else{
   const device:Device = {
     //id: this.device_id,
-    id: 0,
+    id: "",
     child_id: this.child_id,
     type: "laptop",    
     brand: this.deviceName,

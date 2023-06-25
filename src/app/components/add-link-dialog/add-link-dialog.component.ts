@@ -46,7 +46,7 @@ export class AddLinkDialogComponent {
     const anyTrue = values.some((val) => val === true);
     if (!anyTrue) {
       this.openSnackBar('No se elegido un día de bloqueo', 'Aceptar');
-    } else if (this.data.device_id === 0) {
+    } else if (this.data.device_id === "") {
       this.openSnackBar('Seleccione un dispositivo', 'Aceptar');
     } else if (this.linkFormControl.value === '') {
       this.openSnackBar('Agrege un URL para bloquear', 'Aceptar');

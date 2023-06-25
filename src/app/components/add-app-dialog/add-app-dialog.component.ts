@@ -15,7 +15,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddAppDialogComponent implements OnInit {
   dataSource!: MatTableDataSource<App>;
   displayedColumns: string[] = ['logo', 'name'];
-  selectedRowIndex: number = 0;
+  selectedRowIndex: string = "";
 
   week = this._formBuilder.group({
     is_monday: false,
@@ -45,7 +45,7 @@ export class AddAppDialogComponent implements OnInit {
     });
   }
 
-  selectRow(id: number) {
+  selectRow(id: string) {
     // Save the selected row as the app id
     this.selectedRowIndex = id;
   }
@@ -71,11 +71,11 @@ export class AddAppDialogComponent implements OnInit {
     console.log(this.selectedRowIndex);
     const values = Object.values(this.week.value);
     const anyTrue = values.some((val) => val === true);
-    if (this.selectedRowIndex === 0) {
+    if (this.selectedRowIndex === "") {
       this.openSnackBar('No se ha elegido una aplicación', 'Aceptar');
     } else if (!anyTrue) {
       this.openSnackBar('No se elegido un día de bloqueo', 'Aceptar');
-    } else if (this.data.device_id === 0) {
+    } else if (this.data.device_id === "") {
       this.openSnackBar('Seleccione un dispositivo', 'Aceptar');
     } else {
       // Create the blockperiod

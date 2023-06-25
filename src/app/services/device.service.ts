@@ -12,7 +12,7 @@ export class DeviceService {
   constructor(private http: HttpClient) {}
   baseUrl = baseUrl + '/devices';
 
-  getChildrenDevices(child_id: number): Observable<Device> {
+  getChildrenDevices(child_id: string): Observable<Device> {
     return this.http
       .get<Device>(this.baseUrl + '?child_id=' + child_id)
       .pipe(retry(2), catchError(handleError));

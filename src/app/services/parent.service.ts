@@ -37,7 +37,7 @@ export class ParentService {
     );
   }
 
-  getParent(id: number): Observable<Parent> {
+  getParent(id: string): Observable<Parent> {
     return this.http
       .get<Parent>(this.baseUrl + '?id=' + id)
       .pipe(retry(2), catchError(handleError));

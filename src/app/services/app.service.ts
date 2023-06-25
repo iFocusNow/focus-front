@@ -17,7 +17,7 @@ export class AppService {
       .pipe(retry(2), catchError(handleError));
   }
 
-  getApp(app_id: number): Observable<App> {
+  getApp(app_id: string): Observable<App> {
     return this.http
       .get<App>(this.baseUrl + '?id=' + app_id)
       .pipe(retry(2), catchError(handleError));

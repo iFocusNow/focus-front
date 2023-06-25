@@ -1,5 +1,5 @@
 export interface AppDevice {
-  device_id: number;
-  app_id: number;
-  blockperiod_id: number;
+  device_id: string;
+  app_id: string;
+  blockperiod_id: string;
 }

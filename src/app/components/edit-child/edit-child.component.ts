@@ -21,7 +21,7 @@ import { DeviceService } from 'src/app/services/device.service';
   styleUrls: ['./edit-child.component.scss'],
 })
 export class EditChildComponent {
-  child_id!: number;
+  child_id!: string;
   value!: string;
   name_devices: string[] = [];
   devices: Device[] = [];
@@ -43,8 +43,7 @@ export class EditChildComponent {
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
   
-  //pa la foto pes porque si
-  id: number = 1;
+  id: string = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -53,14 +52,11 @@ export class EditChildComponent {
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
-  ////////////////
 
   constructor(
-    private formBuilder: FormBuilder,
     private childService: ChildService,
     private router: Router,
     private activatedRouter: ActivatedRoute,
-    private snackBar: MatSnackBar,
     private parentService: ParentService,
     private deviceService: DeviceService
   ) {}

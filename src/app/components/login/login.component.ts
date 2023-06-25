@@ -26,7 +26,7 @@ export class LoginComponent {
 
   onSubmit() {
     const parent = {
-      id: 0,
+      id: "",
       last_name_mother:"",
       last_name_father: "",
       photo_url: "",

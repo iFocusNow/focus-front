@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     }
 
     const parent: Parent = {
-      id: 0,
+      id: "",
       last_name_mother: this.registerForm.controls['last_name_mother'].value,
       last_name_father: this.registerForm.controls['last_name_father'].value,
       email: this.registerForm.controls['email'].value,

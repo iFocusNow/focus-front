@@ -11,7 +11,7 @@ export class AppDeviceService {
   constructor(private http: HttpClient) {}
   baseUrl = baseUrl + '/appDevices';
 
-  getAppDevice(device_id: number): Observable<AppDevice> {
+  getAppDevice(device_id: string): Observable<AppDevice> {
     return this.http
       .get<AppDevice>(this.baseUrl + '?device_id=' + device_id)
       .pipe(retry(2), catchError(handleError));

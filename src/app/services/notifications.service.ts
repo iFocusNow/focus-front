@@ -14,7 +14,7 @@ export class NotificationsService {
   constructor(private http: HttpClient) {}
   baseUrl = baseUrl + '/alerts';
 
-  getParentAlert(parent_id: number): Observable<Alert> {
+  getParentAlert(parent_id: string): Observable<Alert> {
     return this.http
       .get<Alert>(this.baseUrl + '?parent_id=' + parent_id)
       .pipe(retry(2), catchError(handleError));

@@ -1,5 +1,5 @@
 export interface App {
-  id: number;
+  id: string;
   name: string;
   logo: string;
 }

@@ -1,6 +1,6 @@
 export interface Device {
-  id?: number;
-  child_id?: number;
+  id?: string;
+  child_id?: string
   type: 'phone' | 'laptop' | 'tablet' | 'pc';
   brand: string;
 }
