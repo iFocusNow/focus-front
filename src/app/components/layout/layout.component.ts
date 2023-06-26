@@ -11,14 +11,19 @@ import { NotificationsService } from 'src/app/services/notifications.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  parent_id = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
+  parent_id = 'c29107e7-eda8-44cf-9960-30a2a821a4ea';
   children: Child[] | undefined;
   visibleNotifications = false;
   sizeNotification = 20;
   alerts: Alert[] | undefined;
-  formattedAlerts: { message: string, type: string }[] = [];
+  formattedAlerts: { message: string; type: string }[] = [];
+  storage = localStorage;
 
-  constructor(private childService: ChildService, private router: Router, private notificationService: NotificationsService) {}
+  constructor(
+    private childService: ChildService,
+    private router: Router,
+    private notificationService: NotificationsService
+  ) {}
 
   ngOnInit(): void {
     this.getParentChildren();
@@ -26,6 +31,13 @@ export class LayoutComponent implements OnInit {
   }
 
   onNavigate(route: string): void {
+    this.router.navigate([route]);
+  }
+
+  onNavigateLogout(route: string): void {
+    this.storage.removeItem('email');
+    this.storage.removeItem('password');
+
     this.router.navigate([route]);
   }
 
@@ -41,8 +53,8 @@ export class LayoutComponent implements OnInit {
       });
   }
 
-  showNotification(){
-    this.visibleNotifications =!this.visibleNotifications;
+  showNotification() {
+    this.visibleNotifications = !this.visibleNotifications;
   }
 
   getAlertMessage(alert: Alert): string {
@@ -57,14 +69,12 @@ export class LayoutComponent implements OnInit {
         return '';
     }
   }
-  
-  getNotifications(){
+
+  getNotifications() {
     this.notificationService
       .getParentAlert(this.parent_id)
       .subscribe((response: any) => {
-        this.alerts = response;        
+        this.alerts = response;
       });
-      
   }
-
 }
