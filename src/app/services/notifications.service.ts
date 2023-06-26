@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { baseUrl, handleError } from './http-data';
+import { baseUrl, handleError, httpOptions } from './http-data';
 import { Alert } from '../models/alerts';
 import { Observable } from 'rxjs/internal/Observable';
 import { retry } from 'rxjs/internal/operators/retry';
@@ -14,9 +14,9 @@ export class NotificationsService {
   constructor(private http: HttpClient) {}
   baseUrl = baseUrl + '/alerts';
 
-  getParentAlert(parent_id: string): Observable<Alert> {
+  getChildAlert(child_id: string): Observable<Alert[]> {
     return this.http
-      .get<Alert>(this.baseUrl + '?parent_id=' + parent_id)
-      .pipe(retry(2), catchError(handleError));
+      .get<Alert[]>(this.baseUrl + "/get/" + child_id, {headers: httpOptions.headers,});
+      
   }
 }
