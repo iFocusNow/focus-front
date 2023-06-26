@@ -10,53 +10,50 @@ import { Child } from 'src/app/models/child';
   styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
-  id: string = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
+  id: string | undefined;
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
-  email: string | undefined;
+  email: string = localStorage.getItem('email') || '';
   photo_url: string | undefined;
-  parentData: Parent[] = [];
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
   childRecover: Child[] = [
     {
-      id: "181f3d97-57f2-479d-aad3-d7caf0c36976",
-      parent_id: "c29107e7-eda8-44cf-9960-30a2a821a4ea",
-      name: "Cristina",
-      created_at: "1682540340",
-      updated_at: "1682540340"
+      id: '181f3d97-57f2-479d-aad3-d7caf0c36976',
+      parent_id: 'c29107e7-eda8-44cf-9960-30a2a821a4ea',
+      name: 'Cristina',
+      created_at: '1682540340',
+      updated_at: '1682540340',
     },
     {
-      id: "6d025fe7-6785-4c26-a13b-72cb8cca20d3",
-      parent_id: "c29107e7-eda8-44cf-9960-30a2a821a4ea",
-      name: "Pedro",
-      created_at: "1682540340",
-      updated_at: "1682540340"
+      id: '6d025fe7-6785-4c26-a13b-72cb8cca20d3',
+      parent_id: 'c29107e7-eda8-44cf-9960-30a2a821a4ea',
+      name: 'Pedro',
+      created_at: '1682540340',
+      updated_at: '1682540340',
     },
     {
-      id: "19e9f08e-1154-4a60-adcb-725b95020efb",
-      parent_id: "c29107e7-eda8-44cf-9960-30a2a821a4ea",
-      name: "Lisanne",
-      created_at: "1682540340",
-      updated_at: "1682540340"
-    }
-  ]
+      id: '19e9f08e-1154-4a60-adcb-725b95020efb',
+      parent_id: 'c29107e7-eda8-44cf-9960-30a2a821a4ea',
+      name: 'Lisanne',
+      created_at: '1682540340',
+      updated_at: '1682540340',
+    },
+  ];
 
-
-  constructor(private parentService: ParentService, private router:Router) {}
+  constructor(private parentService: ParentService, private router: Router) {}
 
   ngOnInit(): void {
     this.getParentData();
   }
 
   getParentData() {
-    this.parentService.getParent(this.id).subscribe((response: any) => {
-      this.parentData = response;
-      this.last_name_father = this.parentData[0].last_name_father;
-      this.last_name_mother = this.parentData[0].last_name_mother;
-      this.email = this.parentData[0].email;
-      this.photo_url = this.parentData[0].photo_url;
+    this.parentService.getParent(this.email).subscribe((response: any) => {
+      this.last_name_father = response.last_name_father;
+      this.last_name_mother = response.last_name_mother;
+      this.photo_url = response.photo_url;
+      this.id = response.id;
     });
   }
 
@@ -110,7 +107,7 @@ export class AccountComponent implements OnInit {
 
     this.startCountdown(5 * 60);
   }
-  addChild():void{
-    this.router.navigate(["add"]);
+  addChild(): void {
+    this.router.navigate(['add']);
   }
 }

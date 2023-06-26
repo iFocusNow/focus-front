@@ -9,8 +9,8 @@ import { HelpComponent } from './components/help/help.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
 import { EditChildComponent } from './components/edit-child/edit-child.component';
 import { AddDeviceComponent } from './components/add-device/add-device.component';
-import { SessionGuard } from './session.guard';
 import { AuthGuard } from './auth.guard';
+import { SessionGuard } from './session.guard';
 
 const routes: Routes = [
   {
