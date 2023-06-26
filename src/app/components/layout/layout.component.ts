@@ -14,6 +14,7 @@ export class LayoutComponent implements OnInit {
   children: Child[] | undefined;
   visibleNotifications = false;
   sizeNotification = 20;
+  alertas: string[] = [];
   alerts: Alert[] | undefined;
   formattedAlerts: { message: string; type: string }[] = [];
   storage = localStorage;
@@ -29,12 +30,13 @@ export class LayoutComponent implements OnInit {
     if (!localStorage.getItem('id')) {
       setTimeout(() => {
         this.getParentChildren();
-        this.getNotifications();
+        
       }, 150);
     } else {
       this.getParentChildren();
-      this.getNotifications();
     }
+
+    
   }
 
   onNavigate(route: string): void {
@@ -52,12 +54,24 @@ export class LayoutComponent implements OnInit {
   onNavigateChild(child_id: string): void {
     this.router.navigate(['/child', child_id]);
   }
-
   getParentChildren() {
     this.childService
       .getParentChildren(localStorage.getItem('id') || '')
       .subscribe((response: any) => {
-        this.children = response;
+        this.children = response;        
+        console.log(this.children);
+        this.children?.forEach(((child)=>{
+          console.log(child.id);
+          this.notificationService.getChildAlert(child.id!).subscribe(
+            (data: Alert[]) => {
+              data.forEach((element:Alert) => {
+                console.log(element);
+                this.alertas.push(this.getAlertMessage(element));
+                console.log(this.alertas);
+              })
+            }
+          )
+          }))
       });
   }
 
@@ -67,22 +81,16 @@ export class LayoutComponent implements OnInit {
 
   getAlertMessage(alert: Alert): string {
     switch (alert.type) {
-      case 'block_entry':
+      case "BLOCK_ENTRY":
         return 'Su hijo(a) ha querido entrar a una aplicación bloqueada.';
-      case 'solicit_unblock':
+      case 'SOLICIT_UNBLOCK':
         return 'Su hijo(a) ha solicitado un desbloqueo de aplicación.';
-      case 'phone_time_exceeded':
+      case 'PHONE_TIME_EXCEEDED':
         return 'Su hijo(a) ha superado el tiempo en pantalla.';
       default:
         return '';
     }
   }
 
-  getNotifications() {
-    this.notificationService
-      .getParentAlert(localStorage.getItem('id') || '')
-      .subscribe((response: any) => {
-        this.alerts = response;
-      });
-  }
+
 }

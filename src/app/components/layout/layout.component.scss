@@ -39,7 +39,8 @@
 .notifications_content {
   position: fixed;
   width: 270px;
-  height: 330px;
+  height: auto;
+  max-height: 330px;
   top: 1.4rem;
   right: 2.4rem;
   background-color: var(--secondary-color);
