@@ -43,11 +43,11 @@ export class ChildComponent {
 
   setSelectionName(device: Device) {
     let type: string;
-    if (device.type === 'phone') {
+    if (device.type === 'PHONE') {
       type = 'Celular';
-    } else if (device.type === 'laptop') {
+    } else if (device.type === 'LAPTOP') {
       type = 'Laptop';
-    } else if (device.type === 'pc') {
+    } else if (device.type === 'PC') {
       type = 'Computadora';
     } else {
       type = 'Tablet';

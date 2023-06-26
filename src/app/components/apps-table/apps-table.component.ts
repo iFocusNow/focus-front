@@ -13,14 +13,6 @@ import { AppService } from 'src/app/services/app.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
-// export interface AppDeviceExt {
-//   app_id: string;
-//   device_id: string;
-//   blockperiod_id: string;
-//   app_logo: string;
-//   app_name: string;
-// }
-
 export interface AppDeviceExt {
   app_id: string;
   device_id: string;
@@ -44,17 +36,17 @@ export interface AppDeviceExt {
 
 const AppDeviceData: AppDeviceExt[] = [
   {
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    app_id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
+    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
+    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
     app: {
-      id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
+      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
       name: 'Instagram',
       logo_url:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
     },
     blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
       is_monday: true,
       is_tuesday: true,
       is_wednesday: true,
@@ -65,17 +57,17 @@ const AppDeviceData: AppDeviceExt[] = [
     },
   },
   {
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    app_id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
+    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
+    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
     app: {
-      id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
+      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
       name: 'Facebook',
       logo_url:
         'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
     },
     blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
       is_monday: true,
       is_tuesday: false,
       is_wednesday: false,
@@ -86,17 +78,17 @@ const AppDeviceData: AppDeviceExt[] = [
     },
   },
   {
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    app_id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
+    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
+    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
     app: {
-      id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
+      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
       name: 'Instagram',
       logo_url:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
     },
     blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
       is_monday: true,
       is_tuesday: true,
       is_wednesday: true,
@@ -107,17 +99,17 @@ const AppDeviceData: AppDeviceExt[] = [
     },
   },
   {
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    app_id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
+    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
+    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
     app: {
-      id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
+      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
       name: 'Facebook',
       logo_url:
         'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
     },
     blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
       is_monday: true,
       is_tuesday: false,
       is_wednesday: false,
@@ -128,17 +120,17 @@ const AppDeviceData: AppDeviceExt[] = [
     },
   },
   {
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    app_id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
+    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
+    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
     app: {
-      id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
+      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
       name: 'Instagram',
       logo_url:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
     },
     blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
+      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
       is_monday: true,
       is_tuesday: true,
       is_wednesday: true,
@@ -147,7 +139,7 @@ const AppDeviceData: AppDeviceExt[] = [
       is_saturday: false,
       is_sunday: false,
     },
-  }
+  },
 ];
 
 @Component({

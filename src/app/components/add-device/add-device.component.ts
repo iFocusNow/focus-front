@@ -29,10 +29,10 @@ export class AddDeviceComponent {
   deviceType!: string;
 
   type_devices = [
-    { value: 'phone', viewValue: 'Celular' },
-    { value: 'tablet', viewValue: 'Tablet' },
-    { value: 'laptop', viewValue: 'Laptop' },
-    { value: 'pc', viewValue: 'PC' },
+    { value: 'PHONE', viewValue: 'Celular' },
+    { value: 'TABLET', viewValue: 'Tablet' },
+    { value: 'LAPTOP', viewValue: 'Laptop' },
+    { value: 'PC', viewValue: 'PC' },
   ];
 
   constructor(
@@ -80,30 +80,30 @@ export class AddDeviceComponent {
   }
 
   saveDevice(): void {
-    if (this.deviceType == 'phone') {
+    if (this.deviceType == 'PHONE') {
       const device: Device = {
         //id: this.device_id,
         id: '',
         child_id: this.child_id,
-        type: 'phone',
+        type: 'PHONE',
         brand: this.deviceName,
       };
       this.device = device;
-    } else if (this.deviceType == 'pc') {
+    } else if (this.deviceType == 'PC') {
       const device: Device = {
         //id: this.device_id,
         id: '',
         child_id: this.child_id,
-        type: 'pc',
+        type: 'PC',
         brand: this.deviceName,
       };
       this.device = device;
-    } else if (this.deviceType == 'tablet') {
+    } else if (this.deviceType == 'TABLET') {
       const device: Device = {
         //id: this.device_id,
         id: '',
         child_id: this.child_id,
-        type: 'tablet',
+        type: 'TABLET',
         brand: this.deviceName,
       };
       this.device = device;
@@ -112,7 +112,7 @@ export class AddDeviceComponent {
         //id: this.device_id,
         id: '',
         child_id: this.child_id,
-        type: 'laptop',
+        type: 'LAPTOP',
         brand: this.deviceName,
       };
       this.device = device;
