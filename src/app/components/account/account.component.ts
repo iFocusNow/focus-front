@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentService } from 'src/app/services/parent.service';
-import { Parent } from 'src/app/models/parent';
 import { Router } from '@angular/router';
-import { Child } from 'src/app/models/child';
+import { ChildService } from 'src/app/services/child.service';
 
 @Component({
   selector: 'app-account',
@@ -10,7 +9,7 @@ import { Child } from 'src/app/models/child';
   styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
-  id: string | undefined;
+  id = '';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string = localStorage.getItem('email') || '';
@@ -18,31 +17,12 @@ export class AccountComponent implements OnInit {
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
-  childRecover: Child[] = [
-    {
-      id: '181f3d97-57f2-479d-aad3-d7caf0c36976',
-      parent_id: 'c29107e7-eda8-44cf-9960-30a2a821a4ea',
-      name: 'Cristina',
-      created_at: '1682540340',
-      updated_at: '1682540340',
-    },
-    {
-      id: '6d025fe7-6785-4c26-a13b-72cb8cca20d3',
-      parent_id: 'c29107e7-eda8-44cf-9960-30a2a821a4ea',
-      name: 'Pedro',
-      created_at: '1682540340',
-      updated_at: '1682540340',
-    },
-    {
-      id: '19e9f08e-1154-4a60-adcb-725b95020efb',
-      parent_id: 'c29107e7-eda8-44cf-9960-30a2a821a4ea',
-      name: 'Lisanne',
-      created_at: '1682540340',
-      updated_at: '1682540340',
-    },
-  ];
-
-  constructor(private parentService: ParentService, private router: Router) {}
+  childRecover: any;
+  constructor(
+    private parentService: ParentService,
+    private childrenService: ChildService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getParentData();
@@ -54,7 +34,18 @@ export class AccountComponent implements OnInit {
       this.last_name_mother = response.last_name_mother;
       this.photo_url = response.photo_url;
       this.id = response.id;
+
+      this.getChildrenData(response.id);
     });
+  }
+
+  getChildrenData(response_id: any) {
+    this.childrenService
+      .getParentChildren(response_id)
+      .subscribe((response: any) => {
+        console.log(response);
+        this.childRecover = response;
+      });
   }
 
   generateTempCode(): string {
