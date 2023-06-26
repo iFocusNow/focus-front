@@ -13,134 +13,21 @@ import { AppService } from 'src/app/services/app.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
-export interface AppDeviceExt {
-  app_id: string;
+export interface AppDeviceDto {
   device_id: string;
+  app_name: string;
+  logo_url: string;
   blockperiod_id: string;
-  app: {
-    id: string;
-    logo_url: string;
-    name: string;
-  };
-  blockperiod: {
-    id: string;
-    is_monday: boolean;
-    is_tuesday: boolean;
-    is_wednesday: boolean;
-    is_thursday: boolean;
-    is_friday: boolean;
-    is_saturday: boolean;
-    is_sunday: boolean;
-  };
+  is_monday: boolean;
+  is_tuesday: boolean;
+  is_wednesday: boolean;
+  is_thursday: boolean;
+  is_friday: boolean;
+  is_saturday: boolean;
+  is_sunday: boolean;
 }
 
-const AppDeviceData: AppDeviceExt[] = [
-  {
-    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
-    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-    app: {
-      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-      name: 'Instagram',
-      logo_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
-    },
-    blockperiod: {
-      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-  },
-  {
-    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
-    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-    app: {
-      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-      name: 'Facebook',
-      logo_url:
-        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
-    },
-    blockperiod: {
-      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-      is_monday: true,
-      is_tuesday: false,
-      is_wednesday: false,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: true,
-      is_sunday: false,
-    },
-  },
-  {
-    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
-    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-    app: {
-      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-      name: 'Instagram',
-      logo_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
-    },
-    blockperiod: {
-      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-  },
-  {
-    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
-    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-    app: {
-      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-      name: 'Facebook',
-      logo_url:
-        'https://logovector.net/wp-content/uploads/2011/11/facebook-f-logo-195x195.png',
-    },
-    blockperiod: {
-      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-      is_monday: true,
-      is_tuesday: false,
-      is_wednesday: false,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: true,
-      is_sunday: false,
-    },
-  },
-  {
-    device_id: 'b67c1e87-0316-45fc-a947-91d4b6a7dacf',
-    app_id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-    blockperiod_id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-    app: {
-      id: 'b5c11a-80ae-4eba-b074-0777c52e10f7',
-      name: 'Instagram',
-      logo_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e7/20160929061519!Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png',
-    },
-    blockperiod: {
-      id: 'a7db40df-3662-47e8-bf45-b675b3dd7fa7',
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-  },
-];
+const AppDeviceData: AppDeviceDto[] = [];
 
 @Component({
   selector: 'app-apps-table',
@@ -149,8 +36,7 @@ const AppDeviceData: AppDeviceExt[] = [
 })
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
-  dataSource = new MatTableDataSource<AppDeviceExt>(AppDeviceData);
-  // dataSource: any[] = [];
+  dataSource = new MatTableDataSource<AppDeviceDto>(AppDeviceData);
   rows: any[] = [];
   displayedColumns: string[] = ['logo', 'name', 'blockperiod', 'actions'];
 
@@ -162,10 +48,12 @@ export class AppsTableComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    let device_id = '';
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
-      this.selectedValue = changes['selectedValue'].currentValue;
+      device_id = changes['selectedValue'].currentValue;
+      console.log('selectedValue', device_id);
+      this.getAppDevice(device_id);
     }
-    this.getAppDevice();
   }
 
   constructor(
@@ -177,7 +65,7 @@ export class AppsTableComponent implements OnChanges {
   // getApp(appDevice: any): any {
   //   this.appService.getApp(appDevice.app_id).subscribe((response: any): any => {
   //     if (response) {
-  //       const row: AppDeviceExt = {
+  //       const row: AppDeviceDto = {
   //         app_id: appDevice.app_id,
   //         device_id: appDevice.device_id,
   //         blockperiod_id: appDevice.blockperiod_id,
@@ -189,23 +77,18 @@ export class AppsTableComponent implements OnChanges {
   //     }
   //   });
   // }
+  //
 
-  async getAppDevice() {
-    // this.rows = [];
-    // this.appDeviceService
-    //   .getAppDevice(this.selectedValue)
-    //   .subscribe((response: any) => {
-    //     response.map((appDevice: any) => {
-    //       this.getApp(appDevice);
-    //     });
-    //   });
-    // Works as table
-    // console.table(AppDeviceData);
-    // Does not work as table
-    // this.dataSource = this.rows;
+  getAppDevice(device_id: string) {
+    this.appDeviceService.getAppDevice(device_id).subscribe((response: any) => {
+      if (response) {
+        this.dataSource = new MatTableDataSource<AppDeviceDto>(response);
+        this.dataSource.paginator = this.paginator;
+      }
+    });
   }
 
-  editItem(item: AppDeviceExt) {
+  editItem(item: AppDeviceDto) {
     console.log('Editing', item);
 
     const dialogConfig = new MatDialogConfig();
@@ -219,7 +102,7 @@ export class AppsTableComponent implements OnChanges {
     });
   }
 
-  deleteItem(item: AppDeviceExt) {
+  deleteItem(item: AppDeviceDto) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
       is_app: true,
