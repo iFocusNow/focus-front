@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BlockPeriodsService } from './block-periods.service';
+import { BlockPeriodService } from './block-periods.service';
 
-describe('BlockPeriodsService', () => {
-  let service: BlockPeriodsService;
+describe('BlockPeriodService', () => {
+  let service: BlockPeriodService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BlockPeriodsService);
+    service = TestBed.inject(BlockPeriodService);
   });
 
   it('should be created', () => {

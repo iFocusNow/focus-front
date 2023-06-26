@@ -89,8 +89,6 @@ export class AppsTableComponent implements OnChanges {
   }
 
   editItem(item: AppDeviceDto) {
-    console.log('Editing', item);
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
       ...item,
