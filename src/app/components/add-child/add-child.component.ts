@@ -17,7 +17,7 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class AddChildComponent {
   //Esto lo puse para poner una foto, pero en realidad no va
-  id: string = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
+  id: string = 'c29107e7-eda8-44cf-9960-30a2a821a4ea';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -60,7 +60,7 @@ export class AddChildComponent {
   }
 
   volverHome(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 
   getDeviceType(event: MatSelectChange): void {
