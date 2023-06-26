@@ -30,13 +30,10 @@ export class LayoutComponent implements OnInit {
     if (!localStorage.getItem('id')) {
       setTimeout(() => {
         this.getParentChildren();
-        
       }, 150);
     } else {
       this.getParentChildren();
     }
-
-    
   }
 
   onNavigate(route: string): void {
@@ -58,20 +55,16 @@ export class LayoutComponent implements OnInit {
     this.childService
       .getParentChildren(localStorage.getItem('id') || '')
       .subscribe((response: any) => {
-        this.children = response;        
-        console.log(this.children);
-        this.children?.forEach(((child)=>{
-          console.log(child.id);
-          this.notificationService.getChildAlert(child.id!).subscribe(
-            (data: Alert[]) => {
-              data.forEach((element:Alert) => {
-                console.log(element);
+        this.children = response;
+        this.children?.forEach((child) => {
+          this.notificationService
+            .getChildAlert(child.id!)
+            .subscribe((data: Alert[]) => {
+              data.forEach((element: Alert) => {
                 this.alertas.push(this.getAlertMessage(element));
-                console.log(this.alertas);
-              })
-            }
-          )
-          }))
+              });
+            });
+        });
       });
   }
 
@@ -79,18 +72,17 @@ export class LayoutComponent implements OnInit {
     this.visibleNotifications = !this.visibleNotifications;
   }
 
-  getAlertMessage(alert: Alert): string {
+  getAlertMessage(alert: any): string {
+    let message = 'Su hijo(a) ' + alert.childName + ' ';
     switch (alert.type) {
-      case "BLOCK_ENTRY":
-        return 'Su hijo(a) ha querido entrar a una aplicación bloqueada.';
+      case 'BLOCK_ENTRY':
+        return message + 'ha querido entrar a una aplicación bloqueada.';
       case 'SOLICIT_UNBLOCK':
-        return 'Su hijo(a) ha solicitado un desbloqueo de aplicación.';
+        return message + 'ha solicitado un desbloqueo de aplicación.';
       case 'PHONE_TIME_EXCEEDED':
-        return 'Su hijo(a) ha superado el tiempo en pantalla.';
+        return message + 'ha superado el tiempo en pantalla.';
       default:
         return '';
     }
   }
-
-
 }
