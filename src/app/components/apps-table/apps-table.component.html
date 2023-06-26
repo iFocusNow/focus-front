@@ -6,13 +6,13 @@
   <ng-container matColumnDef="logo">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let item">
-      <img src="{{ item.app.logo_url }}" />
+      <img src="{{ item.logo_url }}" />
     </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let item">{{ item.app.name }}</td>
+    <td mat-cell *matCellDef="let item">{{ item.app_name }}</td>
   </ng-container>
 
   <ng-container matColumnDef="blockperiod">
@@ -21,7 +21,7 @@
       <span class="day-label">
         <span class="day-symbol"> L </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_monday"
+          [checked]="item.is_monday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>
@@ -29,7 +29,7 @@
       <span class="day-label">
         <span class="day-symbol"> M </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_tuesday"
+          [checked]="item.is_tuesday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>
@@ -37,7 +37,7 @@
       <span class="day-label">
         <span class="day-symbol"> X </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_wednesday"
+          [checked]="item.is_wednesday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>
@@ -45,7 +45,7 @@
       <span class="day-label">
         <span class="day-symbol"> J </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_thursday"
+          [checked]="item.is_thursday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>
@@ -53,7 +53,7 @@
       <span class="day-label">
         <span class="day-symbol"> V </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_friday"
+          [checked]="item.is_friday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>
@@ -61,7 +61,7 @@
       <span class="day-label">
         <span class="day-symbol"> S </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_saturday"
+          [checked]="item.is_saturday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>
@@ -69,7 +69,7 @@
       <span class="day-label">
         <span class="day-symbol"> D </span>
         <mat-checkbox
-          [checked]="item.blockperiod.is_sunday"
+          [checked]="item.is_sunday"
           disabled="true"
           class="custom-checkbox"
         ></mat-checkbox>

@@ -5,77 +5,21 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
-export interface LinkExt {
+export interface LinkBlockPeriodDto {
   id: string;
   name: string;
   url: string;
-  device_id: string;
   blockperiod_id: string;
-  blockperiod: {
-    id: string;
-    is_monday: boolean;
-    is_tuesday: boolean;
-    is_wednesday: boolean;
-    is_thursday: boolean;
-    is_friday: boolean;
-    is_saturday: boolean;
-    is_sunday: boolean;
-  };
+  is_monday: boolean;
+  is_tuesday: boolean;
+  is_wednesday: boolean;
+  is_thursday: boolean;
+  is_friday: boolean;
+  is_saturday: boolean;
+  is_sunday: boolean;
 }
 
-const LinkData: LinkExt[] = [
-  {
-    id: "b5c11a-80ae-4eba-b074-0777c52e10f7",
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-    blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-    name: 'Reddit',
-    url: 'https://www.reddit.com/',
-  },
-  {
-    id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-    blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-      is_monday: true,
-      is_tuesday: false,
-      is_wednesday: false,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: true,
-      is_sunday: false,
-    },
-    name: 'Twitter',
-    url: 'https://twitter.com/',
-  },
-  {
-    id: "45e38852-a228-4317-9e6e-cda83ae13800",
-    device_id: "b67c1e87-0316-45fc-a947-91d4b6a7dacf",
-    blockperiod_id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-    blockperiod: {
-      id: "a7db40df-3662-47e8-bf45-b675b3dd7fa7",
-      is_monday: true,
-      is_tuesday: true,
-      is_wednesday: true,
-      is_thursday: true,
-      is_friday: true,
-      is_saturday: false,
-      is_sunday: false,
-    },
-    name: 'Facebook',
-    url: 'https://www.facebook.com/',
-  }
-];
+const LinkData: LinkBlockPeriodDto[] = [];
 
 @Component({
   selector: 'app-links-table',
@@ -84,7 +28,7 @@ const LinkData: LinkExt[] = [
 })
 export class LinksTableComponent {
   @Input() selectedValue: number = 0;
-  dataSource = new MatTableDataSource<LinkExt>(LinkData);
+  dataSource = new MatTableDataSource<LinkBlockPeriodDto>(LinkData);
 
   rows: any[] = [];
   displayedColumns: string[] = ['name', 'url', 'blockperiod', 'actions'];
@@ -103,13 +47,11 @@ export class LinksTableComponent {
     this.getLinks();
   }
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private linkService: LinkService) {}
 
-  getLinks() {
-    console.log('Service in the future');
-  }
+  getLinks() {}
 
-  editItem(item: LinkExt) {
+  editItem(item: LinkBlockPeriodDto) {
     console.log('Editing', item);
 
     const dialogConfig = new MatDialogConfig();
