@@ -42,8 +42,8 @@ export class EditChildComponent {
   ];
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
-  
-  id: string = "c29107e7-eda8-44cf-9960-30a2a821a4ea";
+
+  id: string = 'c29107e7-eda8-44cf-9960-30a2a821a4ea';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -129,7 +129,7 @@ export class EditChildComponent {
   }
 
   BackHome(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 
   saveChild(): void {
@@ -143,7 +143,7 @@ export class EditChildComponent {
 
     this.childService.updateChild(child).subscribe({
       next: (data) => {
-        this.router.navigate(['/']).then(() => {
+        this.router.navigate(['/home']).then(() => {
           window.location.reload();
         });
       },

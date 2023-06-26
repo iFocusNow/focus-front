@@ -9,13 +9,16 @@ import { HelpComponent } from './components/help/help.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
 import { EditChildComponent } from './components/edit-child/edit-child.component';
 import { AddDeviceComponent } from './components/add-device/add-device.component';
+import { SessionGuard } from './session.guard';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: '', component: AccountComponent },
+      { path: 'home', component: AccountComponent },
       { path: 'child/:id', component: ChildComponent },
       { path: 'edit/child/:id', component: EditChildComponent },
       { path: 'add/device/:id', component: AddDeviceComponent },
@@ -26,10 +29,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [SessionGuard],
   },
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [SessionGuard],
   },
 ];
 

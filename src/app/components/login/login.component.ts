@@ -45,7 +45,7 @@ export class LoginComponent {
           storage.setItem('email', parentAuthDto.email);
           storage.setItem('password', parentAuthDto.password);
 
-          this.router.navigate(['']);
+          window.location.reload();
           // Aquí podrías redirigir al usuario a otra página, por ejemplo.
         } else {
           console.log('Credenciales inválidas');

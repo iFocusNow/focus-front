@@ -38,7 +38,7 @@ export class LayoutComponent implements OnInit {
     this.storage.removeItem('email');
     this.storage.removeItem('password');
 
-    this.router.navigate([route]);
+    window.location.reload();
   }
 
   onNavigateChild(child_id: string): void {
