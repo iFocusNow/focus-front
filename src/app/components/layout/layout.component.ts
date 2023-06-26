@@ -11,7 +11,6 @@ import { NotificationsService } from 'src/app/services/notifications.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  parent_id = 'c29107e7-eda8-44cf-9960-30a2a821a4ea';
   children: Child[] | undefined;
   visibleNotifications = false;
   sizeNotification = 20;
@@ -26,17 +25,26 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getParentChildren();
-    this.getNotifications();
+    // wait for id to be in localStorage
+    if (!localStorage.getItem('id')) {
+      setTimeout(() => {
+        this.getParentChildren();
+        this.getNotifications();
+      }, 150);
+    } else {
+      this.getParentChildren();
+      this.getNotifications();
+    }
   }
 
   onNavigate(route: string): void {
     this.router.navigate([route]);
   }
 
-  onNavigateLogout(route: string): void {
+  onNavigateLogout(): void {
     this.storage.removeItem('email');
     this.storage.removeItem('password');
+    this.storage.removeItem('id');
 
     window.location.reload();
   }
@@ -47,7 +55,7 @@ export class LayoutComponent implements OnInit {
 
   getParentChildren() {
     this.childService
-      .getParentChildren(this.parent_id)
+      .getParentChildren(localStorage.getItem('id') || '')
       .subscribe((response: any) => {
         this.children = response;
       });
@@ -72,7 +80,7 @@ export class LayoutComponent implements OnInit {
 
   getNotifications() {
     this.notificationService
-      .getParentAlert(this.parent_id)
+      .getParentAlert(localStorage.getItem('id') || '')
       .subscribe((response: any) => {
         this.alerts = response;
       });

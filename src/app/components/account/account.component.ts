@@ -34,6 +34,7 @@ export class AccountComponent implements OnInit {
       this.last_name_mother = response.last_name_mother;
       this.photo_url = response.photo_url;
       this.id = response.id;
+      localStorage.setItem('id', response.id);
 
       this.getChildrenData(response.id);
     });
