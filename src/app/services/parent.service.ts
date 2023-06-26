@@ -11,21 +11,15 @@ import { baseUrl, handleError } from './http-data';
 })
 export class ParentService {
   constructor(private http: HttpClient) {}
-  baseUrl = baseUrl + '/parents';
-
-  authenticateParent(parent: Parent): Observable<boolean> {
-    return this.http.get<Parent[]>(this.baseUrl).pipe(
-      map((parents) => {
-        const foundParent = parents.find(
-          (p) => p.email === parent.email && p.password === parent.password
-        );
-        return foundParent !== undefined;
-      })
+  authenticateParent(parentAuthDto: any): Observable<boolean> {
+    return this.http.post<boolean>(
+      baseUrl + '/session/authenticate-parent',
+      parentAuthDto
     );
   }
 
   registerParent(parent: Parent): Observable<Parent> {
-    return this.http.get<Parent[]>(this.baseUrl).pipe(
+    return this.http.get<Parent[]>(baseUrl + '/session/register-parent').pipe(
       map((parents) => {
         const foundParent = parents.find((p) => p.email === parent.email);
         if (foundParent) {
@@ -33,13 +27,13 @@ export class ParentService {
         }
         return parent;
       }),
-      switchMap((parent) => this.http.post<Parent>(this.baseUrl, parent))
+      switchMap((parent) => this.http.post<Parent>(baseUrl, parent))
     );
   }
 
   getParent(id: string): Observable<Parent> {
     return this.http
-      .get<Parent>(this.baseUrl + '?id=' + id)
+      .get<Parent>(baseUrl + '?id=' + id)
       .pipe(retry(2), catchError(handleError));
   }
 }

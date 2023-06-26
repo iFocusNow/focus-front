@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
 // Base Url
-export const baseUrl = 'http://localhost:3000';
+export const baseUrl = 'http://localhost:8080/api';
 
 // Http Options
 export const httpOptions = {
