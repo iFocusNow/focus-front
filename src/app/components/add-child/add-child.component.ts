@@ -49,21 +49,18 @@ export class AddChildComponent {
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
 
   constructor(private parentService: ParentService, private router: Router, 
-    private childService: ChildService, 
-    private deviceService: DeviceService) {}
+    private childService: ChildService) {}
 
   ngOnInit(): void {
     this.getParentData();
   }
 
-  //lo hice para jalar una foto
   getParentData() {
     this.parentService.getParent(this.parent_email).subscribe((response: any) => {
-      this.parentData = response;
-      this.last_name_father = this.parentData[0].last_name_father;
-      this.last_name_mother = this.parentData[0].last_name_mother;
-      this.email = this.parentData[0].email;
-      this.photo_url = this.parentData[0].photo_url;
+      this.last_name_father = response.last_name_father;
+      this.last_name_mother = response.last_name_mother;
+      this.email = response.email;
+      this.photo_url = response.photo_url;
     });
   }
 

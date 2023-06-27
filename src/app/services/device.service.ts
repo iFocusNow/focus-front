@@ -30,11 +30,4 @@ export class DeviceService {
       .post<Device>(baseUrl, device)
       .pipe(retry(2), catchError(handleError));
   }
-
-  addDeviceToChild(childId: string, device: Device): Observable<any> {
-    const url = `${baseUrl}/add/device/${childId}`;
-    return this.http.post<any>(url, device, httpOptions).pipe(
-      catchError(handleError)
-      );
-  }
 }
