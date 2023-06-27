@@ -17,12 +17,12 @@ export class ChildService {
   }
   getChildren(child_id: string): Observable<Child> {
     return this.http
-      .get<Child>(baseUrl + '/' + child_id)
+      .get<Child>(baseUrl + '/edit/child/'+ child_id)
       .pipe(retry(2), catchError(handleError));
   }
   updateChild(child: Child): Observable<Child> {
     return this.http
-      .put<Child>(baseUrl + '/' + child.id, child)
+      .put<Child>(baseUrl + '/edit/child/'+ child.id, child)
       .pipe(retry(2), catchError(handleError));
   }
 

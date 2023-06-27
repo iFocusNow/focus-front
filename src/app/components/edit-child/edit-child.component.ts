@@ -21,6 +21,7 @@ import { DeviceService } from 'src/app/services/device.service';
   styleUrls: ['./edit-child.component.scss'],
 })
 export class EditChildComponent {
+  parent_id = localStorage.getItem('id') || '';
   child_id!: string;
   value!: string;
   name_devices: string[] = [];
@@ -133,15 +134,17 @@ export class EditChildComponent {
   }
 
   saveChild(): void {
-    const child: Child = {
-      id: this.child_id,
-      parent_id: this.id,
-      name: this.childNameprob,
-      created_at: this.created_at,
-      updated_at: Date.now().toString(),
+    const childDTO = {
+      name: this.childName,
+      parent_id: this.parent_id,
+      created_at: "",
+      updated_at: "",
+      devices: this.devices,
+      apps:[],
     };
 
-    this.childService.updateChild(child).subscribe({
+
+    this.childService.updateChild(childDTO).subscribe({
       next: (data) => {
         this.router.navigate(['/home']).then(() => {
           window.location.reload();
@@ -169,4 +172,6 @@ export class EditChildComponent {
         }
       });*/
   }
+
+
 }
