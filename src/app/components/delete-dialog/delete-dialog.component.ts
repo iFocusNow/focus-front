@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AppDeviceService } from 'src/app/services/app-device.service';
+import { LinkService } from 'src/app/services/link.service';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -9,6 +11,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DeleteDialogComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<DeleteDialogComponent>,
+    private appDeviceService: AppDeviceService,
+    private linkService: LinkService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   element!: string;
@@ -27,17 +31,16 @@ export class DeleteDialogComponent implements OnInit {
 
   unlock(): void {
     if (this.data.is_app) {
-      // Unlock for app
-      console.log(
-        'You need the ',
-        this.data.device_id,
-        ' and ',
-        this.data.app_id,
-        ' to unlock'
-      );
+      console.log(this.data);
+      this.appDeviceService
+        .deleteAppDevice(this.data.app_id, this.data.device_id)
+        .subscribe((response) => {
+          this.dialogRef.close(response);
+        });
     } else {
-      // Unlock
-      console.log('You need the ', this.data.link_id);
+      this.linkService.deleteLink(this.data.link_id).subscribe((response) => {
+        this.dialogRef.close(response);
+      });
     }
 
     this.dialogRef.close();

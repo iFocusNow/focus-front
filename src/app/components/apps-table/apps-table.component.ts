@@ -16,6 +16,7 @@ import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.c
 
 export interface AppDeviceDto {
   device_id: string;
+  app_id: string;
   app_name: string;
   logo_url: string;
   blockperiod_id: string;
@@ -103,7 +104,9 @@ export class AppsTableComponent implements OnChanges {
     const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed: ', result);
+      if (result) {
+        window.location.reload();
+      }
     });
   }
 }

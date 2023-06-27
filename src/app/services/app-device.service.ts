@@ -21,4 +21,13 @@ export class AppDeviceService {
       headers: httpOptions.headers,
     });
   }
+
+  deleteAppDevice(app_id: string, device_id: string): Observable<any> {
+    return this.http.delete<any>(
+      this.baseUrl + '/' + device_id + '/' + app_id,
+      {
+        headers: httpOptions.headers,
+      }
+    );
+  }
 }

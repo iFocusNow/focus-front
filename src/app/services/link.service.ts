@@ -21,4 +21,10 @@ export class LinkService {
       headers: httpOptions.headers,
     });
   }
+
+  deleteLink(link_id: string): Observable<any> {
+    return this.http.delete<any>(this.baseUrl + '/' + link_id, {
+      headers: httpOptions.headers,
+    });
+  }
 }
