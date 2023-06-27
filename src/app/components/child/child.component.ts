@@ -15,7 +15,6 @@ export class ChildComponent {
   selectedValue: number = 0;
   devices: Device[] = [];
   child_id: string = '';
-  isPreviousValue: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -65,6 +64,10 @@ export class ChildComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed: ', result);
+      // refresh table
+      if (result) {
+        window.location.reload();
+      }
     });
   }
 
@@ -77,6 +80,10 @@ export class ChildComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed: ', result);
+      // refresh table
+      if (result) {
+        window.location.reload();
+      }
     });
   }
 }

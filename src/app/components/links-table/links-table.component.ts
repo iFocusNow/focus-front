@@ -33,6 +33,7 @@ export class LinksTableComponent {
   @Input() selectedValue: number = 0;
   dataSource = new MatTableDataSource<LinkBlockPeriodDto>(LinkData);
   private routerSubscription: Subscription | undefined;
+  isValueAdded: boolean = false;
 
   displayedColumns: string[] = ['name', 'url', 'blockperiod', 'actions'];
 

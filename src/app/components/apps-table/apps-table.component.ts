@@ -37,10 +37,10 @@ const AppDeviceData: AppDeviceDto[] = [];
 })
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
-  @Input() isPreviousValue: boolean = false;
   dataSource = new MatTableDataSource<AppDeviceDto>(AppDeviceData);
   displayedColumns: string[] = ['logo', 'name', 'blockperiod', 'actions'];
   private routerSubscription: Subscription | undefined;
+  device_id: string = '';
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -62,6 +62,7 @@ export class AppsTableComponent implements OnChanges {
     let device_id = '';
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
       device_id = changes['selectedValue'].currentValue;
+      this.device_id = device_id;
       this.getAppDevice(device_id);
     }
   }

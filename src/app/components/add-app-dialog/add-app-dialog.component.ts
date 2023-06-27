@@ -90,6 +90,7 @@ export class AddAppDialogComponent implements OnInit {
         if (response) {
           this.openSnackBar('Aplicación agregada', 'Aceptar');
         }
+        this.dialogRef.close(response);
       });
 
       this.dialogRef.close();
