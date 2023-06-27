@@ -22,6 +22,7 @@ import { DeviceService } from 'src/app/services/device.service';
 })
 export class EditChildComponent {
   parent_id = localStorage.getItem('id') || '';
+  email_id = localStorage.getItem('email') || '';
   child_id!: string;
   value!: string;
   name_devices: string[] = [];
@@ -44,7 +45,7 @@ export class EditChildComponent {
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
 
-  id: string = 'c29107e7-eda8-44cf-9960-30a2a821a4ea';
+  id: string ='';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -53,6 +54,7 @@ export class EditChildComponent {
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
+
 
   constructor(
     private childService: ChildService,
@@ -69,21 +71,18 @@ export class EditChildComponent {
     this.getParentData();
   }
 
-  //pa la foto pes porque si x2 xd
+
   getParentData() {
-    this.parentService.getParent(this.id).subscribe((response: any) => {
-      this.parentData = response;
-      this.last_name_father = this.parentData[0].last_name_father;
-      this.last_name_mother = this.parentData[0].last_name_mother;
-      this.email = this.parentData[0].email;
-      this.photo_url = this.parentData[0].photo_url;
+    this.parentService.getParent(this.email_id).subscribe((response: any) => {
+      this.last_name_father = response.last_name_father;
+      this.last_name_mother = response.last_name_mother;
+      this.email = response.email;
+      this.photo_url = response.photo_url;
+      console.log(this.photo_url);
     });
   }
 
   getNameChildren() {
-    this.childService.getChildren(this.child_id).subscribe((response: any) => {
-      this.child = response;
-    });
     this.childService.getChildren(this.child_id).subscribe({
       next: (data: Child) => {
         this.childName = data.name;
@@ -126,6 +125,7 @@ export class EditChildComponent {
     this.index = index;
     if (this.index != undefined) {
       this.deviceNameprob = this.devices[index].brand;
+      console.log(this.devices);
     }
   }
 
@@ -135,17 +135,16 @@ export class EditChildComponent {
 
   saveChild(): void {
     const childDTO = {
-      name: this.childName,
+      name: this.childNameprob,
       parent_id: this.parent_id,
       created_at: "",
       updated_at: "",
       devices: this.devices,
       apps:[],
     };
-
-
-    this.childService.updateChild(childDTO).subscribe({
+    this.childService.updateChild(this.child_id, childDTO).subscribe({
       next: (data) => {
+        console.log(this.childNameprob);
         this.router.navigate(['/home']).then(() => {
           window.location.reload();
         });
@@ -155,22 +154,6 @@ export class EditChildComponent {
       },
     });
 
-    /*const device:Device = {
-        id: this.index + 1,
-        child_id:this.child_id,
-        type: this.devices[this.index].type,
-        brand: this.devices[this.index].brand
-
-      }
-
-      this.deviceService.updateDevice(device).subscribe({
-        next: (data)  => {
-
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      });*/
   }
 
 

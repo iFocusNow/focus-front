@@ -16,13 +16,16 @@ export class ChildService {
     });
   }
   getChildren(child_id: string): Observable<Child> {
+    const url = `${baseUrl}/edit/child/${child_id}`;
     return this.http
-      .get<Child>(baseUrl + '/edit/child/'+ child_id)
+      .get<Child>(url, httpOptions)
       .pipe(retry(2), catchError(handleError));
   }
-  updateChild(child: Child): Observable<Child> {
+
+  updateChild(child_id: string, child: Child): Observable<Child> {
+    const url = `${baseUrl}/edit/child/${child_id}`;
     return this.http
-      .put<Child>(baseUrl + '/edit/child/'+ child.id, child)
+      .put<Child>(url, child, httpOptions)
       .pipe(retry(2), catchError(handleError));
   }
 
