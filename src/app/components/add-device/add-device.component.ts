@@ -6,7 +6,9 @@ import { Child } from 'src/app/models/child';
 import { Device } from 'src/app/models/device';
 import { ChildService } from 'src/app/services/child.service';
 import { DeviceService } from 'src/app/services/device.service';
+import { ParentService } from 'src/app/services/parent.service';
 import { map } from 'rxjs/operators';
+import { Parent } from 'src/app/models/parent';
 
 @Component({
   selector: 'app-add-device',
@@ -16,17 +18,15 @@ import { map } from 'rxjs/operators';
 export class AddDeviceComponent {
   child_id!: string;
   device_id: string = '';
+  email_id = localStorage.getItem('email') || '';
   child: Child[] = [];
   device!: Device;
-  //devices: number[]=[];
-  photo_url: string =
-    'https://avatars.steamstatic.com/1cfdee9bd003f0559d045b6223b321dd36c34958_full.jpg';
-
   value!: string;
   name_devices: string[] = [];
   deviceName!: string;
   childName!: string;
   deviceType!: string;
+  photo_url: string | undefined;
 
   type_devices = [
     { value: 'PHONE', viewValue: 'Celular' },
@@ -40,20 +40,21 @@ export class AddDeviceComponent {
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private deviceService: DeviceService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private parentService: ParentService
   ) {}
 
   ngOnInit(): void {
     this.child_id = this.activatedRouter.snapshot.params['id'];
     this.getNameChildren();
-    /*
-    this.deviceService.getDevices().subscribe((data) => {
-      console.log(data);
-      this.device_id = Object.keys(data).length;
-    });
+    this.getParentData()
+  }
 
-      console.log(this.device_id);
-*/
+  getParentData() {
+    this.parentService.getParent(this.email_id).subscribe((response: any) => {
+      this.photo_url = response.photo_url;
+      console.log(this.photo_url);
+    });
   }
 
   getNameChildren() {
@@ -76,13 +77,11 @@ export class AddDeviceComponent {
   getDeviceType(event: MatSelectChange): void {
     const selectedValue = event.value;
     this.deviceType = selectedValue;
-    //console.log('Dispositivo:', selectedValue);
   }
 
   saveDevice(): void {
     if (this.deviceType == 'PHONE') {
       const device: Device = {
-        //id: this.device_id,
         id: '',
         child_id: this.child_id,
         type: 'PHONE',
@@ -118,7 +117,7 @@ export class AddDeviceComponent {
       this.device = device;
     }
 
-    this.deviceService.addDevice(this.device).subscribe({
+    this.deviceService.addDevice(this.child_id, this.device).subscribe({
       next: (data) => {
         this.router.navigate(['/home']).then(() => {
           window.location.reload();
