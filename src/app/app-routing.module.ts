@@ -24,6 +24,11 @@ const routes: Routes = [
       { path: 'add/device/:id', component: AddDeviceComponent },
       { path: 'help', component: HelpComponent },
       { path: 'add', component: AddChildComponent },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
     ],
   },
   {
@@ -35,6 +40,11 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [SessionGuard],
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
 ];
 
