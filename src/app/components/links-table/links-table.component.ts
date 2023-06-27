@@ -86,7 +86,9 @@ export class LinksTableComponent {
     const dialogRef = this.dialog.open(EditBlockperiodComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed: ', result);
+      if (result) {
+        window.location.reload();
+      }
     });
   }
 
