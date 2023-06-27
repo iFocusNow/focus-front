@@ -2,6 +2,7 @@ import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { LinkService } from 'src/app/services/link.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
 
@@ -30,7 +31,6 @@ export class LinksTableComponent {
   @Input() selectedValue: number = 0;
   dataSource = new MatTableDataSource<LinkBlockPeriodDto>(LinkData);
 
-  rows: any[] = [];
   displayedColumns: string[] = ['name', 'url', 'blockperiod', 'actions'];
 
   @ViewChild(MatPaginator)
@@ -41,15 +41,23 @@ export class LinksTableComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    let device_id = '';
     if (changes['selectedValue'] && !changes['selectedValue'].firstChange) {
-      this.selectedValue = changes['selectedValue'].currentValue;
+      device_id = changes['selectedValue'].currentValue;
+      this.getLinks(device_id);
     }
-    this.getLinks();
   }
 
   constructor(public dialog: MatDialog, private linkService: LinkService) {}
 
-  getLinks() {}
+  getLinks(device_id: string) {
+    this.linkService.getLinks(device_id).subscribe((response: any) => {
+      if (response) {
+        this.dataSource = new MatTableDataSource<LinkBlockPeriodDto>(response);
+        this.dataSource.paginator = this.paginator;
+      }
+    });
+  }
 
   editItem(item: LinkBlockPeriodDto) {
     console.log('Editing', item);

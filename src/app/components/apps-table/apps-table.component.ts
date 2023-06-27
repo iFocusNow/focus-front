@@ -36,7 +36,6 @@ const AppDeviceData: AppDeviceDto[] = [];
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
   dataSource = new MatTableDataSource<AppDeviceDto>(AppDeviceData);
-  rows: any[] = [];
   displayedColumns: string[] = ['logo', 'name', 'blockperiod', 'actions'];
 
   @ViewChild(MatPaginator)
