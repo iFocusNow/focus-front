@@ -102,25 +102,19 @@ export class AddChildComponent {
   }
 
   addChild(): void {
-    const child: Child = {
+    const childDTO = {
       name: this.childName,
       parent_id: this.parent_id,
       created_at: "",
       updated_at: "",
+      devices: this.devices,
+      apps:[],
     };
 
-    this.childService.addChild(child, this.parent_id).subscribe((response: any) => {
-      const childID = response.id;
-      console.log(this.devices);
-      for (const device of this.devices) {
-        this.addDevice(device, childID);
-      }
+    this.childService.addChild(childDTO, this.parent_id).subscribe((response: any) => {
+      console.log(response);
+      this.router.navigate(['/home']);
     });
   }
 
-  addDevice(device: Device, id: string): void {
-    this.deviceService.addDeviceToChild(id, device).subscribe((response: any) => {
-      console.log(response);
-    });    
-  }
 }
