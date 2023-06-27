@@ -15,4 +15,10 @@ export class LinkService {
       headers: httpOptions.headers,
     });
   }
+
+  addLink(data: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl + '/create', data, {
+      headers: httpOptions.headers,
+    });
+  }
 }

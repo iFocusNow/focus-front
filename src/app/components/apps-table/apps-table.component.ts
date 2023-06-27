@@ -8,7 +8,7 @@ import {
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
@@ -70,7 +70,6 @@ export class AppsTableComponent implements OnChanges {
   constructor(
     private appDeviceService: AppDeviceService,
     private router: Router,
-    private route: ActivatedRoute,
     public dialog: MatDialog
   ) {}
 

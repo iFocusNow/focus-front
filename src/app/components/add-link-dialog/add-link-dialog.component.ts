@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LinkService } from 'src/app/services/link.service';
 
 @Component({
   selector: 'app-add-link-dialog',
@@ -26,6 +27,7 @@ export class AddLinkDialogComponent {
     private dialogRef: MatDialogRef<AddLinkDialogComponent>,
     private _formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
+    private linkService: LinkService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -40,30 +42,30 @@ export class AddLinkDialogComponent {
   }
 
   submit(): void {
-    console.log(this.linkFormControl.value);
-
     const values = Object.values(this.week.value);
     const anyTrue = values.some((val) => val === true);
     if (!anyTrue) {
       this.openSnackBar('No se elegido un día de bloqueo', 'Aceptar');
-    } else if (this.data.device_id === "") {
+    } else if (this.data.device_id === '') {
       this.openSnackBar('Seleccione un dispositivo', 'Aceptar');
     } else if (this.linkFormControl.value === '') {
       this.openSnackBar('Agrege un URL para bloquear', 'Aceptar');
     } else if (this.nameFormControl.value === '') {
       this.openSnackBar('Agrege el nombre del URL', 'Aceptar');
     } else {
-      // Create the blockperiod
-      console.log('Should create blockperiod in backend');
-      // If successful: Create the Links
-      console.log(
-        'Should create Link a device_id: ',
-        this.data.device_id,
-        'name: ',
-        this.nameFormControl.value,
-        ' and link: ',
-        this.linkFormControl.value
-      );
+      const data = {
+        device_id: this.data.device_id,
+        name: this.nameFormControl.value,
+        url: this.linkFormControl.value,
+        ...this.week.value,
+      };
+
+      this.linkService.addLink(data).subscribe((response: any) => {
+        if (response) {
+          this.openSnackBar('Enlace agregado', 'Aceptar');
+        }
+        this.dialogRef.close(response);
+      });
       this.dialogRef.close();
     }
   }
