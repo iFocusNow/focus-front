@@ -15,6 +15,7 @@ export class ChildComponent {
   selectedValue: number = 0;
   devices: Device[] = [];
   child_id: string = '';
+  isPreviousValue: boolean = false;
 
   constructor(
     private route: ActivatedRoute,

@@ -2,6 +2,8 @@ import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LinkService } from 'src/app/services/link.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
@@ -30,11 +32,21 @@ const LinkData: LinkBlockPeriodDto[] = [];
 export class LinksTableComponent {
   @Input() selectedValue: number = 0;
   dataSource = new MatTableDataSource<LinkBlockPeriodDto>(LinkData);
+  private routerSubscription: Subscription | undefined;
 
   displayedColumns: string[] = ['name', 'url', 'blockperiod', 'actions'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
+  ngOnInit(): void {
+    this.routerSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        // clean AppDeviceData
+        this.dataSource = new MatTableDataSource<LinkBlockPeriodDto>(LinkData);
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -48,7 +60,11 @@ export class LinksTableComponent {
     }
   }
 
-  constructor(public dialog: MatDialog, private linkService: LinkService) {}
+  constructor(
+    public dialog: MatDialog,
+    private linkService: LinkService,
+    private router: Router
+  ) {}
 
   getLinks(device_id: string) {
     this.linkService.getLinks(device_id).subscribe((response: any) => {

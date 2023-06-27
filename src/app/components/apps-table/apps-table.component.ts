@@ -8,6 +8,8 @@ import {
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AppDeviceService } from 'src/app/services/app-device.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditBlockperiodComponent } from '../edit-blockperiod/edit-blockperiod.component';
@@ -35,11 +37,22 @@ const AppDeviceData: AppDeviceDto[] = [];
 })
 export class AppsTableComponent implements OnChanges {
   @Input() selectedValue: number = 0;
+  @Input() isPreviousValue: boolean = false;
   dataSource = new MatTableDataSource<AppDeviceDto>(AppDeviceData);
   displayedColumns: string[] = ['logo', 'name', 'blockperiod', 'actions'];
+  private routerSubscription: Subscription | undefined;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
+  ngOnInit(): void {
+    this.routerSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        // clean AppDeviceData
+        this.dataSource = new MatTableDataSource<AppDeviceDto>(AppDeviceData);
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -55,6 +68,8 @@ export class AppsTableComponent implements OnChanges {
 
   constructor(
     private appDeviceService: AppDeviceService,
+    private router: Router,
+    private route: ActivatedRoute,
     public dialog: MatDialog
   ) {}
 
