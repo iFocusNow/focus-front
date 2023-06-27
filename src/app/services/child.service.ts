@@ -25,4 +25,11 @@ export class ChildService {
       .put<Child>(baseUrl + '/' + child.id, child)
       .pipe(retry(2), catchError(handleError));
   }
+
+  addChild(child: Child, parentid: string): Observable<Child> {
+    const url = "${baseUrl}/add/child/${parentid}";
+    return this.http.post<any>(url, child,  httpOptions).pipe(
+      catchError(handleError)
+      );
+  }
 }

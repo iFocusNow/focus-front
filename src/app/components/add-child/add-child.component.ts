@@ -9,6 +9,9 @@ import { ParentService } from 'src/app/services/parent.service';
 import { Router } from '@angular/router';
 import { Device } from 'src/app/models/device';
 import { MatSelectChange } from '@angular/material/select';
+import { Child } from 'src/app/models/child';
+import { ChildService } from 'src/app/services/child.service';
+import { DeviceService } from 'src/app/services/device.service';
 
 @Component({
   selector: 'app-add-child',
@@ -17,7 +20,7 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class AddChildComponent {
   //Esto lo puse para poner una foto, pero en realidad no va
-  id: string = 'c29107e7-eda8-44cf-9960-30a2a821a4ea';
+  parent_id = localStorage.getItem('id') || '';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -26,6 +29,8 @@ export class AddChildComponent {
   tempCode: string | null = null;
   timer: any;
   countdown: string | null = null;
+
+  devices: Device[] = [];
 
   value!: string;
   name_devices: string[] = [];
@@ -42,7 +47,9 @@ export class AddChildComponent {
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
 
-  constructor(private parentService: ParentService, private router: Router) {}
+  constructor(private parentService: ParentService, private router: Router, 
+    private childService: ChildService, 
+    private deviceService: DeviceService) {}
 
   ngOnInit(): void {
     this.getParentData();
@@ -50,7 +57,7 @@ export class AddChildComponent {
 
   //lo hice para jalar una foto
   getParentData() {
-    this.parentService.getParent(this.id).subscribe((response: any) => {
+    this.parentService.getParent(this.parent_id).subscribe((response: any) => {
       this.parentData = response;
       this.last_name_father = this.parentData[0].last_name_father;
       this.last_name_mother = this.parentData[0].last_name_mother;
@@ -66,22 +73,40 @@ export class AddChildComponent {
   getDeviceType(event: MatSelectChange): void {
     const selectedValue = event.value;
     console.log('Dispositivo:', selectedValue);
+    this.deviceType = selectedValue;
   }
 
   getDeviceName(): void {
     console.log('Nombre: ', this.deviceName);
     this.TemporaryList(this.deviceName);
     this.deviceName = '';
-
     this.deviceType = '';
-  }
-
-  TemporaryList(name_device: string): void {
-    this.name_devices.push(name_device);
-    console.log(this.name_devices);
   }
 
   deleteDevice(index: number): void {
     this.name_devices.splice(index, 1);
+  }
+
+  TemporaryList(name_device: string): void {
+    const device: Device = {
+      type: this.deviceType.toUpperCase() as 'PHONE' | 'TABLET' | 'LAPTOP' | 'PC',
+      brand: this.deviceName,
+      child_id: '',
+    };
+    this.name_devices.push(name_device);
+    console.log(this.name_devices);
+  }
+
+  addChild(): void {
+    const child: Child = {
+      name: this.childName,
+      parent_id: this.parent_id,
+      created_at: "",
+      updated_at: "",
+    };
+
+    this.childService.addChild(child, this.parent_id).subscribe((response: any) => {
+      
+    });
   }
 }
