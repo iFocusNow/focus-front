@@ -3,7 +3,7 @@ import { Buffer } from 'buffer';
 import { throwError } from 'rxjs';
 
 // Base Url
-export const baseUrl = 'http://localhost:8080/api';
+export const baseUrl = 'https://ifocusnow-backend.azurewebsites.net/api';
 
 const username = localStorage.getItem('email');
 const password = localStorage.getItem('password');
