@@ -27,7 +27,7 @@ export class ChildService {
   }
 
   addChild(child: Child, parentid: string): Observable<Child> {
-    const url = "${baseUrl}/add/child/${parentid}";
+    const url = `${baseUrl}/add/child/${parentid}`;
     return this.http.post<any>(url, child,  httpOptions).pipe(
       catchError(handleError)
       );

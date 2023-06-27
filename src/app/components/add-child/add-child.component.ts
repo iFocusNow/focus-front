@@ -21,6 +21,7 @@ import { DeviceService } from 'src/app/services/device.service';
 export class AddChildComponent {
   //Esto lo puse para poner una foto, pero en realidad no va
   parent_id = localStorage.getItem('id') || '';
+  parent_email = localStorage.getItem('email') || '';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -57,7 +58,7 @@ export class AddChildComponent {
 
   //lo hice para jalar una foto
   getParentData() {
-    this.parentService.getParent(this.parent_id).subscribe((response: any) => {
+    this.parentService.getParent(this.parent_email).subscribe((response: any) => {
       this.parentData = response;
       this.last_name_father = this.parentData[0].last_name_father;
       this.last_name_mother = this.parentData[0].last_name_mother;
@@ -85,6 +86,7 @@ export class AddChildComponent {
 
   deleteDevice(index: number): void {
     this.name_devices.splice(index, 1);
+    this.devices.splice(index, 1);
   }
 
   TemporaryList(name_device: string): void {
@@ -94,7 +96,9 @@ export class AddChildComponent {
       child_id: '',
     };
     this.name_devices.push(name_device);
+    this.devices.push(device);
     console.log(this.name_devices);
+    console.log(this.devices);
   }
 
   addChild(): void {
@@ -106,7 +110,17 @@ export class AddChildComponent {
     };
 
     this.childService.addChild(child, this.parent_id).subscribe((response: any) => {
-      
+      const childID = response.id;
+      console.log(this.devices);
+      for (const device of this.devices) {
+        this.addDevice(device, childID);
+      }
     });
+  }
+
+  addDevice(device: Device, id: string): void {
+    this.deviceService.addDeviceToChild(id, device).subscribe((response: any) => {
+      console.log(response);
+    });    
   }
 }
