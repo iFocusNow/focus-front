@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private parentService: ParentService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) {
     this.registerForm = this.formBuilder.group({
       last_name_mother: ['', Validators.required],
@@ -33,6 +33,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.invalid) {
+      this.snackBar.open(
+        'Algún dato del registro es erroneo. Inténtelo otra vez.',
+        'Cerrar',
+        {
+          duration: 2000,
+        },
+      );
       return;
     }
 
@@ -50,7 +57,7 @@ export class RegisterComponent implements OnInit {
       (result) => {
         if (!result) {
           this.snackBar.open('El usuario ya existe', 'Cerrar', {
-            duration: 10,
+            duration: 2000,
           });
           return;
         }
@@ -62,9 +69,9 @@ export class RegisterComponent implements OnInit {
       },
       (error) => {
         this.snackBar.open(error.message, 'Cerrar', {
-          duration: 10,
+          duration: 2000,
         });
-      }
+      },
     );
   }
 
