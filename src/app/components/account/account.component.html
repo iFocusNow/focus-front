@@ -47,6 +47,12 @@
           add
         </mat-icon>
         <mat-icon
+          class="right red"
+          style="cursor: pointer"
+          (click)="deleteChild(child.id)"
+          >delete</mat-icon
+        >
+        <mat-icon
           class="right"
           style="cursor: pointer"
           routerLink="/edit/child/{{ child.id }}"

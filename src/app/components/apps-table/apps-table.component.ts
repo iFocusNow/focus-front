@@ -71,7 +71,7 @@ export class AppsTableComponent implements OnChanges {
   constructor(
     private appDeviceService: AppDeviceService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   getAppDevice(device_id: string) {

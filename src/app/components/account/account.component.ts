@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ParentService } from 'src/app/services/parent.service';
 import { Router } from '@angular/router';
 import { ChildService } from 'src/app/services/child.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DeleteConfirmationDialogComponent } from 'src/app/components/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @Component({
   selector: 'app-account',
@@ -21,7 +23,8 @@ export class AccountComponent implements OnInit {
   constructor(
     private parentService: ParentService,
     private childrenService: ChildService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +58,7 @@ export class AccountComponent implements OnInit {
     let result = '';
     for (let i = 0; i < 6; i++) {
       result += characters.charAt(
-        Math.floor(Math.random() * characters.length)
+        Math.floor(Math.random() * characters.length),
       );
     }
     return result;
@@ -92,15 +95,37 @@ export class AccountComponent implements OnInit {
       clearTimeout(this.timer);
     }
 
-    this.timer = setTimeout(() => {
-      this.tempCode = null;
-      this.countdown = null;
-    }, 5 * 60 * 1000);
+    this.timer = setTimeout(
+      () => {
+        this.tempCode = null;
+        this.countdown = null;
+      },
+      2 * 60 * 1000,
+    );
 
-    this.startCountdown(5 * 60);
+    this.startCountdown(2 * 60);
   }
-  
+
   addChild(): void {
     this.router.navigate(['add']);
+  }
+
+  deleteChild(childId: string) {
+    const dialogConfig = new MatDialogConfig();
+
+    const dialogRef = this.dialog.open(
+      DeleteConfirmationDialogComponent,
+      dialogConfig,
+    );
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.childrenService.deleteChild(childId).subscribe((response) => {
+          console.log(response);
+        });
+
+        window.location.reload();
+      }
+    });
   }
 }

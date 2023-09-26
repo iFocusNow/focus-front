@@ -31,8 +31,15 @@ export class ChildService {
 
   addChild(child: Child, parentid: string): Observable<Child> {
     const url = `${baseUrl}/add/child/${parentid}`;
-    return this.http.post<any>(url, child,  httpOptions).pipe(
-      catchError(handleError)
-      );
+    return this.http
+      .post<any>(url, child, httpOptions)
+      .pipe(catchError(handleError));
+  }
+
+  deleteChild(child_id: string): Observable<any> {
+    const url = `${baseUrl}/delete/child/${child_id}`;
+    return this.http
+      .delete<any>(url, httpOptions)
+      .pipe(retry(2), catchError(handleError));
   }
 }
