@@ -40,6 +40,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddDeviceComponent } from './components/add-device/add-device.component';
 import { DeleteConfirmationDialogComponent } from './components/delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { RecoveryComponent } from './components/recovery/recovery.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { DeleteConfirmationDialogComponent } from './components/delete-confirmat
     EditChildComponent,
     AddDeviceComponent,
     DeleteConfirmationDialogComponent,
+    RecoveryComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { EditChildComponent } from './components/edit-child/edit-child.component
 import { AddDeviceComponent } from './components/add-device/add-device.component';
 import { AuthGuard } from './auth.guard';
 import { SessionGuard } from './session.guard';
+import { RecoveryComponent } from './components/recovery/recovery.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [SessionGuard],
+  },
+  {
+    path: 'recovery',
+    component: RecoveryComponent,
     canActivate: [SessionGuard],
   },
   {

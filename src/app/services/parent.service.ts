@@ -11,14 +11,14 @@ export class ParentService {
   authenticateParent(parentAuthDto: any): Observable<boolean> {
     return this.http.post<boolean>(
       baseUrl + '/session/authenticate-parent',
-      parentAuthDto
+      parentAuthDto,
     );
   }
 
   registerParent(parentUserDto: any): Observable<boolean> {
     return this.http.post<boolean>(
       baseUrl + '/session/register-parent',
-      parentUserDto
+      parentUserDto,
     );
   }
 
@@ -27,7 +27,14 @@ export class ParentService {
       baseUrl + `/parent?email=${encodeURIComponent(email)}`,
       {
         headers: httpOptions.headers,
-      }
+      },
+    );
+  }
+
+  recoverPassword(passwordDto: any): Observable<boolean> {
+    return this.http.put<any>(
+      baseUrl + '/session/recover-password',
+      passwordDto,
     );
   }
 }

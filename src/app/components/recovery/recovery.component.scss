@@ -1,0 +1,57 @@
+.container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: var(--primary-color);
+  padding: 0 5.5rem; /* Agregado */
+
+  form {
+    height: max-content;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding-inline: 2rem;
+    padding: 2rem;
+    width: 18rem;
+
+    a {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    mat-label {
+      color: #ffff;
+      text-align: left;
+      font-size: 14px;
+      margin-left: 0.2rem;
+    }
+
+    mat-form-field {
+      padding-top: 1rem;
+      width: 18rem;
+      input {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        color: #fff;
+      }
+    }
+  }
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

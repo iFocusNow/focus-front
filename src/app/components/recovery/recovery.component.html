@@ -1,0 +1,42 @@
+<div class="container">
+  <form
+    [formGroup]="recoveryForm"
+    (ngSubmit)="onSubmit()"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <div class="inputs-container">
+      <div class="form-input">
+        <div>
+          <mat-label>Apellido Materno</mat-label>
+        </div>
+        <mat-form-field appearance="outline" class="example-form-field">
+          <input matInput type="text" formControlName="last_name_mother" />
+        </mat-form-field>
+      </div>
+      <div class="form-input">
+        <div>
+          <mat-label>Apellido Paterno</mat-label>
+        </div>
+        <mat-form-field appearance="outline" class="example-form-field">
+          <input matInput type="text" formControlName="last_name_father" />
+        </mat-form-field>
+      </div>
+      <div class="form-input">
+        <div>
+          <mat-label>Correo electrónico</mat-label>
+        </div>
+        <mat-form-field appearance="outline" class="example-form-field">
+          <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+      </div>
+      <div class="center">
+        <button mat-raised-button color="primary" type="submit">
+          Recuperar Cuenta
+        </button>
+      </div>
+      <br />
+      <a href="/login"> Regresar a página de inicio</a>
+    </div>
+  </form>
+</div>
