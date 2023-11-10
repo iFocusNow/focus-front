@@ -22,7 +22,7 @@ export class LayoutComponent implements OnInit {
   constructor(
     private childService: ChildService,
     private router: Router,
-    private notificationService: NotificationsService
+    private notificationService: NotificationsService,
   ) {}
 
   ngOnInit(): void {
@@ -56,15 +56,13 @@ export class LayoutComponent implements OnInit {
       .getParentChildren(localStorage.getItem('id') || '')
       .subscribe((response: any) => {
         this.children = response;
-        this.children?.forEach((child) => {
-          this.notificationService
-            .getChildAlert(child.id!)
-            .subscribe((data: Alert[]) => {
-              data.forEach((element: Alert) => {
-                this.alertas.push(this.getAlertMessage(element));
-              });
+        this.notificationService
+          .getChildAlert(localStorage.getItem('id')!)
+          .subscribe((data: Alert[]) => {
+            data.forEach((element: Alert) => {
+              this.alertas.push(this.getAlertMessage(element));
             });
-        });
+          });
       });
   }
 
@@ -73,16 +71,38 @@ export class LayoutComponent implements OnInit {
   }
 
   getAlertMessage(alert: any): string {
-    let message = 'Su hijo(a) ' + alert.childName + ' ';
-    switch (alert.type) {
-      case 'BLOCK_ENTRY':
-        return message + 'ha querido entrar a una aplicación bloqueada.';
-      case 'SOLICIT_UNBLOCK':
-        return message + 'ha solicitado un desbloqueo de aplicación.';
-      case 'PHONE_TIME_EXCEEDED':
-        return message + 'ha superado el tiempo en pantalla.';
-      default:
-        return '';
+    let device_type = '';
+    let message = '';
+
+    if (alert.type === 'BLOCK_ENTRY') {
+      message = 'ha querido entrar a una aplicación bloqueada';
+    } else if (alert.type === 'SOLICIT_UNBLOCK') {
+      message = 'ha solicitado un desbloqueo de aplicación';
+    } else if (alert.type === 'PHONE_TIME_EXCEEDED') {
+      message = 'ha superado el tiempo en pantalla';
+    } else {
+      return '';
     }
+
+    if (alert.deviceType === 'PHONE') {
+      device_type = 'teléfono';
+    } else if (alert.deviceType === 'TABLET') {
+      device_type = 'tablet';
+    } else if (alert.deviceType === 'LAPTOP') {
+      device_type = 'laptop';
+    } else if (alert.deviceType === 'PC') {
+      device_type = 'computadora';
+    }
+
+    return (
+      'Su hijo(a) ' +
+      alert.childName +
+      ' ' +
+      message +
+      ' en el dispositivo ' +
+      device_type +
+      ' ' +
+      alert.deviceBrand
+    );
   }
 }
