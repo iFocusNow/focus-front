@@ -22,10 +22,33 @@ export class RegisterComponent implements OnInit {
     private snackBar: MatSnackBar,
   ) {
     this.registerForm = this.formBuilder.group({
-      last_name_mother: ['', Validators.required],
-      last_name_father: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
+      last_name_mother: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4), // Adjust the minimum length for last name as needed
+          Validators.maxLength(50), // Adjust the maximum length for last name as needed
+          Validators.pattern(/^\S*$/), // Ensures no spaces are allowed
+        ],
+      ],
+      last_name_father: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4), // Adjust the minimum length for last name as needed
+          Validators.maxLength(50), // Adjust the maximum length for last name as needed
+          Validators.pattern(/^\S*$/), // Ensures no spaces are allowed
+        ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8), // Adjust the minimum password length as needed
+          Validators.maxLength(20), // Adjust the maximum password length as needed
+        ],
+      ],
     });
   }
 

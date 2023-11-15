@@ -19,13 +19,20 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private parentService: ParentService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4), // Adjust the minimum password length as needed
+          Validators.maxLength(20), // Adjust the maximum password length as needed
+        ],
+      ],
     });
   }
 
@@ -35,25 +42,31 @@ export class LoginComponent {
       password: this.loginForm.get('password')!.value,
     };
 
-    this.parentService
-      .authenticateParent(parentAuthDto)
-      .subscribe((isValid) => {
-        if (isValid) {
-          console.log('Credenciales válidas');
+    this.parentService.authenticateParent(parentAuthDto).subscribe(
+      () => {
+        // Handle successful authentication
+        console.log('Credenciales válidas');
 
-          // Setting local storage
-          storage.setItem('email', parentAuthDto.email);
-          storage.setItem('password', parentAuthDto.password);
+        // Setting local storage
+        storage.setItem('email', parentAuthDto.email);
+        storage.setItem('password', parentAuthDto.password);
 
-          window.location.reload();
-          // Aquí podrías redirigir al usuario a otra página, por ejemplo.
-        } else {
-          console.log('Credenciales inválidas');
-          this.snackBar.open('Usuario no encontrado', 'Cerrar', {
+        window.location.reload();
+        // Aquí podrías redirigir al usuario a otra página, por ejemplo.
+      },
+      (error) => {
+        // Handle authentication error
+        console.log('Credenciales inválidas');
+        if (error.status === 400) {
+          this.snackBar.open('Credenciales inválidas', 'Cerrar', {
             duration: 5000,
-            panelClass: ['snack-bar-custom'],
+            panelClass: ['snack-bar-error'], // You can define a custom style for error messages
           });
+        } else {
+          // Handle other errors if needed
+          console.error('An unexpected error occurred:', error);
         }
-      });
+      },
+    );
   }
 }
