@@ -1,42 +1,48 @@
 <div class="center">
-    <img src="{{ photo_url }}" />
-    <div class="line">
-        <h1 class="center">{{childName}}</h1>       
-    </div>
+  <img src="{{ photo_url }}" />
+  <div class="line">
+    <h1 class="center">{{ childName }}</h1>
+  </div>
 </div>
 
 <div class="divgeneral">
-        
-        <div class="input2">
-          <p class="entry-type">Seleccionar dispositivo</p>
-          
-            <mat-select (selectionChange)="getDeviceType($event)"
-             [(ngModel)]="deviceType" class="select">
+  <div class="input2">
+    <p class="entry-type">Seleccionar dispositivo</p>
 
-              <mat-option *ngFor="let device of type_devices" [value]="device.value">
-                {{device.viewValue}}             
-              </mat-option>                  
-            </mat-select>
-         
-        </div>
-        
+    <mat-select
+      (selectionChange)="getDeviceType($event)"
+      [(ngModel)]="deviceType"
+      class="select"
+    >
+      <mat-option *ngFor="let device of type_devices" [value]="device.value">
+        {{ device.viewValue }}
+      </mat-option>
+    </mat-select>
+  </div>
 
-        <div class="input2">
-          <p class="entry-type">Nombre de dispositivo</p>        
-          <div class="input-group">
-            <input required="" type="text" name="text" autocomplete="off"
-             class="input_text2" [(ngModel)]="deviceName">
-          </div>
-        </div>   
-      
+  <div class="input2">
+    <p class="entry-type">Nombre de dispositivo</p>
+    <div class="input-group">
+      <input
+        required=""
+        type="text"
+        name="text"
+        autocomplete="off"
+        class="input_text2"
+        [(ngModel)]="deviceName"
+      />
+    </div>
+  </div>
 </div>
 
 <div class="center3">
-    <div class="button">
-        <button class="btn-cancel" style="cursor: pointer;" 
-        (click)="volverHome()">Cancelar</button>
+  <div class="button">
+    <button class="btn-cancel" style="cursor: pointer" (click)="volverHome()">
+      Cancelar
+    </button>
 
-        <button class="btn-register" style="cursor: pointer;" 
-        (click)="saveDevice()" >Añadir</button>
-    </div>
+    <button class="btn-register" style="cursor: pointer" (click)="saveDevice()">
+      Añadir
+    </button>
+  </div>
 </div>

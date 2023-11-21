@@ -41,13 +41,13 @@ export class AddDeviceComponent {
     private activatedRouter: ActivatedRoute,
     private deviceService: DeviceService,
     private snackBar: MatSnackBar,
-    private parentService: ParentService
+    private parentService: ParentService,
   ) {}
 
   ngOnInit(): void {
     this.child_id = this.activatedRouter.snapshot.params['id'];
     this.getNameChildren();
-    this.getParentData()
+    this.getParentData();
   }
 
   getParentData() {
@@ -106,7 +106,7 @@ export class AddDeviceComponent {
         brand: this.deviceName,
       };
       this.device = device;
-    } else {
+    } else if (this.deviceType == 'LAPTOP') {
       const device: Device = {
         //id: this.device_id,
         id: '',
@@ -115,6 +115,10 @@ export class AddDeviceComponent {
         brand: this.deviceName,
       };
       this.device = device;
+    } else {
+      this.snackBar.open('No se ha seleccionado el dispositivo', 'OK', {
+        duration: 3000,
+      });
     }
 
     this.deviceService.addDevice(this.child_id, this.device).subscribe({

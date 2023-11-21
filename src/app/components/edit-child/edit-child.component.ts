@@ -1,15 +1,8 @@
-import {
-  Component,
-  defineInjectable,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Parent } from 'src/app/models/parent';
 import { ParentService } from 'src/app/services/parent.service';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Device } from 'src/app/models/device';
-import { MatSelectChange } from '@angular/material/select';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChildService } from 'src/app/services/child.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Child } from 'src/app/models/child';
@@ -45,7 +38,7 @@ export class EditChildComponent {
 
   @ViewChild('deviceNameInput', { static: false }) deviceNameInput!: ElementRef;
 
-  id: string ='';
+  id: string = '';
   last_name_father: string | undefined;
   last_name_mother: string | undefined;
   email: string | undefined;
@@ -55,13 +48,13 @@ export class EditChildComponent {
   timer: any;
   countdown: string | null = null;
 
-
   constructor(
     private childService: ChildService,
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private parentService: ParentService,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +63,6 @@ export class EditChildComponent {
     this.getChildrenDevices();
     this.getParentData();
   }
-
 
   getParentData() {
     this.parentService.getParent(this.email_id).subscribe((response: any) => {
@@ -134,27 +126,35 @@ export class EditChildComponent {
   }
 
   saveChild(): void {
-    const childDTO = {
-      name: this.childNameprob,
-      parent_id: this.parent_id,
-      created_at: "",
-      updated_at: "",
-      devices: this.devices,
-      apps:[],
-    };
-    this.childService.updateChild(this.child_id, childDTO).subscribe({
-      next: (data) => {
-        console.log(this.childNameprob);
-        this.router.navigate(['/home']).then(() => {
-          window.location.reload();
-        });
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-
+    if (this.childNameprob === '') {
+      this.snackBar.open('El hijo debe tener un nombre.', 'OK', {
+        duration: 3000,
+      });
+    } else if (/\d/.test(this.childNameprob)) {
+      // Show an error message or handle the validation failure as needed
+      this.snackBar.open('El nombre del hijo contiene números.', 'OK', {
+        duration: 3000,
+      });
+    } else {
+      const childDTO = {
+        name: this.childNameprob,
+        parent_id: this.parent_id,
+        created_at: '',
+        updated_at: '',
+        devices: this.devices,
+        apps: [],
+      };
+      this.childService.updateChild(this.child_id, childDTO).subscribe({
+        next: () => {
+          console.log(this.childNameprob);
+          this.router.navigate(['/home']).then(() => {
+            window.location.reload();
+          });
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
   }
-
-
 }

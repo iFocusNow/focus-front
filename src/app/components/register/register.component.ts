@@ -1,8 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ParentService } from 'src/app/services/parent.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+function noNumbersValidator(
+  control: AbstractControl,
+): { [key: string]: boolean } | null {
+  const hasNumbers = /\d/.test(control.value);
+  return hasNumbers ? { hasNumbers: true } : null;
+}
 
 @Component({
   selector: 'app-register',
@@ -29,6 +41,7 @@ export class RegisterComponent implements OnInit {
           Validators.minLength(4), // Adjust the minimum length for last name as needed
           Validators.maxLength(50), // Adjust the maximum length for last name as needed
           Validators.pattern(/^\S*$/), // Ensures no spaces are allowed
+          noNumbersValidator, // No numbers in last name
         ],
       ],
       last_name_father: [
@@ -38,6 +51,7 @@ export class RegisterComponent implements OnInit {
           Validators.minLength(4), // Adjust the minimum length for last name as needed
           Validators.maxLength(50), // Adjust the maximum length for last name as needed
           Validators.pattern(/^\S*$/), // Ensures no spaces are allowed
+          noNumbersValidator, // No numbers in last name
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
